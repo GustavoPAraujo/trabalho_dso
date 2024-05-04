@@ -2,12 +2,12 @@ from pessoa import Pessoa
 
 
 class Usuario(Pessoa):
-    def __init__(self, nome: str, nome_usuario: str, endereco_email: str, telefone: str):
+    def __init__(self, nome: str, nome_usuario: str, email: str, telefone: str):
         super().__init__(nome)
         if isinstance(nome_usuario, str):
             self.__nome_usuario = nome_usuario
-        if isinstance(endereco_email, str):
-            self.__endereco_email = endereco_email
+        if isinstance(email, str):
+            self.__email = email
         if isinstance(telefone, str):
             self.__telefone = telefone
         self.__musicas_preferidas = []
@@ -23,13 +23,13 @@ class Usuario(Pessoa):
             self.__nome_usuario = nome_usuario
 
     @property
-    def endereco_email(self):
-        return self.__endereco_email
+    def email(self):
+        return self.__email
 
-    @endereco_email.setter
-    def endereco_email(self, endereco_email):
-        if isinstance(endereco_email, str):
-            self.__endereco_email = endereco_email
+    @email.setter
+    def email(self, email):
+        if isinstance(email, str):
+            self.__email = email
 
     @property
     def telefone(self):
@@ -40,3 +40,10 @@ class Usuario(Pessoa):
         if isinstance(telefone, str):
             self.__telefone = telefone
     
+    @property
+    def musicas_preferidas(self):
+        return self.__musicas_preferidas
+    
+    @property
+    def amizades(self):
+        return self.__amizades
