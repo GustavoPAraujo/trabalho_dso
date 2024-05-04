@@ -4,9 +4,12 @@ from pessoa import Pessoa
 class Usuario(Pessoa):
     def __init__(self, nome: str, nome_usuario: str, endereco_email: str, telefone: str):
         super().__init__(nome)
-        self.__nome_usuario = nome_usuario
-        self.__endereco_email = endereco_email
-        self.__telefone = telefone
+        if isinstance(nome_usuario, str):
+            self.__nome_usuario = nome_usuario
+        if isinstance(endereco_email, str):
+            self.__endereco_email = endereco_email
+        if isinstance(telefone, str):
+            self.__telefone = telefone
         self.__musicas_preferidas = []
         self.__amizades = []
 
@@ -16,7 +19,8 @@ class Usuario(Pessoa):
 
     @nome_usuario.setter
     def nome_usuario(self, nome_usuario):
-        self.__nome_usuario = nome_usuario
+        if isinstance(nome_usuario, str):
+            self.__nome_usuario = nome_usuario
 
     @property
     def endereco_email(self):
@@ -24,7 +28,8 @@ class Usuario(Pessoa):
 
     @endereco_email.setter
     def endereco_email(self, endereco_email):
-        self.__endereco_email = endereco_email
+        if isinstance(endereco_email, str):
+            self.__endereco_email = endereco_email
 
     @property
     def telefone(self):
@@ -32,4 +37,5 @@ class Usuario(Pessoa):
 
     @telefone.setter
     def telefone(self, telefone):
-        self.__telefone = telefone
+        if isinstance(telefone, str):
+            self.__telefone = telefone

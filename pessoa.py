@@ -3,7 +3,8 @@ from abc import abstractmethod, ABC
 
 class Pessoa(ABC):
     def __init__(self, nome: str) -> None:
-        self.__nome = nome
+        if isinstance(nome, str):
+            self.__nome = nome
 
     @property
     def nome(self):
@@ -11,5 +12,6 @@ class Pessoa(ABC):
 
     @nome.setter
     def nome(self, nome):
-        self.__nome = nome
-        # comentario
+        if isinstance(nome, str):
+            self.__nome = nome
+        
