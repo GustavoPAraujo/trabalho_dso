@@ -14,4 +14,3 @@ class Pessoa(ABC):
     def nome(self, nome):
         if isinstance(nome, str):
             self.__nome = nome
-        

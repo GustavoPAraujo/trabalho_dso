@@ -39,3 +39,4 @@ class Usuario(Pessoa):
     def telefone(self, telefone):
         if isinstance(telefone, str):
             self.__telefone = telefone
+    

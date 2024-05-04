@@ -15,3 +15,4 @@ class Artista(Pessoa):
     def nome_artistico(self, nome_artistico):
         if isinstance(nome_artistico, str):
             self.__nome_artistico = nome_artistico
+            
