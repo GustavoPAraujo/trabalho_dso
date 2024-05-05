@@ -32,4 +32,4 @@ class ControladorUsuario:
             self.__lista_usuarios.remove(usuario)
             self.listar_usuarios
         else:
-            self.__tela_usuario.mostra_mensagem("Este Nome de Usuario não existe") 
+            self.__tela_usuario.mostra_mensagem("Este Nome de Usuario não existe")
