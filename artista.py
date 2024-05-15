@@ -1,5 +1,5 @@
-from xml.sax.handler import property_interning_dict
 from pessoa import Pessoa
+
 
 class Artista(Pessoa):
     def __init__(self, nome: str, nome_artistico: str) -> None:

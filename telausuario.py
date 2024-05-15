@@ -7,10 +7,15 @@ class TelaUsuario:
         print("1: Criar Usuario")
         print("2: Listar Usuarios")
         print("3: Excluir Usuario")
+        while True:
 
-        opcao = int(input("Escolha a opção: "))
-        return opcao
-    
+            opcao = int(input("Escolha a opção: "))
+
+            if isinstance(opcao, int) and 0 < opcao < 4:
+                return opcao
+            else:
+                print("Escolha uma opção valida")
+        
     def seleciona_usuario(self):
         usuario_selecionado = input("Insira o seu Nome de Usuario")
         return usuario_selecionado
