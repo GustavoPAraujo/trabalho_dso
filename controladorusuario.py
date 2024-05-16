@@ -33,3 +33,17 @@ class ControladorUsuario:
             self.listar_usuarios
         else:
             self.__tela_usuario.mostra_mensagem("Este Nome de Usuario não existe")
+    
+    def adicionar_musicas_preferidas(self):
+       pass
+
+    def adicionar_amizades(self):
+        nova_amizade = self.__tela_usuario.fazer_amizade()
+        usuario1 = self.pega_usuario_por_nome_usuario(nova_amizade["Pessoa1"])
+        
+        
+
+
+    def excluir_usuario(self):
+        pass
+

@@ -6,7 +6,9 @@ class TelaUsuario:
         print("Escolha a opção:")
         print("1: Criar Usuario")
         print("2: Listar Usuarios")
-        print("3: Excluir Usuario")
+        print("3: Adicionar Musicas Preferidas")
+        print("4: Excluir Usuario")
+        print("5: Excluir Usuario")
         while True:
 
             opcao = int(input("Escolha a opção: "))
@@ -36,6 +38,16 @@ class TelaUsuario:
         print("Telefone do Usuario: ", dados_usuario["telefone"])
         print("\n")
     
+    def musicas_preferidas(self):
+        pass
+
+    def fazer_amizade(self):
+        pessoa1 = input(print("Digite seu nome de Usuario: "))
+        pessoa2 = input(print("Digite o nome de Usuario do Amigo: "))
+
+        return {"Pessoa1": pessoa1, "Pessoa2": pessoa2}
+    
+
     def mostra_mensagem(self, msg):
         print(msg)
     
