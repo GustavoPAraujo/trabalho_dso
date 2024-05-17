@@ -1,3 +1,4 @@
+from sklearn.linear_model import MultiTaskElasticNet
 from usuario import Usuario
 from telausuario import TelaUsuario
 
@@ -13,7 +14,7 @@ class ControladorUsuario:
                 return usuario
         return None
 
-    def criar_usuario(self, nome, nome_usuario, endereco_email, telefone):  
+    def criar_usuario(self):  
         dados_usuario = self.__tela_usuario.pega_dados_usuario()
         novo_usuario = Usuario( dados_usuario["nome"], dados_usuario["nome_usuario"], dados_usuario["email"], dados_usuario["telefone"])
         if novo_usuario not in self.__lista_usuarios:
@@ -34,16 +35,30 @@ class ControladorUsuario:
         else:
             self.__tela_usuario.mostra_mensagem("Este Nome de Usuario não existe")
     
-    def adicionar_musicas_preferidas(self):
-       pass
-
     def adicionar_amizades(self):
-        nova_amizade = self.__tela_usuario.fazer_amizade()
-        usuario1 = self.pega_usuario_por_nome_usuario(nova_amizade["Pessoa1"])
-        
-        
+        dados_amizade = self.__tela_usuario.fazer_amizade()
+        dados_usuario = self.__tela_usuario.seleciona_usuario()
+        usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
+        amigo = self.pega_usuario_por_nome_usuario(dados_amizade)
 
+        if usuario is None or amigo is None:
+            self.__tela_usuario.mostra_mensagem("Pelo menos um dos nomes de usuário não existe.")
+            return
 
-    def excluir_usuario(self):
-        pass
+        usuario.amizades.append(amigo)
+        amigo.amizades.append(usuario)
 
+        self.__tela_usuario.mostra_mensagem("Amizade adicionada com sucesso.")
+
+           
+    def adicionar_musicas_preferidas(self):
+        dados_usuario = self.__tela_usuario.seleciona_usuario()
+        musicas_preferidas = self.__tela_usuario.musicas_preferidas()
+        usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
+
+        if usuario is None:
+            self.__tela_usuario.mostra_mensagem("Usuario Invãlido")
+            return
+
+        for valor in musicas_preferidas.values():
+            usuario.musicas_preferidas.append(valor)
