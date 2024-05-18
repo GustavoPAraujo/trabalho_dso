@@ -20,3 +20,9 @@ class PlayList:
         if isinstance(musica,Musica):
             self.__playlist.append(musica)
         return self.__playlist
+    
+    def excluir_musica(self, musica: Musica):
+        if isinstance(musica, Musica):
+            self.__playlist.remove(Musica)
+        return self.__playlist
+    

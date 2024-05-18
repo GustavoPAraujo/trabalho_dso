@@ -1,12 +1,12 @@
 class TelaPlaylist:
     def TelaOpcoes(self):
         print('___Tela Do Sistema___')
-        print('1: Incluir Música')
-        print('2: Excluir música')
+        print('1: Criar Playlist')
+        print('2: Excluir Playlist')
         print('3: Selecionar Playlist')
         print('4: Alterar nome da Playlist')
-        print('5: Adicionar Playlist')
-        print('6: Excluir Playlist')
+        print('5: adicionar música')
+        print('6: Excluir música')
         
         while True:
             opcao = int(input(print('Selecione sua Opção ')))
