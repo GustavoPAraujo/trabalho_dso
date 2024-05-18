@@ -5,9 +5,10 @@ from controladorusuario import ControladorUsuario
 class ControladorSistema():
 
     def __init__(self) -> None:
-        self.__controlador_usuario = ControladorUsuario(self)
-        self.__controlador_musica = ControladorMusica(self)
-        self.__tela_sistema = TelaSistema(self)
+        self.__controlador_usuario = ControladorUsuario()
+        self.__controlador_musica = ControladorMusica()
+        self.__tela_sistema = TelaSistema()
+
     @property
     def controlador_usuario(self):
         return self.__controlador_musica

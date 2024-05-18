@@ -5,5 +5,5 @@ class TelaSistema:
         print("1: Usuario")
         print("2: Musicas")
 
-        opcao = input(print("Escolha uma opção: "))
+        opcao = int(input(print("Escolha uma opção: ")))
         return opcao

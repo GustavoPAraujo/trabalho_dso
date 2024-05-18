@@ -15,8 +15,7 @@ class ControladorUsuario:
 
     def criar_usuario(self):
         dados_usuario = self.__tela_usuario.pega_dados_usuario()
-        novo_usuario = Usuario(
-            dados_usuario["nome"], dados_usuario["nome_usuario"], dados_usuario["email"], dados_usuario["telefone"])
+        novo_usuario = Usuario(dados_usuario["nome"], dados_usuario["nome_usuario"], dados_usuario["email"], dados_usuario["telefone"])
         if novo_usuario not in self.__lista_usuarios:
             self.__lista_usuarios.append(novo_usuario)
 
@@ -31,7 +30,7 @@ class ControladorUsuario:
         usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
 
         if usuario is None:
-            self.__tela_usuario.mostra_mensagem("Usuario Invãlido")
+            self.__tela_usuario.mostra_mensagem("Usuario Invalido")
             return
 
         for valor in musicas_preferidas.values():
@@ -44,8 +43,7 @@ class ControladorUsuario:
         amigo = self.pega_usuario_por_nome_usuario(dados_amizade)
 
         if usuario is None or amigo is None:
-            self.__tela_usuario.mostra_mensagem(
-                "Pelo menos um dos nomes de usuário não existe.")
+            self.__tela_usuario.mostra_mensagem("Pelo menos um dos nomes de usuário não existe.")
             return
 
         usuario.amizades.append(amigo)
