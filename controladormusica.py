@@ -22,6 +22,6 @@ class ControladorMusica:
     # IMPORTANTE 
     # Fazer a tela
     def abre_tela(self):
-        pass
+        pas
     
     
