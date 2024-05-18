@@ -16,12 +16,16 @@ class ControladorMusica:
     def listar_musicas(self):
         for musica in self.__lista_musicas:
             self.__tela_musica.mostra_musica({"nome_musica": musica.nome_musica, "artista": musica.artista, "genero": musica.genero})
-    
+
+    def listar_musicas_por_genero(self):
+        pass
+
+    def listar_musicas_por_artista(self):
+        pass
 
 
-    # IMPORTANTE 
-    # Fazer a tela
     def abre_tela(self):
-        pas
+        lista_opcoes = { 1: self.adicionar_musica , 2: self.listar_musicas }
     
-    
+        while True:
+            lista_opcoes[self.__tela_musica.tela_opcoes()]()
