@@ -1,3 +1,5 @@
+from controladorplaylist import ControladorPlaylist
+
 class TelaPlaylist:
     def TelaOpcoes(self):
         print('___Tela Do Sistema___')
@@ -15,4 +17,12 @@ class TelaPlaylist:
             else:
                 return print(' OPÇÃO INVALIDA')
         
-        
+    def pegar_dados_Playlist(self) -> dict[str, str]:
+        print("_____Insira_os_seus_dados_____")
+        nome_playlist = input("Nome da Playlist")
+        primeira_musica = ControladorPlaylist.chamar_add_musica()
+
+        return {'Nome da Playlist': nome_playlist, 'Primeira Música': primeira_musica}
+    
+    def mostrar_playlist(self):
+        print('Nome da Playlist' )
