@@ -13,7 +13,7 @@ class TelaUsuario:
 
             opcao = int(input("Escolha a opção: "))
 
-            if isinstance(opcao, int) and 0 < opcao < 4:
+            if isinstance(opcao, int) and 0 <= opcao < 4:
                 return opcao
             else:
                 print("Escolha uma opção valida")
