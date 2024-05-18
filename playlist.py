@@ -6,6 +6,7 @@ class PlayList:
     def __init__(self, musica: Musica, nome_playlist):
         self.__playlist = list()
         self.__nome_playlist = nome_playlist
+        self.__musica = musica
 
     @property
     def nome_playlist(self):
@@ -15,4 +16,7 @@ class PlayList:
     def nome_playlist(self, nome_playlist):
         self.__nome_playlist = nome_playlist
     
-    
+    def adicionar_musica_playlist(self, musica: Musica):
+        if isinstance(musica,Musica):
+            self.__playlist.append(musica)
+        return self.__playlist
