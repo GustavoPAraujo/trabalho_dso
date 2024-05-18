@@ -1,10 +1,11 @@
+from typing import List
 from usuario import Usuario
 from telausuario import TelaUsuario
 
 
 class ControladorUsuario:
     def __init__(self) -> None:
-        self.__lista_usuarios = []
+        self.__lista_usuarios: List[Usuario] = list()
         self.__tela_usuario = TelaUsuario()
 
     def pega_usuario_por_nome_usuario(self, nome_usuario: str):
@@ -15,7 +16,8 @@ class ControladorUsuario:
 
     def criar_usuario(self):
         dados_usuario = self.__tela_usuario.pega_dados_usuario()
-        novo_usuario = Usuario(dados_usuario["nome"], dados_usuario["nome_usuario"], dados_usuario["email"], dados_usuario["telefone"])
+        novo_usuario = Usuario(
+            dados_usuario["nome"], dados_usuario["nome_usuario"], dados_usuario["email"], dados_usuario["telefone"])
         if novo_usuario not in self.__lista_usuarios:
             self.__lista_usuarios.append(novo_usuario)
 
@@ -43,13 +45,22 @@ class ControladorUsuario:
         amigo = self.pega_usuario_por_nome_usuario(dados_amizade)
 
         if usuario is None or amigo is None:
-            self.__tela_usuario.mostra_mensagem("Pelo menos um dos nomes de usuário não existe.")
+            self.__tela_usuario.mostra_mensagem(
+                "Pelo menos um dos nomes de usuário não existe.")
             return
 
         usuario.amizades.append(amigo)
         amigo.amizades.append(usuario)
 
         self.__tela_usuario.mostra_mensagem("Amizade adicionada com sucesso.")
+
+    def ver_amizades(self):
+        nome_usuario = self.__tela_usuario.seleciona_usuario()
+        usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
+        if usuario in self.__lista_usuarios:
+            for amizade in usuario.amizades:
+                amizade = Usuario.nome_usuario
+                self.__tela_usuario.mostra_mensagem(amizade)
 
     def excuir_usuario(self):
         self.listar_usuarios()
@@ -58,14 +69,14 @@ class ControladorUsuario:
 
         if (usuario is not None):
             self.__lista_usuarios.remove(usuario)
-            self.listar_usuarios
+            self.__tela_usuario.mostra_mensagem("Usuario removido com sucesso")
         else:
             self.__tela_usuario.mostra_mensagem(
                 "Este Nome de Usuario não existe")
 
     def abre_tela(self):
         lista_opcoes = {1: self.criar_usuario, 2: self.listar_usuarios, 3: self.adicionar_musicas_preferidas,
-                        4: self.adicionar_amizades, 0: self.excuir_usuario}
+                        4: self.adicionar_amizades, 5: self.ver_amizades, 0: self.excuir_usuario}
 
         while True:
             lista_opcoes[self.__tela_usuario.tela_opcoes()]()

@@ -5,5 +5,11 @@ class TelaSistema:
         print("1: Usuario")
         print("2: Musicas")
 
-        opcao = int(input(print("Escolha uma opção: ")))
-        return opcao
+
+        while True:
+            opcao = int(input(print("Escolha uma opção: ")))
+
+            if isinstance(opcao, int) and 0 <= opcao < 4:
+                return opcao
+            else:
+                print("Escolha uma opção valida")
