@@ -1,18 +1,18 @@
 from typing import List
 from musica import Musica
 from telamusica import TelaMusica
-from controladorsistema import ControladorSistema
+
 
 class ControladorMusica:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
+    def __init__(self, controlador_sistema) -> None:
         self.__lista_musicas: List[Musica] = list()
         self.__tela_musica = TelaMusica()
-        self.__controlador_sistema: ControladorSistema = controlador_sistema
+        self.__controlador_sistema = controlador_sistema
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
-        artista = self.__controlador_sistema.__controlador_artista.pega_artista_por_nome(dados_musica["artista"])
-        genero = self.__controlador_sistema.__controlador_genero.seleciona_genero(dados_musica["genero"])
+        artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(dados_musica["artista"])
+        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(dados_musica["genero"])
 
         nova_musica = Musica(
             dados_musica["nome_musica"], artista, genero) # type: ignore
@@ -45,7 +45,8 @@ class ControladorMusica:
             if artista == musica.artista:
                 self.__tela_musica.mostra_musica(artista)
         
-
+    def adiciona_musica_na_playlist(self):
+        pass
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()

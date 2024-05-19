@@ -1,11 +1,10 @@
 from typing import List
 from usuario import Usuario
 from telausuario import TelaUsuario
-from controladorsistema import ControladorSistema
 
 
 class ControladorUsuario:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
+    def __init__(self, controlador_sistema) -> None:
         self.__lista_usuarios: List[Usuario] = list()
         self.__tela_usuario = TelaUsuario()
         self.__controlador_sistema = controlador_sistema
@@ -77,7 +76,7 @@ class ControladorUsuario:
                 "Este Nome de Usuario não existe")
     
     def retornar(self):
-        self.__controlador_sistema.abre_tela
+        self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
         lista_opcoes = {1: self.criar_usuario, 2: self.excuir_usuario, 3: self.listar_usuarios, 4: self.adicionar_musicas_preferidas,

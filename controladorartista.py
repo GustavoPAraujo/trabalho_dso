@@ -1,13 +1,11 @@
-
+from typing import List
 from artista import Artista
 from telaartista import TelaArtista
-from controladorsistema import ControladorSistema
-from typing import List
 
 
 class ControladorArtista:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
-        self.__controlador_sistema: ControladorSistema = controlador_sistema
+    def __init__(self, controlador_sistema) -> None:
+        self.__controlador_sistema = controlador_sistema
         self.__lista_artistas: List[Artista] = list()
         self.__tela_artista = TelaArtista()
 
@@ -23,9 +21,12 @@ class ControladorArtista:
 
         if novo_artista not in self.__lista_artistas:
             self.__lista_artistas.append(novo_artista)
+    
+    def retornar(self):
+        self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_artista, 2: self.cadastra_artista}
+        lista_opcoes = {1: self.cadastra_artista, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_artista.tela_opcoes()]()

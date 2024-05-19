@@ -1,12 +1,11 @@
-
+from typing import List
 from genero import Genero
 from telagenero import TelaGenero
-from controladorsistema import ControladorSistema
-from typing import List
+
 
 class ControladorGenero:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
-        self.__controlador_sistema: ControladorSistema = controlador_sistema
+    def __init__(self, controlador_sistema) -> None:
+        self.__controlador_sistema = controlador_sistema
         self.__lista_generos: List[Genero] = list()
         self.__tela_genero = TelaGenero()
 
@@ -23,16 +22,11 @@ class ControladorGenero:
         if novo_genero not in self.__lista_generos:
             self.__lista_generos.append(novo_genero)
 
-#    def pega_artista_por_nome(self, nome_artistico) -> Artista | None:
-#        for artista in self.__lista_artistas:
-#            if artista.nome_artistico == nome_artistico:
-#                return artista
-
-
+    def retornar(self):
+        self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-
-        lista_opcoes = {1: self.cadastra_genero}
+        lista_opcoes = {1: self.cadastra_genero, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_genero.tela_opcoes()]()
