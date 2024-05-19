@@ -1,12 +1,12 @@
 
 from genero import Genero
 from telagenero import TelaGenero
-from controladorsistema import ControladorSistema
+
 from typing import List
 
 class ControladorGenero:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
-        self.__controlador_sistema: ControladorSistema = controlador_sistema
+    def __init__(self, controlador_sistema) -> None:
+        self.__controlador_sistema = controlador_sistema
         self.__lista_generos: List[Genero] = list()
         self.__tela_genero = TelaGenero()
 

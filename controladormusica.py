@@ -1,13 +1,13 @@
 from typing import List
 from musica import Musica
 from telamusica import TelaMusica
-from controladorsistema import ControladorSistema
+
 
 class ControladorMusica:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
+    def __init__(self, controlador_sistema) -> None:
         self.__lista_musicas: List[Musica] = list()
         self.__tela_musica = TelaMusica()
-        self.__controlador_sistema: ControladorSistema = controlador_sistema
+        self.__controlador_sistema = controlador_sistema
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()

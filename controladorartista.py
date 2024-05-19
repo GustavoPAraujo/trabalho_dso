@@ -1,13 +1,13 @@
 
 from artista import Artista
 from telaartista import TelaArtista
-from controladorsistema import ControladorSistema
+
 from typing import List
 
 
 class ControladorArtista:
-    def __init__(self, controlador_sistema: ControladorSistema) -> None:
-        self.__controlador_sistema: ControladorSistema = controlador_sistema
+    def __init__(self, controlador_sistema) -> None:
+        self.__controlador_sistema = controlador_sistema
         self.__lista_artistas: List[Artista] = list()
         self.__tela_artista = TelaArtista()
 
