@@ -42,3 +42,5 @@ class TelaMusica:
         artista = input("Insira o nome do Artista: ")
         return artista
 
+    def mostra_mnsg(self, mnsg):
+        print(mnsg)
