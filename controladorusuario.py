@@ -59,8 +59,8 @@ class ControladorUsuario:
         usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
         if usuario in self.__lista_usuarios:
             for amizade in usuario.amizades:
-                amizade = Usuario.nome_usuario
-                self.__tela_usuario.mostra_mensagem(amizade)
+                nome_amigo = amizade.nome_usuario
+                self.__tela_usuario.mostra_mensagem(nome_amigo)
 
     def excuir_usuario(self):
         self.listar_usuarios()
