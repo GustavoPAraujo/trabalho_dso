@@ -3,12 +3,12 @@ from genero import Genero
 
 
 class Musica:
-    def __init__(self, nome_musica: str, artista: str, genero: str) -> None:
+    def __init__(self, nome_musica: str, artista: Artista, genero: Genero) -> None:
         if isinstance(nome_musica, str):
             self.__nome_musica = nome_musica
-        if isinstance(artista, str):
+        if isinstance(artista, Artista):
             self.__artista = artista
-        if isinstance(genero, str):
+        if isinstance(genero, Genero):
             self.__genero = genero
 
     @property
@@ -26,7 +26,7 @@ class Musica:
 
     @artista.setter
     def artista(self, artista):
-        if isinstance(artista, str):
+        if isinstance(artista, Artista):
             self.__artista = artista
 
     @property
@@ -35,9 +35,6 @@ class Musica:
 
     @genero.setter
     def genero(self, genero):
-        if isinstance(genero, str):
+        if isinstance(genero, Genero):
             self.__genero = genero
     
-    def criar_musica(self, nome_musica, artista, genero):
-        nova_musica = Musica(nome_musica, artista, genero)
-        return nova_musica
