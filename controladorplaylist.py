@@ -1,9 +1,10 @@
+from typing import List
 from playlist import PlayList
 from telaplaylist import TelaPlaylist
 
 class ControladorPlaylist:
     def __init__(self, controlador_sistema) -> None:
-        self.__lista_playlist = [PlayList]
+        self.__lista_playlist: List[PlayList] = list()
         self.__tela_playlist = TelaPlaylist()
         self.__controlador_sistema = controlador_sistema
     
@@ -35,11 +36,12 @@ class ControladorPlaylist:
                 return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist}
 
             
-        
+    def retornar(self):
+        self.__controlador_sistema.abre_tela()
    
-    ### def abre_tela(self):
-        lista_opcoes = {1: self.chamar_add_musica, 2: self.chamar_remove_musica, 3: self.selecionar_playlist,
-                        4: self.m, 0: self.excuir_usuario}
+    def abre_tela(self):
+        lista_opcoes = {1: self.criar_playlist, 2: self.excluir_playlist, 3: self.selecionar_playlist,
+                        4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excuir_musica, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_playlist.TelaOpcoes()]()

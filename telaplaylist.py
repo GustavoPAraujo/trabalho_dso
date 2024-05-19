@@ -1,4 +1,4 @@
-from controladorplaylist import ControladorPlaylist
+
 
 class TelaPlaylist:
     def TelaOpcoes(self):
@@ -9,13 +9,16 @@ class TelaPlaylist:
         print('4: Alterar nome da Playlist')
         print('5: adicionar música')
         print('6: Excluir música')
+        print("0: RETORNAR")
         
         while True:
-            opcao = int(input(print('Selecione sua Opção ')))
-            if 0 < opcao < 7:
+
+            opcao = int(input("Escolha uma opção: "))
+
+            if  0 <= opcao <= 6:
                 return opcao
             else:
-                return print(' OPÇÃO INVALIDA')
+                print("Escolha uma opção valida")
         
     def pega_nome_playlist(self):
         print("_____Escolha nome da Playlist_____")
