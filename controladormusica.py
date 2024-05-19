@@ -24,10 +24,14 @@ class ControladorMusica:
     def listar_musicas_por_genero(self):
         genero = self.__tela_musica.selecionar_genero()
         for musica in self.__lista_musicas:
-            pass
+            if genero == musica.genero:
+                self.__tela_musica.mostra_musica(genero)
 
     def listar_musicas_por_artista(self):
         artista = self.__tela_musica.seleciona_artista()
+        for musica in self.__lista_musicas:
+            if artista == musica.artista:
+                self.__tela_musica.mostra_musica(artista)
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
