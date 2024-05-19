@@ -2,21 +2,24 @@ from playlist import PlayList
 from telaplaylist import TelaPlaylist
 
 class ControladorPlaylist:
-    def __init__(self) -> None:
+    def __init__(self, controlador_sistema) -> None:
         self.__lista_playlist = [PlayList]
         self.__tela_playlist = TelaPlaylist()
-    
-    def criar_playlist(self):
-        playlist = self.__tela_playlist.pegar_dados_Playlist()
-        playlist_nova = PlayList(playlist['Nome da Playlist'], playlist['Primeira Música'])
+        self.__controlador_sistema = controlador_sistema
+
+
+    #def criar_playlist(self):
+        playlist = self.__tela_playlist.pega_nome_playlist()
+        primeira_musica = self.__tela_playlist.pegar_musica()
+        if primeira_musica in self.__controlador_sistema.
         for playlist in self.__lista_playlist:
             if playlist not in self.__lista_playlist:
                 self.__lista_playlist.append(playlist)
     
-    def chamar_add_musica(self):
+    #def chamar_add_musica(self):
         return PlayList.adicionar_musica_playlist()
 
-    def chamar_remove_musica(self):
+    #def chamar_remove_musica(self):
         return PlayList.excluir_musica()
     
     def selecionar_playlist(self, nome_playlist):
@@ -24,7 +27,7 @@ class ControladorPlaylist:
             if nome_playlist == playlist.nome_playlist:
                 return playlist
     
-    def mostra_playlist(self):
+    # def mostra_playlist(self):
         playlist = 
 
 
