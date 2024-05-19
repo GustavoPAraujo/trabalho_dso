@@ -45,7 +45,8 @@ class ControladorMusica:
             if artista == musica.artista:
                 self.__tela_musica.mostra_musica(artista)
         
-
+    def adiciona_musica_na_playlist(self):
+        pass
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()

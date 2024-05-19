@@ -24,5 +24,8 @@ class TelaPlaylist:
 
         return {'Nome da Playlist': nome_playlist, 'Primeira Música': primeira_musica}
     
+    def adicionar_musica_playlist(self):
+        pass
+
     def mostrar_playlist(self, nome_playlist):
         playlist = self.

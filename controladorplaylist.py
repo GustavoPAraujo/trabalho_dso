@@ -1,13 +1,16 @@
 from playlist import PlayList
 from telaplaylist import TelaPlaylist
+from controladorsistema import ControladorSistema
 
 class ControladorPlaylist:
-    def __init__(self) -> None:
+    def __init__(self, controlador_sistema) -> None:
         self.__lista_playlist = [PlayList]
         self.__tela_playlist = TelaPlaylist()
+        self.__controlador_sistema = controlador_sistema
     
     def criar_playlist(self):
-        playlist = self.__tela_playlist.pegar_dados_Playlist()
+        nome_playlist = self.__tela_playlist.pegar_dados_Playlist()
+        musica = self.__tela_playlist.adicior_musica
         playlist_nova = PlayList(playlist['Nome da Playlist'], playlist['Primeira Música'])
         for playlist in self.__lista_playlist:
             if playlist not in self.__lista_playlist:
