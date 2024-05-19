@@ -12,9 +12,10 @@ class ControladorMusica:
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
         artista = self.__controlador_sistema.__controlador_artista.pega_artista_por_nome(dados_musica["artista"])
+        genero = self.__controlador_sistema.__controlador_genero.seleciona_genero(dados_musica["genero"])
 
         nova_musica = Musica(
-            dados_musica["nome_musica"], artista, dados_musica["genero"])
+            dados_musica["nome_musica"], artista, genero) # type: ignore
         if nova_musica not in self.__lista_musicas:
             self.__lista_musicas.append(nova_musica)
 

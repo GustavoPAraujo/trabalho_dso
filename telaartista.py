@@ -13,4 +13,4 @@ class TelaArtista:
         nome = input(print("Digite o nome: "))
         nome_artistico = input(print("Digite o nome artistico: "))
 
-        return {'nome': nome, "nome_artistico": nome_artistico}
+        return {'nome': nome, "nome_artistico": nome_artistico  }
