@@ -34,5 +34,9 @@ class TelaPlaylist:
     def adicionar_musica_playlist(self):
         pass
 
-    #def mostrar_playlist(self, nome_playlist):
-        playlist = self.
+    def mostrar_playlist(self, dados_playlist):
+        nome = dados_playlist['nome_playlist']
+        print(nome)
+        musicas = dados_playlist['musicas']
+        for musica in musicas:
+            print(musica)

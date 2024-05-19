@@ -15,11 +15,9 @@ class ControladorPlaylist:
         genero = dados_primeira_musica['genero']
         musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
         if musica_verificada is not None:
-            
-        playlist_nova = PlayList(playlist['Nome da Playlist'], playlist['Primeira Música'])
-        for playlist in self.__lista_playlist:
-            if playlist not in self.__lista_playlist:
-                self.__lista_playlist.append(playlist)
+            nova_playlist = PlayList(nome_playlist, musica_verificada)
+            self.__lista_playlist.append(nova_playlist)
+        
     
     def adicionar_musica(self):
         dados_musica = self.__tela_playlist.pegar_musica()
@@ -28,18 +26,16 @@ class ControladorPlaylist:
         genero = dados_musica['genero']
         musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
         if musica_verificada is not None:
+            return
 
-
-
-    
-    def selecionar_playlist(self, nome_playlist):
+    def selecionar_playlist(self):
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                return playlist
-    
-    
-       
-    
+                return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist}
+
+            
+        
    
     ### def abre_tela(self):
         lista_opcoes = {1: self.chamar_add_musica, 2: self.chamar_remove_musica, 3: self.selecionar_playlist,

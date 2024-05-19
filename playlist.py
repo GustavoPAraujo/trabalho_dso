@@ -15,4 +15,8 @@ class PlayList:
     @nome_playlist.setter
     def nome_playlist(self, nome_playlist):
         self.__nome_playlist = nome_playlist
+
+    @property
+    def musicas_playlist(self):
+        return self.__playlist
     
