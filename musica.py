@@ -37,3 +37,7 @@ class Musica:
     def genero(self, genero):
         if isinstance(genero, str):
             self.__genero = genero
+    
+    def criar_musica(self, nome_musica, artista, genero):
+        nova_musica = Musica(nome_musica, artista, genero)
+        return nova_musica
