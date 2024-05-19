@@ -11,9 +11,19 @@ class ControladorMusica:
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
+        artista = self.__controlador_sistema.__controlador_artista.pega_artista_por_nome(dados_musica["artista"])
+        genero = self.__controlador_sistema.__controlador_genero.seleciona_genero(dados_musica["genero"])
+
         nova_musica = Musica(
-            dados_musica["nome_musica"], dados_musica["artista"], dados_musica["genero"])
-        if nova_musica not in self.__lista_musicas:
+            dados_musica["nome_musica"], artista, genero) # type: ignore
+        
+        if nova_musica.artista is None:
+            self.__tela_musica.mostra_mnsg("Esse artista não existe!")
+            return
+        elif nova_musica.genero is None:
+            self.__tela_musica.mostra_mnsg("Esse gênero não existe!")
+            return
+        elif nova_musica not in self.__lista_musicas:
             self.__lista_musicas.append(nova_musica)
 
     def listar_musicas(self):
@@ -32,6 +42,8 @@ class ControladorMusica:
         for musica in self.__lista_musicas:
             if artista == musica.artista:
                 self.__tela_musica.mostra_musica(artista)
+        
+
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()

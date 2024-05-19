@@ -1,12 +1,17 @@
 from telasistema import TelaSistema
 from controladormusica import ControladorMusica
 from controladorusuario import ControladorUsuario
+from controladorartista import ControladorArtista
+from controladorgenero import ControladorGenero
+
 
 class ControladorSistema():
 
     def __init__(self) -> None:
         self.__controlador_usuario = ControladorUsuario(self)
         self.__controlador_musica = ControladorMusica(self)
+        self.__controlador_artista = ControladorArtista(self)
+        self.__controlador_genero = ControladorGenero(self)
         self.__tela_sistema = TelaSistema()
 
     @property
@@ -17,6 +22,14 @@ class ControladorSistema():
     def controlador_musica(self):
         return self.__controlador_musica
 
+    @property
+    def controlador_artista(self):
+        return self.__controlador_artista
+
+    @property
+    def controlador_genero(self):
+        return self.__controlador_genero
+
     def inicia_sistema(self):
         self.abre_tela()
 
@@ -26,9 +39,15 @@ class ControladorSistema():
     def cadastra_musica(self):
         self.__controlador_musica.abre_tela()
 
+    def cadastra_artista(self):
+        self.__controlador_artista.abre_tela()
+
+    def cadastra_genero(self):
+        self.__controlador_genero.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_usuario, 2:self.cadastra_musica}
+        lista_opcoes = {1: self.cadastra_usuario, 2: self.cadastra_musica,
+                        3: self.cadastra_artista, 4: self.cadastra_genero}
 
         while True:
             opcao = self.__tela_sistema.tela_opcoes()
