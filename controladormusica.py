@@ -57,3 +57,10 @@ class ControladorMusica:
 
         while True:
             lista_opcoes[self.__tela_musica.tela_opcoes()]()
+
+    def verificar_musica(self, nome_musica, artista, genero):
+        verificar_artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(artista)
+        verificar_genero = self.__controlador_sistema.controlador_genero.seleciona_genero(genero)
+        musica_verificar = Musica(nome_musica, verificar_artista, verificar_genero)
+        if musica_verificar in self.__lista_musicas:
+            return musica_verificar

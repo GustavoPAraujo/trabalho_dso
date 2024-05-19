@@ -1,6 +1,5 @@
 from playlist import PlayList
 from telaplaylist import TelaPlaylist
-from controladorsistema import ControladorSistema
 
 class ControladorPlaylist:
     def __init__(self, controlador_sistema) -> None:
@@ -9,28 +8,36 @@ class ControladorPlaylist:
         self.__controlador_sistema = controlador_sistema
     
     def criar_playlist(self):
-        nome_playlist = self.__tela_playlist.pegar_dados_Playlist()
-        musica = self.__tela_playlist.adicior_musica
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
+        dados_primeira_musica = self.__tela_playlist.pegar_musica()
+        nome_musica = dados_primeira_musica['nome_musica']
+        artista = dados_primeira_musica['artista']
+        genero = dados_primeira_musica['genero']
+        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
+        if musica_verificada is not None:
+            
         playlist_nova = PlayList(playlist['Nome da Playlist'], playlist['Primeira Música'])
         for playlist in self.__lista_playlist:
             if playlist not in self.__lista_playlist:
                 self.__lista_playlist.append(playlist)
     
-    #def chamar_add_musica(self):
-        return PlayList.adicionar_musica_playlist()
+    def adicionar_musica(self):
+        dados_musica = self.__tela_playlist.pegar_musica()
+        nome_musica = dados_musica['nome_musica']
+        artista = dados_musica['artista']
+        genero = dados_musica['genero']
+        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
+        if musica_verificada is not None:
 
-    #def chamar_remove_musica(self):
-        return PlayList.excluir_musica()
+
+
     
     def selecionar_playlist(self, nome_playlist):
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
                 return playlist
     
-    # def mostra_playlist(self):
-        playlist = 
-
-
+    
        
     
    

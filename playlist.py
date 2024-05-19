@@ -16,13 +16,3 @@ class PlayList:
     def nome_playlist(self, nome_playlist):
         self.__nome_playlist = nome_playlist
     
-    def adicionar_musica_playlist(self, musica: Musica):
-        if isinstance(musica,Musica):
-            self.__playlist.append(musica)
-        return self.__playlist
-    
-    def excluir_musica(self, musica: Musica):
-        if isinstance(musica, Musica):
-            self.__playlist.remove(Musica)
-        return self.__playlist
-    

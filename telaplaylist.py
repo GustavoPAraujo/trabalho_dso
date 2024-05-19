@@ -34,5 +34,5 @@ class TelaPlaylist:
     def adicionar_musica_playlist(self):
         pass
 
-    def mostrar_playlist(self, nome_playlist):
+    #def mostrar_playlist(self, nome_playlist):
         playlist = self.
