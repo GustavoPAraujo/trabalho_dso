@@ -5,11 +5,12 @@ class TelaUsuario:
         print("--------Usuario--------")
         print("Escolha a opção:")
         print("1: Criar Usuario")
-        print("2: Listar Usuarios")
-        print("3: Adicionar Musicas Preferidas")
-        print("4: Adicionar Amizade")
-        print("5: Minhas amizades")
-        print("0: Excluir Usuario")
+        print("2: Excluir Usuario")
+        print("3: Listar Usuarios")
+        print("4: Adicionar Musicas Preferidas")
+        print("5: Adicionar Amizade")
+        print("6: Minhas amizades")
+        print("0: Retornar")
         while True:
 
             opcao = int(input("Escolha uma opção: "))

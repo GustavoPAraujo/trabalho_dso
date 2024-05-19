@@ -1,21 +1,25 @@
+from typing import List
 from musica import Musica
 from telamusica import TelaMusica
-
+from controladorsistema import ControladorSistema
 
 class ControladorMusica:
-    def __init__(self) -> None:
-        self.__lista_musicas = []
+    def __init__(self, controlador_sistema: ControladorSistema) -> None:
+        self.__lista_musicas: List[Musica] = list()
         self.__tela_musica = TelaMusica()
+        self.__controlador_sistema: ControladorSistema = controlador_sistema
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
-        nova_musica = Musica( dados_musica["nome_musica"], dados_musica["artista"], dados_musica["genero"])
+        nova_musica = Musica(
+            dados_musica["nome_musica"], dados_musica["artista"], dados_musica["genero"])
         if nova_musica not in self.__lista_musicas:
             self.__lista_musicas.append(nova_musica)
-        
+
     def listar_musicas(self):
         for musica in self.__lista_musicas:
-            self.__tela_musica.mostra_musica({"nome_musica": musica.nome_musica, "artista": musica.artista, "genero": musica.genero})
+            self.__tela_musica.mostra_musica(
+                {"nome_musica": musica.nome_musica, "artista": musica.artista, "genero": musica.genero})
 
     def listar_musicas_por_genero(self):
         pass
@@ -23,9 +27,12 @@ class ControladorMusica:
     def listar_musicas_por_artista(self):
         pass
 
+    def retornar(self):
+        self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = { 1: self.adicionar_musica , 2: self.listar_musicas }
-    
+        lista_opcoes = {1: self.adicionar_musica, 2: self.listar_musicas,
+                        3: self.listar_musicas_por_genero, 4: self.listar_musicas_por_artista, 0: self.retornar}
+
         while True:
             lista_opcoes[self.__tela_musica.tela_opcoes()]()

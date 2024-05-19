@@ -1,12 +1,14 @@
 from typing import List
 from usuario import Usuario
 from telausuario import TelaUsuario
+from controladorsistema import ControladorSistema
 
 
 class ControladorUsuario:
-    def __init__(self) -> None:
+    def __init__(self, controlador_sistema: ControladorSistema) -> None:
         self.__lista_usuarios: List[Usuario] = list()
         self.__tela_usuario = TelaUsuario()
+        self.__controlador_sistema = controlador_sistema
 
     def pega_usuario_por_nome_usuario(self, nome_usuario: str):
         for usuario in self.__lista_usuarios:
@@ -73,10 +75,13 @@ class ControladorUsuario:
         else:
             self.__tela_usuario.mostra_mensagem(
                 "Este Nome de Usuario não existe")
+    
+    def retornar(self):
+        self.__controlador_sistema.abre_tela
 
     def abre_tela(self):
-        lista_opcoes = {1: self.criar_usuario, 2: self.listar_usuarios, 3: self.adicionar_musicas_preferidas,
-                        4: self.adicionar_amizades, 5: self.ver_amizades, 0: self.excuir_usuario}
+        lista_opcoes = {1: self.criar_usuario, 2: self.excuir_usuario, 3: self.listar_usuarios, 4: self.adicionar_musicas_preferidas,
+                        5: self.adicionar_amizades, 6: self.ver_amizades, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_usuario.tela_opcoes()]()

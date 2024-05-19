@@ -5,8 +5,8 @@ from controladorusuario import ControladorUsuario
 class ControladorSistema():
 
     def __init__(self) -> None:
-        self.__controlador_usuario = ControladorUsuario()
-        self.__controlador_musica = ControladorMusica()
+        self.__controlador_usuario = ControladorUsuario(self)
+        self.__controlador_musica = ControladorMusica(self)
         self.__tela_sistema = TelaSistema()
 
     @property
@@ -16,16 +16,16 @@ class ControladorSistema():
     @property
     def controlador_musica(self):
         return self.__controlador_musica
-    
+
     def inicia_sistema(self):
         self.abre_tela()
 
     def cadastra_usuario(self):
         self.__controlador_usuario.abre_tela()
-    
+
     def cadastra_musica(self):
         self.__controlador_musica.abre_tela()
-    
+
 
     def abre_tela(self):
         lista_opcoes = {1: self.cadastra_usuario, 2:self.cadastra_musica}
