@@ -31,6 +31,8 @@ class ControladorMusica:
             self.__tela_musica.mostra_musica(
                 {"nome_musica": musica.nome_musica, "artista": musica.artista, "genero": musica.genero})
 
+
+# arrumar as listagens por genero e artista
     def listar_musicas_por_genero(self):
         genero = self.__tela_musica.selecionar_genero()
         for musica in self.__lista_musicas:
