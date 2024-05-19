@@ -22,7 +22,7 @@ class TelaPlaylist:
         nome_playlist = input("Nome da Playlist")
         return nome_playlist
     
-<<<<<<< HEAD
+
     def pegar_musica(self):
         print('___Digite_informações_da_música___')
         nome_musica = input()
@@ -31,11 +31,8 @@ class TelaPlaylist:
 
         return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
     
-    
-=======
     def adicionar_musica_playlist(self):
         pass
 
     def mostrar_playlist(self, nome_playlist):
         playlist = self.
->>>>>>> a1758047bf2791b1034e0d52b86e8183659e2286
