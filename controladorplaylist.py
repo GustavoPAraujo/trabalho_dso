@@ -7,11 +7,10 @@ class ControladorPlaylist:
         self.__tela_playlist = TelaPlaylist()
     
     def criar_playlist(self):
-        playlist = PlayList()
+        playlist = self.__tela_playlist.pegar_dados_Playlist()
+        playlist_nova = PlayList(playlist['Nome da Playlist'], playlist['Primeira Música'])
         for playlist in self.__lista_playlist:
-            if playlist in self.__lista_playlist:
-                return
-            else:
+            if playlist not in self.__lista_playlist:
                 self.__lista_playlist.append(playlist)
     
     def chamar_add_musica(self):
@@ -20,10 +19,16 @@ class ControladorPlaylist:
     def chamar_remove_musica(self):
         return PlayList.excluir_musica()
     
-    def selecionar_playlist(self, playlist):
-        if isinstance(playlist, PlayList):
-            if playlist in self.__lista_playlist:
+    def selecionar_playlist(self, nome_playlist):
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
                 return playlist
+    
+    def mostra_playlist(self):
+        playlist = 
+
+
+       
     
    
     ### def abre_tela(self):

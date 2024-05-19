@@ -20,9 +20,9 @@ class TelaPlaylist:
     def pegar_dados_Playlist(self) -> dict[str, str]:
         print("_____Insira_os_seus_dados_____")
         nome_playlist = input("Nome da Playlist")
-        primeira_musica = ControladorPlaylist.chamar_add_musica()
+        primeira_musica = input('Primeira Música')
 
         return {'Nome da Playlist': nome_playlist, 'Primeira Música': primeira_musica}
     
-    def mostrar_playlist(self):
-        print('Nome da Playlist' )
+    def mostrar_playlist(self, nome_playlist):
+        playlist = self.
