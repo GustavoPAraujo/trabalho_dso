@@ -2,6 +2,7 @@
 class TelaMusica:
     
     def tela_opcoes(self):
+        print("______Música______")
         print("1: Adicionar uma Música")
         print("2: Listar Músicas")
         print("3: Listar Músicas por Gênero")
@@ -11,7 +12,7 @@ class TelaMusica:
 
             opcao = int(input("Escolha uma opção: "))
 
-            if  0 < opcao < 4:
+            if  0 <= opcao <= 4:
                 return opcao
             else:
                 print("Escolha uma opção valida")
@@ -37,5 +38,7 @@ class TelaMusica:
         return genero
 
     def seleciona_artista(self):
-        pass
+        print("_____Qual_Artista_quero_ouvir_____")
+        artista = input("Insira o nome do Artista: ")
+        return artista
 

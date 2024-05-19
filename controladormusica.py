@@ -22,10 +22,12 @@ class ControladorMusica:
                 {"nome_musica": musica.nome_musica, "artista": musica.artista, "genero": musica.genero})
 
     def listar_musicas_por_genero(self):
-        pass
+        genero = self.__tela_musica.selecionar_genero()
+        for musica in self.__lista_musicas:
+            pass
 
     def listar_musicas_por_artista(self):
-        pass
+        artista = self.__tela_musica.seleciona_artista()
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
