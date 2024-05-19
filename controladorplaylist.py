@@ -7,7 +7,7 @@ class ControladorPlaylist:
         self.__lista_playlist: List[PlayList] = list()
         self.__tela_playlist = TelaPlaylist()
         self.__controlador_sistema = controlador_sistema
-    
+    #1
     def criar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         dados_primeira_musica = self.__tela_playlist.pegar_musica()
@@ -18,8 +18,25 @@ class ControladorPlaylist:
         if musica_verificada is not None:
             nova_playlist = PlayList(nome_playlist, musica_verificada)
             self.__lista_playlist.append(nova_playlist)
-        
     
+    #2
+    #fazer
+    def excluir_playlist(self):
+        pass
+
+    #3
+    def selecionar_playlist(self):
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
+                return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist}
+
+    #4
+    #fazer
+    def alterar_nome_playlist(self):
+        pass
+
+    #5
     def adicionar_musica(self):
         dados_musica = self.__tela_playlist.pegar_musica()
         nome_musica = dados_musica['nome_musica']
@@ -29,13 +46,11 @@ class ControladorPlaylist:
         if musica_verificada is not None:
             return
 
-    def selecionar_playlist(self):
-        nome_playlist = self.__tela_playlist.pega_nome_playlist()
-        for playlist in self.__lista_playlist:
-            if nome_playlist == playlist.nome_playlist:
-                return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist}
+    #6
+    #fazer
+    def excuir_musica(self):
+        pass
 
-            
     def retornar(self):
         self.__controlador_sistema.abre_tela()
    
