@@ -17,15 +17,25 @@ class TelaPlaylist:
             else:
                 return print(' OPÇÃO INVALIDA')
         
-    def pegar_dados_Playlist(self) -> dict[str, str]:
-        print("_____Insira_os_seus_dados_____")
+    def pega_nome_playlist(self):
+        print("_____Escolha nome da Playlist_____")
         nome_playlist = input("Nome da Playlist")
-        primeira_musica = input('Primeira Música')
-
-        return {'Nome da Playlist': nome_playlist, 'Primeira Música': primeira_musica}
+        return nome_playlist
     
+<<<<<<< HEAD
+    def pegar_musica(self):
+        print('___Digite_informações_da_música___')
+        nome_musica = input()
+        artista = input()
+        genero = input()
+
+        return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
+    
+    
+=======
     def adicionar_musica_playlist(self):
         pass
 
     def mostrar_playlist(self, nome_playlist):
         playlist = self.
+>>>>>>> a1758047bf2791b1034e0d52b86e8183659e2286

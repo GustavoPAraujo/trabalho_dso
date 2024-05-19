@@ -16,10 +16,10 @@ class ControladorPlaylist:
             if playlist not in self.__lista_playlist:
                 self.__lista_playlist.append(playlist)
     
-    def chamar_add_musica(self):
+    #def chamar_add_musica(self):
         return PlayList.adicionar_musica_playlist()
 
-    def chamar_remove_musica(self):
+    #def chamar_remove_musica(self):
         return PlayList.excluir_musica()
     
     def selecionar_playlist(self, nome_playlist):
@@ -27,7 +27,7 @@ class ControladorPlaylist:
             if nome_playlist == playlist.nome_playlist:
                 return playlist
     
-    def mostra_playlist(self):
+    # def mostra_playlist(self):
         playlist = 
 
 
