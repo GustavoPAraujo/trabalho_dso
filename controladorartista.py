@@ -1,8 +1,6 @@
-
+from typing import List
 from artista import Artista
 from telaartista import TelaArtista
-
-from typing import List
 
 
 class ControladorArtista:
@@ -23,9 +21,12 @@ class ControladorArtista:
 
         if novo_artista not in self.__lista_artistas:
             self.__lista_artistas.append(novo_artista)
+    
+    def retornar(self):
+        self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_artista, 2: self.cadastra_artista}
+        lista_opcoes = {1: self.cadastra_artista, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_artista.tela_opcoes()]()

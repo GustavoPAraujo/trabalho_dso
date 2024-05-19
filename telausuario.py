@@ -44,7 +44,7 @@ class TelaUsuario:
 
     def fazer_amizade(self) -> str:
 
-        amigo: str = input(print("Digite o nome de Usuario do Amigo: "))
+        amigo: str = input("Digite o nome de Usuario do Amigo: ")
 
         return amigo
 

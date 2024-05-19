@@ -11,8 +11,8 @@ class ControladorMusica:
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
-        artista = self.__controlador_sistema.__controlador_artista.pega_artista_por_nome(dados_musica["artista"])
-        genero = self.__controlador_sistema.__controlador_genero.seleciona_genero(dados_musica["genero"])
+        artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(dados_musica["artista"])
+        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(dados_musica["genero"])
 
         nova_musica = Musica(
             dados_musica["nome_musica"], artista, genero) # type: ignore

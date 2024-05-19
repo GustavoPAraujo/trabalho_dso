@@ -3,10 +3,16 @@ class TelaGenero:
 
     def tela_opcoes(self):
         print("_____Gênero_____")
+        print("1: Cadastra Gênero")
+        print("0: RETORNAR")
 
-        opcao = int(input("Escolha uma opção: "))
+        while True:
+            opcao = int(input("Escolha uma opção: "))
 
-        return opcao
+            if isinstance(opcao, int) and 0 <= opcao <= 4:
+                return opcao
+            else:
+                print("Escolha uma opção valida")
     
     def criar_genero(self):
         print('_____Gênero_Músical_____')
