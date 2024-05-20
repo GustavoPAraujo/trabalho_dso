@@ -10,16 +10,25 @@ class ControladorGenero:
         self.__tela_genero = TelaGenero()
 
     def seleciona_genero(self, genero_musical) -> Genero | None:
+        genero_musical = Genero(genero_musical)
         for genero in self.__lista_generos:
-            if genero.genero == genero_musical:
+            if genero.genero == genero_musical.genero:
                 return genero
 
     def cadastra_genero(self):
         dados_genero = self.__tela_genero.criar_genero()
         novo_genero = Genero(dados_genero["genero"])
 
-        if novo_genero not in self.__lista_generos:
+        nomes_generos = [genero.genero for genero in self.__lista_generos]
+        if novo_genero.genero not in nomes_generos:
             self.__lista_generos.append(novo_genero)
+            self.__tela_genero.mostra_mnsg("")
+            self.__tela_genero.mostra_mnsg("Genero cadastrado coms sucesso!")
+            self.__tela_genero.mostra_mnsg("")
+        else:
+            self.__tela_genero.mostra_mnsg("")
+            self.__tela_genero.mostra_mnsg("Esse genero ja esta cadastrado")
+            self.__tela_genero.mostra_mnsg("")
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()

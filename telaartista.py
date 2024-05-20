@@ -20,3 +20,6 @@ class TelaArtista:
         nome_artistico = input("Digite o nome artistico: ")
 
         return {'nome': nome, "nome_artistico": nome_artistico  }
+    
+    def mostra_mnsg(self, mnsg):
+        print(mnsg)

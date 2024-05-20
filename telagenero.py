@@ -19,3 +19,6 @@ class TelaGenero:
         genero = input("Digite o nome Gênero: ")
 
         return {"genero": genero}
+
+    def mostra_mnsg(self, mnsg):
+        print(mnsg)

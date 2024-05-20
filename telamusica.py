@@ -6,7 +6,7 @@ class TelaMusica:
         print("1: Adicionar uma Música")
         print("2: Listar Músicas")
         print("3: Listar Músicas por Gênero")
-        print("4: Listar Músicas pro Artista")
+        print("4: Listar Músicas por Artista")
         print("0: RETORNAR")
         while True:
 
@@ -35,11 +35,13 @@ class TelaMusica:
     def selecionar_genero(self):
         print("_____Qual_Gênero_quero_ouvir_____")
         genero = input("Insira o Gênero: ")
+        print("")
         return genero
 
     def seleciona_artista(self):
-        print("_____Qual_Artista_quero_ouvir_____")
+        print("_____Qual_Artista_\nquero_ouvir_____")
         artista = input("Insira o nome do Artista: ")
+        print("\n")
         return artista
 
     def mostra_mnsg(self, mnsg):

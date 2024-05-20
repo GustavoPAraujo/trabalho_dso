@@ -19,9 +19,17 @@ class ControladorArtista:
         novo_artista = Artista(
             dados_artista["nome"], dados_artista["nome_artistico"])
 
-        if novo_artista not in self.__lista_artistas:
+        nomes_artistas = [artista.nome_artistico for artista in self.__lista_artistas]
+        if novo_artista.nome_artistico not in nomes_artistas:
             self.__lista_artistas.append(novo_artista)
-    
+            self.__tela_artista.mostra_mnsg("")
+            self.__tela_artista.mostra_mnsg("Artista cadastrado com sucesso!")
+            self.__tela_artista.mostra_mnsg("")
+        else:
+            self.__tela_artista.mostra_mnsg("")
+            self.__tela_artista.mostra_mnsg("Escolha outro nome artistico")
+            self.__tela_artista.mostra_mnsg("")
+
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
