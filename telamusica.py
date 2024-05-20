@@ -9,13 +9,14 @@ class TelaMusica:
         print("4: Listar Músicas por Artista")
         print("0: RETORNAR")
         while True:
-
-            opcao = int(input("Escolha uma opção: "))
-
-            if  0 <= opcao <= 4:
-                return opcao
-            else:
-                print("Escolha uma opção valida")
+            try:
+                opcao = int(input("Escolha uma opção: "))
+                if  0 <= opcao <= 4:
+                    return opcao
+                else:
+                    print("\nEscolha uma opção válida\n")
+            except ValueError:
+                print("\nPor favor, insira um número inteiro.\n")
 
 
     def pega_dados_musica(self):

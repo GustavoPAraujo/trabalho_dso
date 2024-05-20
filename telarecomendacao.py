@@ -6,13 +6,14 @@ class TelaRecomendacao:
     
 
         while True:
-
-            opcao = int(input("Escolha uma opção: "))
-
-            if  0 <= opcao <= 2:
-                return opcao
-            else:
-                print("Escolha uma opção valida")
+            try:
+                opcao = int(input("Escolha uma opção: "))
+                if  0 <= opcao <= 2:
+                    return opcao
+                else:
+                    print("\nEscolha uma opção válida\n")
+            except ValueError:
+                print("\nPor favor, insira um número inteiro.\n")
 
     def pega_genero(self):
         print('__Insira o gênero__')

@@ -12,10 +12,18 @@ class ControladorMusica:
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
+
         artista: Artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
             dados_musica["artista"])
+        if artista is None:
+            self.__tela_musica.mostra_mnsg("Artista não encontrado.")
+            return
+        
         genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
             dados_musica["genero"])
+        if genero is None:
+            self.__tela_musica.mostra_mnsg("Gênero não encontrado.")
+            return
 
         nova_musica = Musica(
             dados_musica["nome_musica"], artista, genero)  # type: ignore
@@ -38,7 +46,7 @@ class ControladorMusica:
     def listar_musicas(self):
         self.__tela_musica.mostra_mnsg("")
         self.__tela_musica.mostra_mnsg("Lista de Musicas: ")
-
+        n_musica = 0
         if not self.__lista_musicas:
             self.__tela_musica.mostra_mnsg("")
             self.__tela_musica.mostra_mnsg("Não temos musicas no momento")

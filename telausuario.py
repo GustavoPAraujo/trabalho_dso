@@ -12,15 +12,14 @@ class TelaUsuario:
         print("6: Minhas amizades")
         print("0: Retornar")
         while True:
-
-            opcao = int(input("Escolha uma opção: "))
-            print("\n")
-
-            if isinstance(opcao, int) and 0 <= opcao <= 10:
-                return opcao
-            else:
-                print("Escolha uma opção valida")
-                print("\n")
+            try:
+                opcao = int(input("Escolha uma opção: "))
+                if  0 <= opcao <= 6:
+                    return opcao
+                else:
+                    print("\nEscolha uma opção válida\n")
+            except ValueError:
+                print("\nPor favor, insira um número inteiro.\n")
 
     def seleciona_usuario(self) -> str:
         usuario_selecionado = input("Insira o Nome de Usuario: ")

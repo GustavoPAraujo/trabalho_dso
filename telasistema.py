@@ -12,9 +12,11 @@ class TelaSistema:
 
 
         while True:
-            opcao = int(input("Escolha o opção: "))
-
-            if isinstance(opcao, int) and 0 <= opcao <= 6:
-                return opcao
-            else:
-                print("Escolha uma opção valida")
+            try:
+                opcao = int(input("Escolha uma opção: "))
+                if  0 <= opcao <= 6:
+                    return opcao
+                else:
+                    print("\nEscolha uma opção válida\n")
+            except ValueError:
+                print("\nPor favor, insira um número inteiro.\n")

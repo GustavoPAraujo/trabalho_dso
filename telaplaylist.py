@@ -12,13 +12,14 @@ class TelaPlaylist:
         print("0: RETORNAR")
         
         while True:
-
-            opcao = int(input("Escolha uma opção: "))
-
-            if  0 <= opcao <= 6:
-                return opcao
-            else:
-                print("Escolha uma opção valida")
+            try:
+                opcao = int(input("Escolha uma opção: "))
+                if  0 <= opcao <= 6:
+                    return opcao
+                else:
+                    print("\nEscolha uma opção válida\n")
+            except ValueError:
+                print("\nPor favor, insira um número inteiro.\n")
         
     def pega_nome_playlist(self):
         print("_____Escolha nome da Playlist_____")

@@ -5,14 +5,15 @@ class TelaArtista:
         print("_____Artista_____")
         print("1: Cadastrar Artista")
         print("0: RETORNAR")
-
         while True:
-            opcao = int(input("Escolha uma opção: "))
-
-            if isinstance(opcao, int) and 0 <= opcao <= 4:
-                return opcao
-            else:
-                print("Escolha uma opção valida")
+            try:
+                opcao = int(input("Escolha uma opção: "))
+                if  0 <= opcao <= 1:
+                    return opcao
+                else:
+                    print("\nEscolha uma opção válida\n")
+            except ValueError:
+                print("\nPor favor, insira um número inteiro.\n")
     
     def criar_artista(self):
         print("_____Dados_do_Artista_____")
