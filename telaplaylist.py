@@ -43,5 +43,4 @@ class TelaPlaylist:
         nome = dados_playlist['nome_playlist']
         print(nome)
         musicas = dados_playlist['musicas']
-        for musica in musicas:
-            print(musica)
+        print(musicas)
