@@ -4,12 +4,12 @@ from telagenero import TelaGenero
 
 
 class ControladorGenero:
-    def __init__(self, controlador_sistema) -> None:
+    def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
         self.__lista_generos: List[Genero] = list()
         self.__tela_genero = TelaGenero()
 
-    def seleciona_genero(self, genero_musical) -> Genero | None:
+    def seleciona_genero(self, genero_musical):
         genero_musical = Genero(genero_musical)
         for genero in self.__lista_generos:
             if genero.genero == genero_musical.genero:

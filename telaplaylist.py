@@ -37,9 +37,6 @@ class TelaPlaylist:
         genero = input()
 
         return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
-    
-    def adicionar_musica_playlist(self):
-        pass
 
     def mostrar_playlist(self, dados_playlist):
         nome = dados_playlist['nome_playlist']
