@@ -84,10 +84,8 @@ class ControladorMusica:
             self.__tela_musica.mostra_musica(
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
 
-    def pega_musica_genero(self):
-        pega_genero = self.__tela_musica.selecionar_genero()
-        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
-            pega_genero)
+    def pega_musica_genero(self, genero_escolhido):
+        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(genero_escolhido)
         # verifica se o genero existe
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
@@ -132,10 +130,9 @@ class ControladorMusica:
             self.__tela_musica.mostra_musica(
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
 
-    def pega_musica_artista(self):
-        pega_artista = self.__tela_musica.seleciona_artista()
+    def pega_musica_artista(self, artista_escolhido):
         artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
-            pega_artista)
+            artista_escolhido)
         # verifica se o artista existe
         if artista is None:
             self.__tela_musica.mostra_mnsg(
