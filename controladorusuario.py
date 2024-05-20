@@ -15,18 +15,43 @@ class ControladorUsuario:
                 return usuario
         return None
 
+    # 1
     def criar_usuario(self):
         dados_usuario = self.__tela_usuario.pega_dados_usuario()
         novo_usuario = Usuario(
             dados_usuario["nome"], dados_usuario["nome_usuario"], dados_usuario["email"], dados_usuario["telefone"])
-        if novo_usuario not in self.__lista_usuarios:
+        nome_de_usuario_existente = False
+        for usuario in self.__lista_usuarios:
+            if usuario.nome_usuario == dados_usuario["nome_usuario"]:
+                nome_de_usuario_existente = True
+                break
+        if not nome_de_usuario_existente:
             self.__lista_usuarios.append(novo_usuario)
+            self.__tela_usuario.mostra_mensagem("Usuário criado com sucesso!")
+        else:
+            self.__tela_usuario.mostra_mensagem(
+                "Esse nome de usuário não está disponível")
 
+    # 2
+    def excuir_usuario(self):
+        self.listar_usuarios()
+        usuario_excluir = self.__tela_usuario.seleciona_usuario()
+        usuario = self.pega_usuario_por_nome_usuario(usuario_excluir)
+
+        if (usuario is not None):
+            self.__lista_usuarios.remove(usuario)
+            self.__tela_usuario.mostra_mensagem("Usuario removido com sucesso")
+        else:
+            self.__tela_usuario.mostra_mensagem(
+                "Este Nome de Usuario não existe")
+
+    # 3
     def listar_usuarios(self):
         for usuario in self.__lista_usuarios:
             self.__tela_usuario.mostrar_usuario(
                 {"nome": usuario.nome, "nome_usuario": usuario.nome_usuario, "email": usuario.email, "telefone": usuario.telefone})
 
+    # 4
     def adicionar_musicas_preferidas(self):
         dados_usuario = self.__tela_usuario.seleciona_usuario()
         musicas_preferidas = self.__tela_usuario.musicas_preferidas()
@@ -39,6 +64,7 @@ class ControladorUsuario:
         for valor in musicas_preferidas.values():
             usuario.musicas_preferidas.append(valor)
 
+    # 5
     def adicionar_amizades(self):
         dados_amizade = self.__tela_usuario.fazer_amizade()
         dados_usuario = self.__tela_usuario.seleciona_usuario()
@@ -55,6 +81,7 @@ class ControladorUsuario:
 
         self.__tela_usuario.mostra_mensagem("Amizade adicionada com sucesso.")
 
+    # 6
     def ver_amizades(self):
         nome_usuario = self.__tela_usuario.seleciona_usuario()
         usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
@@ -63,18 +90,7 @@ class ControladorUsuario:
                 nome_amigo = amizade.nome_usuario
                 self.__tela_usuario.mostra_mensagem(nome_amigo)
 
-    def excuir_usuario(self):
-        self.listar_usuarios()
-        usuario_excluir = self.__tela_usuario.seleciona_usuario()
-        usuario = self.pega_usuario_por_nome_usuario(usuario_excluir)
-
-        if (usuario is not None):
-            self.__lista_usuarios.remove(usuario)
-            self.__tela_usuario.mostra_mensagem("Usuario removido com sucesso")
-        else:
-            self.__tela_usuario.mostra_mensagem(
-                "Este Nome de Usuario não existe")
-    
+    # 0
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
