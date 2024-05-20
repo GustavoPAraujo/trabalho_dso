@@ -99,10 +99,15 @@ class ControladorUsuario:
         nome_usuario = self.__tela_usuario.seleciona_usuario()
         usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
         if usuario in self.__lista_usuarios:
+            self.__tela_usuario.mostra_mensagem("Meus amigos: ")
             for amizade in usuario.amizades:
                 nome_amigo = amizade.nome_usuario
                 self.__tela_usuario.mostra_mensagem(nome_amigo)
             self.__tela_usuario.mostra_mensagem("")
+    
+    #7
+    def ver_musicas_favoritas_amigos(self):
+        pass
 
     # 0
     def retornar(self):
@@ -110,7 +115,7 @@ class ControladorUsuario:
 
     def abre_tela(self):
         lista_opcoes = {1: self.criar_usuario, 2: self.excuir_usuario, 3: self.listar_usuarios, 4: self.adicionar_musicas_preferidas,
-                        5: self.adicionar_amizades, 6: self.ver_amizades, 0: self.retornar}
+                        5: self.adicionar_amizades, 6: self.ver_amizades, 7: self.ver_musicas_favoritas_amigos ,0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_usuario.tela_opcoes()]()

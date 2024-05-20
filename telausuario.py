@@ -10,11 +10,12 @@ class TelaUsuario:
         print("4: Adicionar Musicas Preferidas")
         print("5: Adicionar Amizade")
         print("6: Minhas amizades")
+        print("7: Musicas Preferidas dos amigos")
         print("0: Retornar")
         while True:
             try:
                 opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 6:
+                if  0 <= opcao <= 7:
                     return opcao
                 else:
                     print("\nEscolha uma opção válida\n")
