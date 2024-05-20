@@ -17,6 +17,7 @@ class ControladorPlaylist:
         musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
         nova_playlist = PlayList(nome_playlist, musica_verificada)
         self.__lista_playlist.append(nova_playlist)
+        print(PlayList.musicas_playlist)
         print('PlayList criada com sucesso')
     
     #2
@@ -33,7 +34,7 @@ class ControladorPlaylist:
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                return print({'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} )
+                return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
             else:
                 print('PlayList não existente')
 

@@ -7,6 +7,7 @@ class PlayList:
         self.__playlist = list()
         self.__nome_playlist = nome_playlist
         self.__musica = musica
+        self.__playlist.append(musica)
 
     @property
     def nome_playlist(self):
