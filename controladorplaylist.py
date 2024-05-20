@@ -18,6 +18,9 @@ class ControladorPlaylist:
         if musica_verificada is not None:
             nova_playlist = PlayList(nome_playlist, musica_verificada)
             self.__lista_playlist.append(nova_playlist)
+            print('PlayList criada com sucesso')
+        else:
+            print('Essa música não existe')
     
     #2
     def excluir_playlist(self):
@@ -26,16 +29,16 @@ class ControladorPlaylist:
             if nome_playlist == playlist.nome_playlist:
                 self.__lista_playlist.remove(playlist)
             else:
-                return 'PlayList não existente'
+                print('PlayList não existente')
 
     #3
     def selecionar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist}
+                return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
             else:
-                return 'PlayList não existente'
+                print('PlayList não existente')
 
     #4
     #fazer
@@ -46,7 +49,7 @@ class ControladorPlaylist:
                 novo_nome = self.__tela_playlist.alterar_nome_playlist()
                 return novo_nome
             else:
-                return 'Essa PlayList não existe'
+                print( 'Essa PlayList não existe')
 
     #5
     def adicionar_musica(self):
@@ -62,9 +65,9 @@ class ControladorPlaylist:
                     playlist.musicas_playlist.append(musica_verificada)
                     return musica_verificada
                 else:
-                    return 'Essa música não existe'
+                    print('Essa música não existe')
             else:
-                return 'Essa playlist não existe'
+                print( 'Essa playlist não existe')
 
                 
 
@@ -83,9 +86,9 @@ class ControladorPlaylist:
                     playlist.musicas_playlist.remove(musica_verificada)
                     return musica_verificada
                 else:
-                    'música não presente na PlayList'
+                    print('música não presente na PlayList')
             else:
-                return 'Essa PlayList não existe' 
+                print( 'Essa PlayList não existe' )
 
 
     def retornar(self):
