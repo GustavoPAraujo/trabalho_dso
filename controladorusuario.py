@@ -27,10 +27,13 @@ class ControladorUsuario:
                 break
         if not nome_de_usuario_existente:
             self.__lista_usuarios.append(novo_usuario)
+            self.__tela_usuario.mostra_mensagem("")
             self.__tela_usuario.mostra_mensagem("Usuário criado com sucesso!")
+            self.__tela_usuario.mostra_mensagem("")
         else:
-            self.__tela_usuario.mostra_mensagem(
-                "Esse nome de usuário não está disponível")
+            self.__tela_usuario.mostra_mensagem("")
+            self.__tela_usuario.mostra_mensagem("Esse nome de usuário não está disponível")
+            self.__tela_usuario.mostra_mensagem("")
 
     # 2
     def excuir_usuario(self):
@@ -40,16 +43,22 @@ class ControladorUsuario:
 
         if (usuario is not None):
             self.__lista_usuarios.remove(usuario)
+            self.__tela_usuario.mostra_mensagem("")
             self.__tela_usuario.mostra_mensagem("Usuario removido com sucesso")
+            self.__tela_usuario.mostra_mensagem("")
         else:
             self.__tela_usuario.mostra_mensagem(
                 "Este Nome de Usuario não existe")
 
     # 3
     def listar_usuarios(self):
+        self.__tela_usuario.mostra_mensagem("")
+        self.__tela_usuario.mostra_mensagem("Lista de Usuarios: ")
+        self.__tela_usuario.mostra_mensagem("")
         for usuario in self.__lista_usuarios:
             self.__tela_usuario.mostrar_usuario(
                 {"nome": usuario.nome, "nome_usuario": usuario.nome_usuario, "email": usuario.email, "telefone": usuario.telefone})
+            
 
     # 4
     def adicionar_musicas_preferidas(self):
@@ -68,6 +77,7 @@ class ControladorUsuario:
     def adicionar_amizades(self):
         dados_amizade = self.__tela_usuario.fazer_amizade()
         dados_usuario = self.__tela_usuario.seleciona_usuario()
+        self.__tela_usuario.mostra_mensagem("")
         usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
         amigo = self.pega_usuario_por_nome_usuario(dados_amizade)
 
@@ -79,16 +89,20 @@ class ControladorUsuario:
         usuario.amizades.append(amigo)
         amigo.amizades.append(usuario)
 
+        self.__tela_usuario.mostra_mensagem("")
         self.__tela_usuario.mostra_mensagem("Amizade adicionada com sucesso.")
+        self.__tela_usuario.mostra_mensagem("")
 
     # 6
     def ver_amizades(self):
+
         nome_usuario = self.__tela_usuario.seleciona_usuario()
         usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
         if usuario in self.__lista_usuarios:
             for amizade in usuario.amizades:
                 nome_amigo = amizade.nome_usuario
                 self.__tela_usuario.mostra_mensagem(nome_amigo)
+            self.__tela_usuario.mostra_mensagem("")
 
     # 0
     def retornar(self):

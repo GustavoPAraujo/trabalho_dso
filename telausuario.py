@@ -22,6 +22,7 @@ class TelaUsuario:
                 print("\nPor favor, insira um número inteiro.\n")
 
     def seleciona_usuario(self) -> str:
+        self.mostra_mensagem("")
         usuario_selecionado = input("Insira o Nome de Usuario: ")
         return usuario_selecionado
 
