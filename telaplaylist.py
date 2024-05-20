@@ -25,6 +25,10 @@ class TelaPlaylist:
         nome_playlist = input("Nome da Playlist")
         return nome_playlist
     
+    def alterar_nome_playlist(self):
+        print('__Escolha novo nome da PlayList___')
+        novo_nome = input('Novo nome da Playlist')
+        return novo_nome
 
     def pegar_musica(self):
         print('___Digite_informações_da_música___')

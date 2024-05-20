@@ -20,9 +20,13 @@ class ControladorPlaylist:
             self.__lista_playlist.append(nova_playlist)
     
     #2
-    #fazer
     def excluir_playlist(self):
-        pass
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
+                self.__lista_playlist.remove(playlist)
+            else:
+                return 'PlayList não existente'
 
     #3
     def selecionar_playlist(self):
@@ -30,33 +34,68 @@ class ControladorPlaylist:
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
                 return {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist}
+            else:
+                return 'PlayList não existente'
 
     #4
     #fazer
     def alterar_nome_playlist(self):
-        pass
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
+                novo_nome = self.__tela_playlist.alterar_nome_playlist()
+                return novo_nome
+            else:
+                return 'Essa PlayList não existe'
 
     #5
     def adicionar_musica(self):
-        dados_musica = self.__tela_playlist.pegar_musica()
-        nome_musica = dados_musica['nome_musica']
-        artista = dados_musica['artista']
-        genero = dados_musica['genero']
-        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-        if musica_verificada is not None:
-            return
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
+                playlist_editada = PlayList(nome_playlist)
+                dados_musica = self.__tela_playlist.pegar_musica()
+                nome_musica = dados_musica['nome_musica']
+                artista = dados_musica['artista']
+                genero = dados_musica['genero']
+                musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
+                if musica_verificada is not None and musica_verificada not in playlist_editada:
+                    playlist_editada.append(musica_verificada)
+                    return musica_verificada
+                else:
+                    return 'Essa música não existe'
+            else:
+                return 'Essa playlist não existe'
+
+                
 
     #6
     #fazer
-    def excuir_musica(self):
-        pass
+    def excluir_musica(self):
+        nome_playlist = self.__tela_playlist.pega_nome_playlist()
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
+                playlist_editada = PlayList(nome_playlist)
+                dados_musica = self.__tela_playlist.pegar_musica()
+                nome_musica = dados_musica['nome_musica']
+                artista = dados_musica['artista']
+                genero = dados_musica['genero']
+                musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
+                if musica_verificada is not None and musica_verificada in playlist_editada:
+                    playlist_editada.remove(musica_verificada)
+                    return musica_verificada
+                else:
+                    'música não presente na PlayList'
+            else:
+                return 'Essa PlayList não existe' 
+
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
    
     def abre_tela(self):
         lista_opcoes = {1: self.criar_playlist, 2: self.excluir_playlist, 3: self.selecionar_playlist,
-                        4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excuir_musica, 0: self.retornar}
+                        4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excluir_musica, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_playlist.TelaOpcoes()]()
