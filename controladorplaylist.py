@@ -17,7 +17,8 @@ class ControladorPlaylist:
         musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
         nova_playlist = PlayList(nome_playlist, musica_verificada)
         self.__lista_playlist.append(nova_playlist)
-        print(PlayList.musicas_playlist)
+        nova_playlist.musicas_playlist.append(musica_verificada)
+        print(nova_playlist.musicas_playlist)
         print('PlayList criada com sucesso')
     
     #2
