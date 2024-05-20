@@ -72,6 +72,10 @@ class ControladorUsuario:
 
         for valor in musicas_preferidas.values():
             usuario.musicas_preferidas.append(valor)
+        
+        self.__tela_usuario.mostra_mensagem("")
+        self.__tela_usuario.mostra_mensagem("As musicas favoritas foram adicionadas!")
+        self.__tela_usuario.mostra_mensagem("")
 
     # 5
     def adicionar_amizades(self):
@@ -107,7 +111,33 @@ class ControladorUsuario:
     
     #7
     def ver_musicas_favoritas_amigos(self):
-        pass
+        nome_usuario = self.__tela_usuario.seleciona_usuario()
+        usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
+
+        if usuario is None:
+            self.__tela_usuario.mostra_mensagem("Usuário não encontrado.")
+            return
+
+        nome_amigo = self.__tela_usuario.fazer_amizade()
+        amigo = self.pega_usuario_por_nome_usuario(nome_amigo)
+
+        if amigo is None:
+            self.__tela_usuario.mostra_mensagem("Amigo não encontrado.")
+            return
+        
+        if amigo in usuario.amizades:
+            self.__tela_usuario.mostra_mensagem("")
+            self.__tela_usuario.mostra_mensagem("Músicas favoritas de " + nome_amigo + ":")
+            for musica in amigo.musicas_preferidas:
+                self.__tela_usuario.mostra_mensagem("- " + musica)
+            self.__tela_usuario.mostra_mensagem("")
+        else:
+            self.__tela_usuario.mostra_mensagem(nome_amigo + " não é seu amigo.")
+            self.__tela_usuario.mostra_mensagem("")
+
+
+
+
 
     # 0
     def retornar(self):

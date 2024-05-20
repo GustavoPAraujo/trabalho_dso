@@ -44,9 +44,8 @@ class TelaUsuario:
         print("\n")
 
     def fazer_amizade(self) -> str:
-
+        self.mostra_mensagem("")
         amigo: str = input("Digite o nome de Usuario do Amigo: ")
-
         return amigo
 
     def musicas_preferidas(self) -> dict[str, str]:
