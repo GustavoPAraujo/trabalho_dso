@@ -8,6 +8,7 @@ class TelaSistema:
         print("4: Gêneros")
         print("5: PlayLists")
         print('6: Recomendações')
+        print("0: Finalizar Sistema")
 
 
         while True:

@@ -9,7 +9,7 @@ class ControladorArtista:
         self.__lista_artistas: List[Artista] = list()
         self.__tela_artista = TelaArtista()
 
-    def pega_artista_por_nome(self, nome_artistico):
+    def pega_artista_por_nome(self, nome_artistico) -> Artista | None:
         for artista in self.__lista_artistas:
             if artista.nome_artistico == nome_artistico:
                 return artista

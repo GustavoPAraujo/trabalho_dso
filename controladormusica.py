@@ -1,4 +1,5 @@
 from typing import List
+from artista import Artista
 from musica import Musica
 from telamusica import TelaMusica
 
@@ -11,25 +12,21 @@ class ControladorMusica:
 
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
-        artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(dados_musica["artista"])
+        artista: Artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(dados_musica["artista"])
         genero = self.__controlador_sistema.controlador_genero.seleciona_genero(dados_musica["genero"])
 
         nova_musica = Musica(
             dados_musica["nome_musica"], artista, genero) # type: ignore
-        
-        if nova_musica.artista is None:
-            self.__tela_musica.mostra_mnsg("Esse artista não existe!")
-            return
-        elif nova_musica.genero is None:
-            self.__tela_musica.mostra_mnsg("Esse gênero não existe!")
-            return
-        elif nova_musica not in self.__lista_musicas:
+
+        if nova_musica not in self.__lista_musicas:
             self.__lista_musicas.append(nova_musica)
+            self.__tela_musica.mostra_mnsg("Musica criada com sucesso!")
 
     def listar_musicas(self):
         for musica in self.__lista_musicas:
-            artista = musica.artista.nome_artistico
             genero = musica.genero.genero
+            artista = musica.artista.nome_artistico
+            
             self.__tela_musica.mostra_musica({"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
 
 

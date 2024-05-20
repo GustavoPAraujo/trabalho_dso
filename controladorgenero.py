@@ -9,11 +9,10 @@ class ControladorGenero:
         self.__lista_generos: List[Genero] = list()
         self.__tela_genero = TelaGenero()
 
-    def seleciona_genero(self, genero_musical):
+    def seleciona_genero(self, genero_musical) -> Genero | None:
         for genero in self.__lista_generos:
             if genero.genero == genero_musical:
-                return genero 
-
+                return genero
 
     def cadastra_genero(self):
         dados_genero = self.__tela_genero.criar_genero()
@@ -30,4 +29,3 @@ class ControladorGenero:
 
         while True:
             lista_opcoes[self.__tela_genero.tela_opcoes()]()
-

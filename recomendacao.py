@@ -26,4 +26,4 @@ class Recomendacao:
                         0: self.retornar}
 
         while True:
-            lista_opcoes[self.__tela_musica.tela_opcoes()]()
+            lista_opcoes[self.__tela_recomendacao.tela_opcoes()]()
