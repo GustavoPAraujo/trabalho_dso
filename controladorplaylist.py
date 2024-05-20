@@ -53,14 +53,13 @@ class ControladorPlaylist:
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                playlist_editada = PlayList(nome_playlist)
                 dados_musica = self.__tela_playlist.pegar_musica()
                 nome_musica = dados_musica['nome_musica']
                 artista = dados_musica['artista']
                 genero = dados_musica['genero']
                 musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-                if musica_verificada is not None and musica_verificada not in playlist_editada:
-                    playlist_editada.append(musica_verificada)
+                if musica_verificada is not None and musica_verificada not in playlist:
+                    playlist.musicas_playlist.append(musica_verificada)
                     return musica_verificada
                 else:
                     return 'Essa música não existe'
@@ -75,14 +74,13 @@ class ControladorPlaylist:
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                playlist_editada = PlayList(nome_playlist)
                 dados_musica = self.__tela_playlist.pegar_musica()
                 nome_musica = dados_musica['nome_musica']
                 artista = dados_musica['artista']
                 genero = dados_musica['genero']
                 musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-                if musica_verificada is not None and musica_verificada in playlist_editada:
-                    playlist_editada.remove(musica_verificada)
+                if musica_verificada is not None and musica_verificada in playlist:
+                    playlist.musicas_playlist.remove(musica_verificada)
                     return musica_verificada
                 else:
                     'música não presente na PlayList'
