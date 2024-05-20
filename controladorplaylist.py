@@ -61,11 +61,12 @@ class ControladorPlaylist:
                 artista = dados_musica['artista']
                 genero = dados_musica['genero']
                 musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-                if musica_verificada is not None and musica_verificada not in playlist:
-                    playlist.musicas_playlist.append(musica_verificada)
-                    return musica_verificada
+                nova_musica = musica_verificada
+                if nova_musica not in self.__lista_playlist:
+                    self.__lista_playlist.append(nova_musica)
+                    print('musica adicionada com sucesso')
                 else:
-                    print('Essa música não existe')
+                    print('música presente na lista')
             else:
                 print( 'Essa playlist não existe')
 
@@ -82,11 +83,12 @@ class ControladorPlaylist:
                 artista = dados_musica['artista']
                 genero = dados_musica['genero']
                 musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-                if musica_verificada is not None and musica_verificada in playlist:
-                    playlist.musicas_playlist.remove(musica_verificada)
-                    return musica_verificada
+                musica_removida = musica_verificada
+                if musica_removida in self.__lista_playlist:
+                    self.__lista_playlist.remove(musica_removida)
+                    print('Musica removida')
                 else:
-                    print('música não presente na PlayList')
+                    print('musica nao presente')
             else:
                 print( 'Essa PlayList não existe' )
 
