@@ -17,11 +17,11 @@ class TelaRecomendacao:
 
     def pega_genero(self):
         print('__Insira o gênero__')
-        genero = input()
+        genero = input('Gênero: ')
         return genero
     
     def pega_artista(self):
         print('__Insira o artista__')
-        artista = input()
+        artista = input('Artista: ')
         return artista
     

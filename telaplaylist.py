@@ -23,19 +23,19 @@ class TelaPlaylist:
         
     def pega_nome_playlist(self):
         print("_____Escolha nome da Playlist_____")
-        nome_playlist = input("Nome da Playlist")
+        nome_playlist = input("Nome da Playlist ")
         return nome_playlist
     
     def alterar_nome_playlist(self):
         print('__Escolha novo nome da PlayList___')
-        novo_nome = input('Novo nome da Playlist')
+        novo_nome = input('Novo nome da Playlist ')
         return novo_nome
 
     def pegar_musica(self):
         print('___Digite_informações_da_música___')
-        nome_musica = input()
-        artista = input()
-        genero = input()
+        nome_musica = input('Música: ')
+        artista = input('Artista: ')
+        genero = input('Gênero: ')
 
         return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
 
