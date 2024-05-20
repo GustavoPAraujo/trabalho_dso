@@ -1,7 +1,7 @@
 
 
 class TelaPlaylist:
-    def TelaOpcoes(self):
+    def tela_opcoes(self):
         print('___Tela Do Sistema___')
         print('1: Criar Playlist')
         print('2: Excluir Playlist')

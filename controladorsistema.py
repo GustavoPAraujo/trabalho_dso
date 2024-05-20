@@ -4,11 +4,13 @@ from controladorusuario import ControladorUsuario
 from controladorartista import ControladorArtista
 from controladorgenero import ControladorGenero
 from controladorplaylist import ControladorPlaylist
+from recomendacao import Recomendacao
 
 
 class ControladorSistema():
 
     def __init__(self) -> None:
+        self.__recomendacao = Recomendacao(self)
         self.__controlador_usuario = ControladorUsuario(self)
         self.__controlador_musica = ControladorMusica(self)
         self.__controlador_artista = ControladorArtista(self)
@@ -34,7 +36,11 @@ class ControladorSistema():
     
     @property
     def controlador_platlist(self):
-        return self.__controlador_platlist
+        return self.__controlador_playlist
+    
+    @property
+    def recomendacao(self):
+        return self.__recomendacao
 
     def inicia_sistema(self):
         self.abre_tela()
@@ -54,9 +60,12 @@ class ControladorSistema():
     def cadastra_playlist(self):
         self.__controlador_platlist.abre_tela()
 
+    def gera_recomendacao(self):
+        self.__recomendacao.abre_tela()
+
     def abre_tela(self):
         lista_opcoes = {1: self.cadastra_usuario, 2: self.cadastra_musica,
-                        3: self.cadastra_artista, 4: self.cadastra_genero, 5: self.cadastra_playlist}
+                        3: self.cadastra_artista, 4: self.cadastra_genero, 5: self.cadastra_playlist, 6: self.gera_recomendacao}
 
         while True:
             opcao = self.__tela_sistema.tela_opcoes()

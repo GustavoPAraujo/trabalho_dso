@@ -99,4 +99,4 @@ class ControladorPlaylist:
                         4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excluir_musica, 0: self.retornar}
 
         while True:
-            lista_opcoes[self.__tela_playlist.TelaOpcoes()]()
+            lista_opcoes[self.__tela_playlist.tela_opcoes()]()
