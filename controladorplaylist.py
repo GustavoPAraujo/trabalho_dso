@@ -46,7 +46,8 @@ class ControladorPlaylist:
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
                 novo_nome = self.__tela_playlist.alterar_nome_playlist()
-                return novo_nome
+                playlist.nome_playlist = novo_nome
+                print('Nome editado com sucesso')
             else:
                 print( 'Essa PlayList não existe')
 
