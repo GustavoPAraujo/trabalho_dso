@@ -37,4 +37,3 @@ class Musica:
     def genero(self, genero):
         if isinstance(genero, Genero):
             self.__genero = genero
-    
