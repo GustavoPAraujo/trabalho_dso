@@ -25,23 +25,22 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Gênero não encontrado.")
             return
 
-        nova_musica = Musica(
-            dados_musica["nome_musica"], artista, genero)  # type: ignore
-
         for musica in self.__lista_musicas:
-            if (musica.nome_musica == nova_musica.nome_musica and
-                musica.artista == nova_musica.artista and
-                    musica.genero == nova_musica.genero):
+            if (musica.nome_musica == dados_musica["nome_musica"] and
+                musica.artista == artista and
+                    musica.genero == genero):
                 self.__tela_musica.mostra_mnsg("")
                 self.__tela_musica.mostra_mnsg("Essa música já está cadastrada.")
                 self.__tela_musica.mostra_mnsg("")
                 return
 
-        if nova_musica not in self.__lista_musicas:
-            self.__lista_musicas.append(nova_musica)
-            self.__tela_musica.mostra_mnsg("")
-            self.__tela_musica.mostra_mnsg("Musica criada com sucesso!")
-            self.__tela_musica.mostra_mnsg("")
+        nova_musica = Musica(
+            dados_musica["nome_musica"], artista, genero)
+         
+        self.__lista_musicas.append(nova_musica)
+        self.__tela_musica.mostra_mnsg("")
+        self.__tela_musica.mostra_mnsg("Musica criada com sucesso!")
+        self.__tela_musica.mostra_mnsg("")
 
     def listar_musicas(self):
         self.__tela_musica.mostra_mnsg("")
