@@ -1,22 +1,17 @@
 
+
+import PySimpleGUI as sg
 class TelaSistema:
     def tela_opcoes(self):
-        print("_____tela_do_sistema_____")
-        print("1: Usuario")
-        print("2: Musicas")
-        print("3: Artistas")
-        print("4: Gêneros")
-        print("5: PlayLists")
-        print('6: Recomendações')
-        print("0: Finalizar Sistema")
 
+        layout = [
+            [sg.Text('Please enter your Name, Address, Phone')],
+            [sg.Text('Name', size=(15, 1)), sg.InputText('name')],
+            [sg.Text('Address', size=(15, 1)), sg.InputText('address')],
+            [sg.Text('Phone', size=(15, 1)), sg.InputText('phone')],
+            [sg.Submit(), sg.Cancel()]
+        ]
+        window = sg.Window('Simple data entry window').Layout(layout)
+        button, values = window.Read()
+        print(button, values[0], values[1], values[2])
 
-        while True:
-            try:
-                opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 6:
-                    return opcao
-                else:
-                    print("\nEscolha uma opção válida\n")
-            except ValueError:
-                print("\nPor favor, insira um número inteiro.\n")
