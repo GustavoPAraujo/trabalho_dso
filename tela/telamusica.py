@@ -1,24 +1,46 @@
+import PySimpleGUI as sg
 
 class TelaMusica:
+    def __init__(self):
+        self.__window = None
+        self.init_components()
+
+    def init_components(self):
+        sg.theme('Reddit')
+        layout = [
+            [sg.Text('Tela do Sistema')],
+            [sg.Radio('Adicionar uma Música', "RADIO1", key='1')],
+            [sg.Radio('Listar Músicas', "RADIO1", key='2')],
+            [sg.Radio('Listar Músicas por Gênero', "RADIO1", key='3')],
+            [sg.Radio('Listar Músicas por Artista', "RADIO1", key='4')],
+            [sg.Radio('Voltar', "RADIO1", key='5')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
     
     def tela_opcoes(self):
-        print("______Música______")
-        print("1: Adicionar uma Música")
-        print("2: Listar Músicas")
-        print("3: Listar Músicas por Gênero")
-        print("4: Listar Músicas por Artista")
-        print("0: RETORNAR")
-        while True:
-            try:
-                opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 4:
-                    return opcao
-                else:
-                    print("\nEscolha uma opção válida\n")
-            except ValueError:
-                print("\nPor favor, insira um número inteiro.\n")
+        self.init_components()
+        button, values = self.__window.read() # type: ignore
+        opcao = 0
 
+        if values:
+            for key in values:
+                if values[key]:
+                    opcao = int(key)
 
+        if button in (None, 'Cancel'):
+            opcao = 0
+        
+        self.close()
+        return opcao
+
+    def close(self):
+        if self.__window:
+            self.__window.close()
+            self.__window = None 
+
+#fazer
+'''
     def pega_dados_musica(self):
         print("_____Insira_os_dados_da_musica_____")
         nome_musica = input("Nome da Musica: ")
@@ -47,3 +69,4 @@ class TelaMusica:
 
     def mostra_mnsg(self, mnsg):
         print(mnsg)
+'''
