@@ -20,11 +20,11 @@ class TelaSistema:
         self.__window = sg.Window('Tela do Sistema', layout)
 
     def tela_opcoes(self):
-        self.init_components()  # Inicializa os componentes da janela
-        button, values = self.__window.read()  # Lê os eventos e valores da janela
+        self.init_components()
+        button, values = self.__window.read()
         opcao = 0
 
-        if values:  # Verifica se values não é None
+        if values:
             for key in values:
                 if values[key]:
                     opcao = int(key)
@@ -36,6 +36,6 @@ class TelaSistema:
         return opcao
 
     def close(self):
-        if self.__window:  # Verifica se a janela foi criada antes de fechar
+        if self.__window:
             self.__window.close()
             self.__window = None
