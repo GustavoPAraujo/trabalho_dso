@@ -14,11 +14,13 @@ class TelaSistema:
             [sg.Radio('encerra_sistema ', "RADIO1", default=True)],
             [sg.Submit(), sg.Cancel()]
         ]
-        window = sg.Window('Simple data entry window').Layout(layout)
-        button, values = window.Read()
-        print(button, values[0], values[1], values[2])
+        window = sg.Window('Tela do Sistema').Layout(layout)
+        values = window.Read()
+        print(values[0], values[1], values[2], values[3], values[4], values[5], values[6])
 
 
+
+'''
         while True:
             try:
                 opcao = int(input("Escolha uma opção: "))
@@ -28,3 +30,4 @@ class TelaSistema:
                     print("\nEscolha uma opção válida\n")
             except ValueError:
                 print("\nPor favor, insira um número inteiro.\n")
+'''
