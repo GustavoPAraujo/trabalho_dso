@@ -3,7 +3,11 @@ import PySimpleGUI as sg
 
 
 class TelaSistema:
-    def tela_opcoes(self):
+    def __init__(self):
+        self.__window = None
+        self.init_components()
+
+    def init_components(self):
 
         sg.ChangeLookAndFeel('Reddit')
         layout = [
@@ -17,20 +21,23 @@ class TelaSistema:
             [sg.Radio('encerra_sistema ', "RADIO1", default=True)],
             [sg.Ok(), sg.Cancel()]
         ]
-        window = sg.Window('Tela do Sistema').Layout(layout)
-        Button, values = window.Read()
-        print(values[0], values[1], values[2], values[3], values[4], values[5], values[6])
+        self.__window = sg.Window('Tela do Sistema').Layout(layout)
 
+    def tela_opcoes(self):
+            self.init_components()
+            button, values = self.__window.Read()
+            opcao = 0
+            if values['1']:
+                opcao = 1
+            if values['2']:
+                opcao = 2
+            if values['3']:
+                opcao = 3
+            # cobre os casos de voltar, não clicar em nada e fechar janela, ou clicar cancelar
+            if values['0'] or button in (None,'Cancelar'):
+                opcao = 0
+            self.close()
+            return opcao
 
-
-'''
-        while True:
-            try:
-                opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 6:
-                    return opcao
-                else:
-                    print("\nEscolha uma opção válida\n")
-            except ValueError:
-                print("\nPor favor, insira um número inteiro.\n")
-'''
+    def close(self):
+        self.__window.Close()
