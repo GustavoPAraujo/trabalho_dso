@@ -34,7 +34,7 @@ class ControladorGenero:
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_genero, 0: self.retornar}
+        lista_opcoes = {1: self.cadastra_genero, 2: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_genero.tela_opcoes()]()
