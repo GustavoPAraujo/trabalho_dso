@@ -1,6 +1,6 @@
-
-
 import PySimpleGUI as sg
+
+
 class TelaSistema:
     def tela_opcoes(self):
         layout = [
