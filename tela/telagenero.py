@@ -47,4 +47,5 @@ class TelaGenero:
         return {"genero": genero}
 
     def mostra_mnsg(self, mnsg):
-        print(mnsg)'''
+        print(mnsg)
+'''

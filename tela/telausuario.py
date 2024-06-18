@@ -1,27 +1,50 @@
+import PySimpleGUI as sg
 
 class TelaUsuario:
+    def __init__(self):
+        self.__window = None
+        self.init_components()
 
-    def tela_opcoes(self) -> int:
-        print("--------Usuario--------")
-        print("Escolha a opção:")
-        print("1: Criar Usuario")
-        print("2: Excluir Usuario")
-        print("3: Listar Usuarios")
-        print("4: Adicionar Musicas Preferidas")
-        print("5: Adicionar Amizade")
-        print("6: Minhas amizades")
-        print("7: Musicas Preferidas dos amigos")
-        print("0: Retornar")
-        while True:
-            try:
-                opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 7:
-                    return opcao
-                else:
-                    print("\nEscolha uma opção válida\n")
-            except ValueError:
-                print("\nPor favor, insira um número inteiro.\n")
+    def init_components(self):
+        sg.theme('Reddit')
+        layout = [
+            [sg.Text('Tela do Sistema')],
+            [sg.Radio('Criar Usuário', "RADIO1", key='1')],
+            [sg.Radio('Excluir Usuário', "RADIO1", key='2')],
+            [sg.Radio('Listar Usuários', "RADIO1", key='3')],
+            [sg.Radio('Adicionar músicas preferidas', "RADIO1", key='4')],
+            [sg.Radio('Adicionar Amizades', "RADIO1", key='5')],
+            [sg.Radio('Minhas amizades', "RADIO1", key='6')],
+            [sg.Radio('Musicas preferidas dos meus amigos', "RADIO1", key='7')],
+            [sg.Radio('Voltar', "RADIO1", key='8')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
 
+    def tela_opcoes(self):
+        self.init_components()
+        button, values = self.__window.read() # type: ignore
+        opcao = 0
+
+        if values:
+            for key in values:
+                if values[key]:
+                    opcao = int(key)
+
+        if button in (None, 'Cancel'):
+            opcao = 0
+        
+        self.close()
+        return opcao
+
+    def close(self):
+        if self.__window:
+            self.__window.close()
+            self.__window = None
+
+
+#fazer
+'''
     def seleciona_usuario(self) -> str:
         self.mostra_mensagem("")
         usuario_selecionado = input("Insira o Nome de Usuario: ")
@@ -58,3 +81,4 @@ class TelaUsuario:
 
     def mostra_mensagem(self, msg):
         print(msg)
+'''
