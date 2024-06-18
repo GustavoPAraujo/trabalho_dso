@@ -22,7 +22,7 @@ class TelaSistema:
 
     def tela_opcoes(self):
         self.init_components()
-        button, values = self.__window.read()
+        button, values = self.__window.read() # type: ignore
         opcao = 0
 
         if values:
