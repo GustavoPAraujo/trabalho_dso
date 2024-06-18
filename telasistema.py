@@ -3,6 +3,8 @@ import PySimpleGUI as sg
 
 class TelaSistema:
     def tela_opcoes(self):
+
+        sg.ChangeLookAndFeel('Reddit')
         layout = [
             [sg.Text('Tela do Sistema')],
             [sg.Radio('cadastra_usuario ', "RADIO1", default=True)],
