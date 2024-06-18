@@ -1,10 +1,10 @@
-from telasistema import TelaSistema
-from controladormusica import ControladorMusica
-from controladorusuario import ControladorUsuario
-from controladorartista import ControladorArtista
-from controladorgenero import ControladorGenero
-from controladorplaylist import ControladorPlaylist
-from recomendacao import Recomendacao
+from tela.telasistema import TelaSistema
+from controle.controladormusica import ControladorMusica
+from controle.controladorusuario import ControladorUsuario
+from controle.controladorartista import ControladorArtista
+from controle.controladorgenero import ControladorGenero
+from controle.controladorplaylist import ControladorPlaylist
+from entidades.recomendacao import Recomendacao
 
 
 class ControladorSistema():

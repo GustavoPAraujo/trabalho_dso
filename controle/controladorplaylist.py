@@ -1,6 +1,6 @@
 from typing import List
-from playlist import PlayList
-from telaplaylist import TelaPlaylist
+from entidades.playlist import PlayList
+from tela.telaplaylist import TelaPlaylist
 
 class ControladorPlaylist:
     def __init__(self, controlador_sistema) -> None:

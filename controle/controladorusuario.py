@@ -1,6 +1,6 @@
 from typing import List
-from usuario import Usuario
-from telausuario import TelaUsuario
+from entidades.usuario import Usuario
+from tela.telausuario import TelaUsuario
 
 
 class ControladorUsuario:

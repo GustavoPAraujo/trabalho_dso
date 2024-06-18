@@ -1,6 +1,6 @@
 from typing import List
-from artista import Artista
-from telaartista import TelaArtista
+from entidades.artista import Artista
+from tela.telaartista import TelaArtista
 
 
 class ControladorArtista:

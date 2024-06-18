@@ -1,5 +1,5 @@
-from artista import Artista
-from genero import Genero
+from entidades.artista import Artista
+from entidades.genero import Genero
 
 
 class Musica:

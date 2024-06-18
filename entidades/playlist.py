@@ -1,5 +1,5 @@
-from musica import Musica
-from usuario import Usuario
+from entidades.musica import Musica
+from entidades.usuario import Usuario
 
 
 class PlayList:

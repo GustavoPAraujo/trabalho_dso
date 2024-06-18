@@ -1,4 +1,4 @@
-from telarecomendacao import TelaRecomendacao
+from tela.telarecomendacao import TelaRecomendacao
 import random
 
 class Recomendacao:

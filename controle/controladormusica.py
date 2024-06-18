@@ -1,7 +1,7 @@
 from typing import List
-from artista import Artista
-from musica import Musica
-from telamusica import TelaMusica
+from entidades.artista import Artista
+from entidades.musica import Musica
+from tela.telamusica import TelaMusica
 
 
 class ControladorMusica:

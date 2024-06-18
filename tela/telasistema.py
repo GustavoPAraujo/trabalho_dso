@@ -1,3 +1,4 @@
+from tkinter import Button
 import PySimpleGUI as sg
 
 
@@ -14,10 +15,10 @@ class TelaSistema:
             [sg.Radio('cadastra_playlist ', "RADIO1", default=True)],
             [sg.Radio('gera_recomendacao ', "RADIO1", default=True)],
             [sg.Radio('encerra_sistema ', "RADIO1", default=True)],
-            [sg.Submit(), sg.Cancel()]
+            [sg.Ok(), sg.Cancel()]
         ]
         window = sg.Window('Tela do Sistema').Layout(layout)
-        values = window.Read()
+        Button, values = window.Read()
         print(values[0], values[1], values[2], values[3], values[4], values[5], values[6])
 
 

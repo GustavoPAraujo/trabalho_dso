@@ -1,6 +1,6 @@
 from typing import List
-from genero import Genero
-from telagenero import TelaGenero
+from entidades.genero import Genero
+from tela.telagenero import TelaGenero
 
 
 class ControladorGenero:

@@ -1,4 +1,4 @@
-from pessoa import Pessoa
+from entidades.pessoa import Pessoa
 
 
 class Artista(Pessoa):
