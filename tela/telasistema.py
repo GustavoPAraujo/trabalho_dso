@@ -3,7 +3,6 @@ import PySimpleGUI as sg
 class TelaSistema:
     def __init__(self):
         self.__window = None
-        self.init_components()
 
     def init_components(self):
         sg.theme('Reddit')
@@ -21,8 +20,8 @@ class TelaSistema:
         self.__window = sg.Window('Tela do Sistema', layout)
 
     def tela_opcoes(self):
-        self.init_components()
-        button, values = self.__window.read()  # Use o método read() corretamente
+        self.init_components()  # Inicializa os componentes da janela
+        button, values = self.__window.read()  # Lê os eventos e valores da janela
         opcao = 0
 
         if values:  # Verifica se values não é None
@@ -39,10 +38,4 @@ class TelaSistema:
     def close(self):
         if self.__window:  # Verifica se a janela foi criada antes de fechar
             self.__window.close()
-'''
-# Para testar a tela
-if __name__ == '__main__':
-    tela = TelaSistema()
-    opcao = tela.tela_opcoes()
-    print(f'Opção escolhida: {opcao}')
-'''
+            self.__window = None
