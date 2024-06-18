@@ -9,13 +9,13 @@ class TelaSistema:
         sg.theme('Reddit')
         layout = [
             [sg.Text('Tela do Sistema')],
-            [sg.Radio('cadastra_usuario', "RADIO1", key='1')],
-            [sg.Radio('cadastra_musica', "RADIO1", key='2')],
-            [sg.Radio('cadastra_artista', "RADIO1", key='3')],
-            [sg.Radio('cadastra_genero', "RADIO1", key='4')],
-            [sg.Radio('cadastra_playlist', "RADIO1", key='5')],
-            [sg.Radio('gera_recomendacao', "RADIO1", key='6')],
-            [sg.Radio('encerra_sistema', "RADIO1", key='7')],
+            [sg.Radio('Usuário', "RADIO1", key='1')],
+            [sg.Radio('Música', "RADIO1", key='2')],
+            [sg.Radio('Artista', "RADIO1", key='3')],
+            [sg.Radio('Gênero', "RADIO1", key='4')],
+            [sg.Radio('Playlist', "RADIO1", key='5')],
+            [sg.Radio('Recomendação', "RADIO1", key='6')],
+            [sg.Radio('Encerra sistema', "RADIO1", key='7')],
             [sg.Ok(), sg.Cancel()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)

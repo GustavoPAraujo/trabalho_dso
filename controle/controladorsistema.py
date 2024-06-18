@@ -73,7 +73,7 @@ class ControladorSistema():
                         4: self.cadastra_genero,
                         5: self.cadastra_playlist, 
                         6: self.gera_recomendacao,
-                        0: self.encerra_sistema}
+                        7: self.encerra_sistema}
 
         while True:
             opcao = self.__tela_sistema.tela_opcoes()
