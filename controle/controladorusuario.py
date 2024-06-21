@@ -4,7 +4,7 @@ from tela.telausuario import TelaUsuario
 
 
 class ControladorUsuario:
-    def __init__(self, controlador_sistema) -> None:
+    def __init__(self, controlador_sistema):
         self.__lista_usuarios: List[Usuario] = list()
         self.__tela_usuario = TelaUsuario()
         self.__controlador_sistema = controlador_sistema
@@ -27,13 +27,9 @@ class ControladorUsuario:
                 break
         if not nome_de_usuario_existente:
             self.__lista_usuarios.append(novo_usuario)
-            self.__tela_usuario.mostra_mensagem("")
             self.__tela_usuario.mostra_mensagem("Usuário criado com sucesso!")
-            self.__tela_usuario.mostra_mensagem("")
         else:
-            self.__tela_usuario.mostra_mensagem("")
             self.__tela_usuario.mostra_mensagem("Esse nome de usuário não está disponível")
-            self.__tela_usuario.mostra_mensagem("")
 
     # 2
     def excuir_usuario(self):
@@ -43,18 +39,14 @@ class ControladorUsuario:
 
         if (usuario is not None):
             self.__lista_usuarios.remove(usuario)
-            self.__tela_usuario.mostra_mensagem("")
             self.__tela_usuario.mostra_mensagem("Usuario removido com sucesso")
-            self.__tela_usuario.mostra_mensagem("")
         else:
             self.__tela_usuario.mostra_mensagem(
                 "Este Nome de Usuario não existe")
 
     # 3
     def listar_usuarios(self):
-        self.__tela_usuario.mostra_mensagem("")
         self.__tela_usuario.mostra_mensagem("Lista de Usuarios: ")
-        self.__tela_usuario.mostra_mensagem("")
         for usuario in self.__lista_usuarios:
             self.__tela_usuario.mostrar_usuario(
                 {"nome": usuario.nome, "nome_usuario": usuario.nome_usuario, "email": usuario.email, "telefone": usuario.telefone})
@@ -73,15 +65,12 @@ class ControladorUsuario:
         for valor in musicas_preferidas.values():
             usuario.musicas_preferidas.append(valor)
         
-        self.__tela_usuario.mostra_mensagem("")
         self.__tela_usuario.mostra_mensagem("As musicas favoritas foram adicionadas!")
-        self.__tela_usuario.mostra_mensagem("")
 
     # 5
     def adicionar_amizades(self):
         dados_amizade = self.__tela_usuario.fazer_amizade()
         dados_usuario = self.__tela_usuario.seleciona_usuario()
-        self.__tela_usuario.mostra_mensagem("")
         usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
         amigo = self.pega_usuario_por_nome_usuario(dados_amizade)
 
@@ -93,9 +82,7 @@ class ControladorUsuario:
         usuario.amizades.append(amigo)
         amigo.amizades.append(usuario)
 
-        self.__tela_usuario.mostra_mensagem("")
         self.__tela_usuario.mostra_mensagem("Amizade adicionada com sucesso.")
-        self.__tela_usuario.mostra_mensagem("")
 
     # 6
     def ver_amizades(self):
@@ -107,7 +94,7 @@ class ControladorUsuario:
             for amizade in usuario.amizades:
                 nome_amigo = amizade.nome_usuario
                 self.__tela_usuario.mostra_mensagem(nome_amigo)
-            self.__tela_usuario.mostra_mensagem("")
+
     
     #7
     def ver_musicas_favoritas_amigos(self):
@@ -126,14 +113,12 @@ class ControladorUsuario:
             return
         
         if amigo in usuario.amizades:
-            self.__tela_usuario.mostra_mensagem("")
             self.__tela_usuario.mostra_mensagem("Músicas favoritas de " + nome_amigo + ":")
             for musica in amigo.musicas_preferidas:
                 self.__tela_usuario.mostra_mensagem("- " + musica)
-            self.__tela_usuario.mostra_mensagem("")
         else:
             self.__tela_usuario.mostra_mensagem(nome_amigo + " não é seu amigo.")
-            self.__tela_usuario.mostra_mensagem("")
+
 
 
 
