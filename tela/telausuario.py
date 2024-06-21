@@ -86,23 +86,33 @@ class TelaUsuario:
 
         self.close()
         return {"nome": nome, 'nome_usuario': nome_usuario, 'email': email, 'telefone': telefone}
+    
+
+    def mostrar_usuario(self, dados_ususario):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text(f"Nome do Usuario: {dados_ususario['nome']}")],
+            [sg.Text(f"Nome de Usuario: {dados_ususario['nome_usuario']}")],
+            [sg.Text(f"Email do Usuario: {dados_ususario['email']}")],
+            [sg.Text(f"Telefone do Usuario: {dados_ususario['telefone']}")],
+            [sg.Ok()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+    def fazer_amizade(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("Digite o nome de Usuario do Amigo: ", size=(20,1)), sg.InputText('', key='nome')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+    def musicas_preferidas(self):
+        pass
+
 '''
-    def pega_dados_usuario(self) -> dict[str, str]:
-        print("_____Insira_os_seus_dados_____")
-        nome = input("Nome: ")
-        nome_usuario = input("Nome de Usuario: ")
-        email = input("Email: ")
-        telefone = input("Telefone: ")
-
-        return {"nome": nome, "nome_usuario": nome_usuario, "email": email, "telefone": telefone}
-
-    def mostrar_usuario(self, dados_usuario):
-        print("Nome do Usuario: ", dados_usuario["nome"])
-        print("Nome de Usuario: ", dados_usuario["nome_usuario"])
-        print("Email do Usuario: ", dados_usuario["email"])
-        print("Telefone do Usuario: ", dados_usuario["telefone"])
-        print("\n")
-
     def fazer_amizade(self) -> str:
         self.mostra_mensagem("")
         amigo: str = input("Digite o nome de Usuario do Amigo: ")

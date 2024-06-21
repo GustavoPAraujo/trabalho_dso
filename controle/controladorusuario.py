@@ -35,7 +35,7 @@ class ControladorUsuario:
     def excuir_usuario(self):
         self.listar_usuarios()
         usuario_excluir = self.__tela_usuario.seleciona_usuario()
-        usuario = self.pega_usuario_por_nome_usuario(usuario_excluir)
+        usuario = self.pega_usuario_por_nome_usuario(usuario_excluir) # type: ignore
 
         if (usuario is not None):
             self.__lista_usuarios.remove(usuario)
@@ -56,7 +56,7 @@ class ControladorUsuario:
     def adicionar_musicas_preferidas(self):
         dados_usuario = self.__tela_usuario.seleciona_usuario()
         musicas_preferidas = self.__tela_usuario.musicas_preferidas()
-        usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
+        usuario = self.pega_usuario_por_nome_usuario(dados_usuario["nome"])
 
         if usuario is None:
             self.__tela_usuario.mostra_mensagem("Usuario Invalido")
@@ -71,8 +71,8 @@ class ControladorUsuario:
     def adicionar_amizades(self):
         dados_amizade = self.__tela_usuario.fazer_amizade()
         dados_usuario = self.__tela_usuario.seleciona_usuario()
-        usuario = self.pega_usuario_por_nome_usuario(dados_usuario)
-        amigo = self.pega_usuario_por_nome_usuario(dados_amizade)
+        usuario = self.pega_usuario_por_nome_usuario(dados_usuario) # type: ignore
+        amigo = self.pega_usuario_por_nome_usuario(dados_amizade) # type: ignore
 
         if usuario is None or amigo is None:
             self.__tela_usuario.mostra_mensagem(
@@ -88,7 +88,7 @@ class ControladorUsuario:
     def ver_amizades(self):
 
         nome_usuario = self.__tela_usuario.seleciona_usuario()
-        usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
+        usuario = self.pega_usuario_por_nome_usuario(nome_usuario) # type: ignore
         if usuario in self.__lista_usuarios:
             self.__tela_usuario.mostra_mensagem("Meus amigos: ")
             for amizade in usuario.amizades:
@@ -99,25 +99,25 @@ class ControladorUsuario:
     #7
     def ver_musicas_favoritas_amigos(self):
         nome_usuario = self.__tela_usuario.seleciona_usuario()
-        usuario = self.pega_usuario_por_nome_usuario(nome_usuario)
+        usuario = self.pega_usuario_por_nome_usuario(nome_usuario) # type: ignore
 
         if usuario is None:
             self.__tela_usuario.mostra_mensagem("Usuário não encontrado.")
             return
 
         nome_amigo = self.__tela_usuario.fazer_amizade()
-        amigo = self.pega_usuario_por_nome_usuario(nome_amigo)
+        amigo = self.pega_usuario_por_nome_usuario(nome_amigo) # type: ignore
 
         if amigo is None:
             self.__tela_usuario.mostra_mensagem("Amigo não encontrado.")
             return
         
         if amigo in usuario.amizades:
-            self.__tela_usuario.mostra_mensagem("Músicas favoritas de " + nome_amigo + ":")
+            self.__tela_usuario.mostra_mensagem("Músicas favoritas de " + nome_amigo + ":") # type: ignore
             for musica in amigo.musicas_preferidas:
                 self.__tela_usuario.mostra_mensagem("- " + musica)
         else:
-            self.__tela_usuario.mostra_mensagem(nome_amigo + " não é seu amigo.")
+            self.__tela_usuario.mostra_mensagem(nome_amigo + " não é seu amigo.") # type: ignore
 
 
 
