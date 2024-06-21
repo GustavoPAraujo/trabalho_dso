@@ -1,4 +1,3 @@
-from tabnanny import check
 import PySimpleGUI as sg
 
 class TelaGenero:
@@ -51,15 +50,7 @@ class TelaGenero:
         return {"genero" : genero}
 
     def mostra_mnsg(self, mnsg):
-
-        sg.theme('DarkTeal4')
-        layout = [
-            [sg.Text('Gênero')],
-            [sg.popup(mnsg, title="Mensagem do Sistema")],
-            [sg.Ok(), sg.Cancel()]
-        ]
-
-        self.__window = sg.Window('Tela do Sistema', layout)
+        sg.popup(mnsg, title="Mensagem do Sistema")
 
 
     def close(self):
