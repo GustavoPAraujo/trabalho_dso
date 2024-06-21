@@ -6,7 +6,7 @@ class TelaSistema:
         self.init_components()
 
     def init_components(self):
-        sg.theme('Reddit')
+        sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Tela do Sistema')],
             [sg.Radio('Usuário', "RADIO1", key='1')],

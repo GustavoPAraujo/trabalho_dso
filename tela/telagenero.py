@@ -6,16 +6,6 @@ class TelaGenero:
         self.__window = None
         self.init_components()
 
-    def init_components(self):
-        sg.theme('Reddit')
-        layout = [
-            [sg.Text('Gênero')],
-            [sg.Radio('Cadastrar Gênero', "RADIO1", key='1')],
-            [sg.Radio('Voltar', "RADIO1", key='2')],
-            [sg.Ok(), sg.Cancel()]
-        ]
-        self.__window = sg.Window('Tela do Sistema', layout)
-
 
     def tela_opcoes(self):
         self.init_components()
@@ -33,16 +23,21 @@ class TelaGenero:
         self.close()
         return opcao
 
-    def close(self):
-        if self.__window:
-            self.__window.close()
-            self.__window = None
-    
-    def criar_genero(self):
-        sg.theme('Reddit')
+    def init_components(self):
+        sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Gênero')],
-            [sg.Text('Digite o nome do Gênero: ', size=(15,1)), sg.InputText('', key='genero')],
+            [sg.Radio('Cadastrar Gênero', "RADIO1", key='1')],
+            [sg.Radio('Voltar', "RADIO1", key='2')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+    def criar_genero(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Gênero')],
+            [sg.Text('Digite o nome do Gênero: ', size=(10,1)), sg.InputText('', key='genero')],
             [sg.Ok(), sg.Cancel()]
         ]
 
@@ -54,6 +49,23 @@ class TelaGenero:
 
         self.close()
         return {"genero" : genero}
+
+    def mostra_mnsg(self, mnsg):
+
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Gênero')],
+            [sg.popup(mnsg, title="Mensagem do Sistema")],
+            [sg.Ok(), sg.Cancel()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+
+    def close(self):
+        if self.__window:
+            self.__window.close()
+            self.__window = None
 
     def open(self):
         button, values = self.__window.Read() #type: ignore
