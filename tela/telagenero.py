@@ -36,7 +36,7 @@ class TelaGenero:
         sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Gênero')],
-            [sg.Text('Digite o nome do Gênero: ', size=(10,1)), sg.InputText('', key='genero')],
+            [sg.Text('Digite o nome do Gênero: ', size=(20,1)), sg.InputText('', key='genero')],
             [sg.Ok(), sg.Cancel()]
         ]
 
