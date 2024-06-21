@@ -1,3 +1,4 @@
+from tabnanny import check
 import PySimpleGUI as sg
 
 class TelaGenero:
@@ -36,7 +37,28 @@ class TelaGenero:
         if self.__window:
             self.__window.close()
             self.__window = None
+    
+    def criar_genero(self):
+        sg.theme('Reddit')
+        layout = [
+            [sg.Text('Gênero')],
+            [sg.Text('Digite o nome do Gênero: ', size=(15,1)), sg.InputText('', key='genero')],
+            [sg.Ok(), sg.Cancel()]
+        ]
 
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        genero = values['genero']
+
+
+        self.close()
+        return {"genero" : genero}
+
+    def open(self):
+        button, values = self.__window.Read() #type: ignore
+        return button, values
+    
 
 #fazer
 '''
