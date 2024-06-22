@@ -103,11 +103,17 @@ class TelaUsuario:
     def fazer_amizade(self):
         sg.theme('DarkTeal4')
         layout = [
-            [sg.Text("Digite o nome de Usuario do Amigo: ", size=(20,1)), sg.InputText('', key='nome')],
+            [sg.Text("Digite o nome de Usuario do Amigo: ", size=(20,1)), sg.InputText('', key='amigo')],
             [sg.Ok(), sg.Cancel()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        amigo = values['amogp']
+
+        self.close()
+        return {"amigo": amigo}
 
     def musicas_preferidas(self):
         pass

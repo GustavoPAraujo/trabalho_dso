@@ -50,7 +50,6 @@ class ControladorUsuario:
         for usuario in self.__lista_usuarios:
             self.__tela_usuario.mostrar_usuario(
                 {"nome": usuario.nome, "nome_usuario": usuario.nome_usuario, "email": usuario.email, "telefone": usuario.telefone})
-            
 
     # 4
     def adicionar_musicas_preferidas(self):
