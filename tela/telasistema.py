@@ -16,7 +16,7 @@ class TelaSistema:
             [sg.Radio('Playlist', "RADIO1", key='5')],
             [sg.Radio('Recomendação', "RADIO1", key='6')],
             [sg.Radio('Encerra sistema', "RADIO1", key='7')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
 

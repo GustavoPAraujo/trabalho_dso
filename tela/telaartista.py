@@ -37,7 +37,7 @@ class TelaArtista:
             [sg.Text('Artista')],
             [sg.Radio('Cadastrar Artista', "RADIO1", key='1')],
             [sg.Radio('Voltar', "RADIO1", key='2')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
 
@@ -47,7 +47,7 @@ class TelaArtista:
             [sg.Text('Artista')],
             [sg.Text('Digite o nome do Artista: ', size=(20,1)), sg.InputText('', key='nome')],
             [sg.Text('Digite o nome Artistico: ', size=(20,1)), sg.InputText('', key='nome_artistico')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)

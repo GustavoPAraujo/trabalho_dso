@@ -32,7 +32,7 @@ class TelaPlaylist:
             [sg.Radio('adicionar música', "RADIO1", key='5')],
             [sg.Radio('Excluir música', "RADIO1", key='6')],
             [sg.Radio('Voltar', "RADIO1", key='7')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
     
@@ -54,7 +54,7 @@ class TelaPlaylist:
         layout = [
             [sg.Text('_____Escolha nome da Playlist_____')],
             [sg.Text('Nome da Playlist : ', size=(20,1)), sg.InputText('', key='nome_playlist')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -69,7 +69,7 @@ class TelaPlaylist:
         layout = [
             [sg.Text('__Escolha novo nome da PlayList___')],
             [sg.Text('Novo nome da Playlist: ', size=(20,1)), sg.InputText('', key='novo_nome')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -86,7 +86,7 @@ class TelaPlaylist:
             [sg.Text('Música: ', size=(20,1)), sg.InputText('', key='nome_musica')],
             [sg.Text('Artista: ', size=(20,1)), sg.InputText('', key='artista')],
             [sg.Text('Gênero: ', size=(20,1)), sg.InputText('', key='genero')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)

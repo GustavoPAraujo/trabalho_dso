@@ -31,7 +31,7 @@ class TelaMusica:
             [sg.Radio('Listar Músicas por Gênero', "RADIO1", key='3')],
             [sg.Radio('Listar Músicas por Artista', "RADIO1", key='4')],
             [sg.Radio('Voltar', "RADIO1", key='5')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
     
@@ -55,7 +55,7 @@ class TelaMusica:
             [sg.Text('Digite o nome da Musica: ', size=(20,1)), sg.InputText('', key='nume_musica')],
             [sg.Text('Digite o nome do Artista: ', size=(20,1)), sg.InputText('', key='artista')],
             [sg.Text('Digite o nome do Genero: ', size=(20,1)), sg.InputText('', key='genero')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -74,7 +74,7 @@ class TelaMusica:
         layout = [
             [sg.Text('Insira o Genero')],
             [sg.Text('Digite o Genero: ', size=(20,1)), sg.InputText('', key='genero')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -89,7 +89,7 @@ class TelaMusica:
         layout = [
             [sg.Text('Insira o nome do artista')],
             [sg.Text('Digite nome do artista ', size=(20,1)), sg.InputText('', key='artista')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)

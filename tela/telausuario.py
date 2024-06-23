@@ -42,7 +42,7 @@ class TelaUsuario:
             [sg.Radio('Minhas amizades', "RADIO1", key='6')],
             [sg.Radio('Musicas preferidas dos meus amigos', "RADIO1", key='7')],
             [sg.Radio('Voltar', "RADIO1", key='8')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
 
@@ -54,7 +54,7 @@ class TelaUsuario:
         layout = [
             [sg.Text('Usuario')],
             [sg.Text('Insira o Nome de Usuario: ', size=(20,1)), sg.InputText('', key='nome')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -73,7 +73,7 @@ class TelaUsuario:
             [sg.Text('Insira o Nome de Usuario: ', size=(20,1)), sg.InputText('', key='nome_usuario')],
             [sg.Text('Insira o email do Usuario: ', size=(20,1)), sg.InputText('', key='email')],
             [sg.Text('Insira o telefone do Usuario: ', size=(20,1)), sg.InputText('', key='telefone')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -104,7 +104,7 @@ class TelaUsuario:
         sg.theme('DarkTeal4')
         layout = [
             [sg.Text("Digite o nome de Usuario do Amigo: ", size=(20,1)), sg.InputText('', key='amigo')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -127,7 +127,4 @@ class TelaUsuario:
         musica3 = input("Música 3: ")
 
         return {"Musica1": musica1, "Musica2": musica2, "Musica3": musica3}
-
-    def mostra_mensagem(self, msg):
-        print(msg)
 '''

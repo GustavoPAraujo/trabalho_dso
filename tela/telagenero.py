@@ -28,7 +28,7 @@ class TelaGenero:
             [sg.Text('Gênero')],
             [sg.Radio('Cadastrar Gênero', "RADIO1", key='1')],
             [sg.Radio('Voltar', "RADIO1", key='2')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
 
@@ -37,7 +37,7 @@ class TelaGenero:
         layout = [
             [sg.Text('Gênero')],
             [sg.Text('Digite o nome do Gênero: ', size=(20,1)), sg.InputText('', key='genero')],
-            [sg.Ok(), sg.Cancel()]
+            [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
