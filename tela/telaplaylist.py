@@ -5,6 +5,22 @@ class TelaPlaylist:
         self.__window = None
         self.init_components()
 
+    def tela_opcoes(self):
+        self.init_components()
+        button, values = self.__window.read() # type: ignore
+        opcao = 0
+
+        if values:
+            for key in values:
+                if values[key]:
+                    opcao = int(key)
+
+        if button in (None, 'Cancel'):
+            opcao = 0
+        
+        self.close()
+        return opcao
+
     def init_components(self):
         sg.theme('Reddit')
         layout = [
@@ -20,25 +36,7 @@ class TelaPlaylist:
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
 
-    def tela_opcoes(self):
-        print('___Tela Do Sistema___')
-        print('1: Criar Playlist')
-        print('2: Excluir Playlist')
-        print('3: Selecionar Playlist')
-        print('4: Alterar nome da Playlist')
-        print('5: adicionar música')
-        print('6: Excluir música')
-        print("0: RETORNAR")
-        
-        while True:
-            try:
-                opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 6:
-                    return opcao
-                else:
-                    print("\nEscolha uma opção válida\n")
-            except ValueError:
-                print("\nPor favor, insira um número inteiro.\n")
+
 
 #fazer
 '''
