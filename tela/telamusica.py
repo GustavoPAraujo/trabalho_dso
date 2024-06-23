@@ -23,7 +23,7 @@ class TelaMusica:
         return opcao
 
     def init_components(self):
-        sg.theme('Reddit')
+        sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Tela do Sistema')],
             [sg.Radio('Adicionar uma Música', "RADIO1", key='1')],
@@ -45,7 +45,7 @@ class TelaMusica:
             self.__window = None
 
     def open(self):
-        button, values = self.__window.Read() #type: ignore
+        button, values = self.__window.Read() # type: ignore
         return button, values
 
     def pega_dados_musica(self):
@@ -82,6 +82,7 @@ class TelaMusica:
         button, values = self.open()
         genero = values['genero']
 
+        self.close()
         return genero
 
     def seleciona_artista(self):
@@ -97,11 +98,13 @@ class TelaMusica:
         button, values = self.open()
         artista = values['artista']
 
+        self.close()
         return artista
 
-    def mostra_musica(self, dados_musica):
+    def mostra_musica(self,n_musica, dados_musica):
         sg.theme('DarkTeal4')
         layout = [
+            [sg.Text(f"Musica {n_musica}:")],
             [sg.Text(f"Nome da Musica: {dados_musica['nome_musica']}")],
             [sg.Text(f"Nome do Artista: {dados_musica['artista']}")],
             [sg.Text(f"Gênero da Musica: {dados_musica['genero']}")],

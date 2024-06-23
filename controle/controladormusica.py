@@ -5,7 +5,7 @@ from tela.telamusica import TelaMusica
 
 
 class ControladorMusica:
-    def __init__(self, controlador_sistema) -> None:
+    def __init__(self, controlador_sistema):
         self.__lista_musicas: List[Musica] = list()
         self.__tela_musica = TelaMusica()
         self.__controlador_sistema = controlador_sistema
@@ -32,9 +32,9 @@ class ControladorMusica:
                 self.__tela_musica.mostra_mnsg("Essa música já está cadastrada.")
 
                 return
-            
+
         nova_musica = Musica(
-            dados_musica["nome_musica"], artista, genero)  # type: ignore
+            dados_musica["nome_musica"], artista, genero)
 
         self.__lista_musicas.append(nova_musica)
 
@@ -42,19 +42,18 @@ class ControladorMusica:
 
 
     def listar_musicas(self):
-        self.__tela_musica.mostra_mnsg("Lista de Musicas: ")
-        n_musica = 0
         if not self.__lista_musicas:
-
             self.__tela_musica.mostra_mnsg("Não temos musicas no momento")
-
             return
+        
+        n_musica = 1
         for musica in self.__lista_musicas:
             genero = musica.genero.genero
             artista = musica.artista.nome_artistico
 
-            self.__tela_musica.mostra_musica(
-                {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
+            dados_musica = {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero}
+            self.__tela_musica.mostra_musica(n_musica , dados_musica)
+            n_musica += 1
 
     def listar_musicas_por_genero(self):
         pega_genero = self.__tela_musica.selecionar_genero()
@@ -78,7 +77,7 @@ class ControladorMusica:
         for musica in musicas_do_genero:
             artista = musica.artista.nome_artistico
             genero = musica.genero.genero
-            self.__tela_musica.mostra_musica(
+            self.__tela_musica.mostra_musica(0,
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
 
     def pega_musica_genero(self, genero_escolhido):
@@ -124,7 +123,7 @@ class ControladorMusica:
         for musica in musicas_do_artista:
             artista = musica.artista.nome_artistico
             genero = musica.genero.genero
-            self.__tela_musica.mostra_musica(
+            self.__tela_musica.mostra_musica(0,
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
 
     def pega_musica_artista(self, artista_escolhido):
