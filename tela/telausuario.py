@@ -110,7 +110,7 @@ class TelaUsuario:
         self.__window = sg.Window('Tela do Sistema', layout)
 
         button, values = self.open()
-        amigo = values['amogp']
+        amigo = values['amigo']
 
         self.close()
         return {"amigo": amigo}

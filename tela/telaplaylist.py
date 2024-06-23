@@ -98,12 +98,12 @@ class TelaPlaylist:
 
         return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
 
-
-#fazer
-''' 
     def mostrar_playlist(self, dados_playlist):
-        nome = dados_playlist['nome_playlist']
-        print(nome)
-        musicas = dados_playlist['musicas']
-        print(musicas)
-'''
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text(f"Nome da Playlist: {dados_playlist['nome_playlist']}")],
+            [sg.Text(f"Musicas: {dados_playlist['musicas']}")],
+            [sg.Ok()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
