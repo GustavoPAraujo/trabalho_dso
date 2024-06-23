@@ -49,20 +49,41 @@ class TelaPlaylist:
         button, values = self.__window.Read() #type: ignore
         return button, values
 
+    def pega_nome_playlist(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('_____Escolha nome da Playlist_____')],
+            [sg.Text('Nome da Playlist : ', size=(20,1)), sg.InputText('', key='nome_playlist')],
+            [sg.Ok(), sg.Cancel()]
+        ]
 
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        nome_playlist = values['nome_playlist']
+
+        return nome_playlist
+
+    def alterar_nome_playlist(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('__Escolha novo nome da PlayList___')],
+            [sg.Text('Novo nome da Playlist: ', size=(20,1)), sg.InputText('', key='novo_nome')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        novo_nome = values['novo_nome']
+
+        return novo_nome
+    
+    def pegar_musica(self):
+        
 
 #fazer
-'''
-    def pega_nome_playlist(self):
-        print("_____Escolha nome da Playlist_____")
-        nome_playlist = input("Nome da Playlist ")
-        return nome_playlist
-    
-    def alterar_nome_playlist(self):
-        print('__Escolha novo nome da PlayList___')
-        novo_nome = input('Novo nome da Playlist ')
-        return novo_nome
-
+''' 
     def pegar_musica(self):
         print('___Digite_informações_da_música___')
         nome_musica = input('Música: ')
