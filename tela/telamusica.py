@@ -99,13 +99,13 @@ class TelaMusica:
 
         return artista
 
-
-#fazer
-'''
     def mostra_musica(self, dados_musica):
-        print("Nome da Musica: ", dados_musica["nome_musica"])
-        print("Nome do Artista: ", dados_musica["artista"])
-        print("Gênero da Musica: ", dados_musica["genero"])
-        print("\n")
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text(f"Nome da Musica: {dados_musica['nome_musica']}")],
+            [sg.Text(f"Nome do Artista: {dados_musica['artista']}")],
+            [sg.Text(f"Gênero da Musica: {dados_musica['genero']}")],
+            [sg.Ok()]
+        ]
 
-'''
+        self.__window = sg.Window('Tela do Sistema', layout)
