@@ -68,27 +68,32 @@ class TelaMusica:
 
         self.close()
         return {'nume_musica': nume_musica ,'artista': artista,"genero" : genero}
+    
+    def selecionar_genero(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Insira o Genero')],
+            [sg.Text('Digite o Genero: ', size=(20,1)), sg.InputText('', key='genero')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        genero = values['genero']
+
+        return genero
+
+
+    
 #fazer
 '''
-    def pega_dados_musica(self):
-        print("_____Insira_os_dados_da_musica_____")
-        nome_musica = input("Nome da Musica: ")
-        artista = input("Artista: ")
-        genero = input("Gênero: ")
-
-        return  {"nome_musica": nome_musica, "artista": artista, "genero": genero}
-
     def mostra_musica(self, dados_musica):
         print("Nome da Musica: ", dados_musica["nome_musica"])
         print("Nome do Artista: ", dados_musica["artista"])
         print("Gênero da Musica: ", dados_musica["genero"])
         print("\n")
-    
-    def selecionar_genero(self):
-        print("_____Qual_Gênero_quero_ouvir_____")
-        genero = input("Insira o Gênero: ")
-        print("")
-        return genero
+
 
     def seleciona_artista(self):
         print("_____Qual_Artista_\nquero_ouvir_____")
