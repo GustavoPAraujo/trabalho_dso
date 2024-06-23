@@ -100,11 +100,6 @@ class TelaMusica:
         return artista
 
 
-'''    def seleciona_artista(self):
-        print("_____Qual_Artista_\nquero_ouvir_____")
-        artista = input("Insira o nome do Artista: ")
-        print("\n")
-        return artista'''
 #fazer
 '''
     def mostra_musica(self, dados_musica):
@@ -113,13 +108,4 @@ class TelaMusica:
         print("Gênero da Musica: ", dados_musica["genero"])
         print("\n")
 
-
-    def seleciona_artista(self):
-        print("_____Qual_Artista_\nquero_ouvir_____")
-        artista = input("Insira o nome do Artista: ")
-        print("\n")
-        return artista
-
-    def mostra_mnsg(self, mnsg):
-        print(mnsg)
 '''
