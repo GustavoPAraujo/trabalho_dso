@@ -74,11 +74,13 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
 
         # lista musicas do genero
+        n_musica = 1
         for musica in musicas_do_genero:
             artista = musica.artista.nome_artistico
             genero = musica.genero.genero
             self.__tela_musica.mostra_musica(0,
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
+            n_musica += 1
 
     def pega_musica_genero(self, genero_escolhido):
         genero = self.__controlador_sistema.controlador_genero.seleciona_genero(genero_escolhido)
@@ -119,12 +121,14 @@ class ControladorMusica:
 
             return
         # lista musicas do artista
-        self.__tela_musica.mostra_mnsg("Musicas de: {artista}")
+        n_musica = 1
+        self.__tela_musica.mostra_mnsg(f"Musicas de: {artista}")
         for musica in musicas_do_artista:
             artista = musica.artista.nome_artistico
             genero = musica.genero.genero
             self.__tela_musica.mostra_musica(0,
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
+            n_musica += 1
 
     def pega_musica_artista(self, artista_escolhido):
         artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
