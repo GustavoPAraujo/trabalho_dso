@@ -5,19 +5,7 @@ class TelaMusica:
         self.__window = None
         self.init_components()
 
-    def init_components(self):
-        sg.theme('Reddit')
-        layout = [
-            [sg.Text('Tela do Sistema')],
-            [sg.Radio('Adicionar uma Música', "RADIO1", key='1')],
-            [sg.Radio('Listar Músicas', "RADIO1", key='2')],
-            [sg.Radio('Listar Músicas por Gênero', "RADIO1", key='3')],
-            [sg.Radio('Listar Músicas por Artista', "RADIO1", key='4')],
-            [sg.Radio('Voltar', "RADIO1", key='5')],
-            [sg.Ok(), sg.Cancel()]
-        ]
-        self.__window = sg.Window('Tela do Sistema', layout)
-    
+        
     def tela_opcoes(self):
         self.init_components()
         button, values = self.__window.read() # type: ignore
@@ -34,10 +22,31 @@ class TelaMusica:
         self.close()
         return opcao
 
+    def init_components(self):
+        sg.theme('Reddit')
+        layout = [
+            [sg.Text('Tela do Sistema')],
+            [sg.Radio('Adicionar uma Música', "RADIO1", key='1')],
+            [sg.Radio('Listar Músicas', "RADIO1", key='2')],
+            [sg.Radio('Listar Músicas por Gênero', "RADIO1", key='3')],
+            [sg.Radio('Listar Músicas por Artista', "RADIO1", key='4')],
+            [sg.Radio('Voltar', "RADIO1", key='5')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
+    
+    def mostra_mnsg(self, mnsg):
+        sg.popup(mnsg, title="Mensagem do Sistema")
+
+
     def close(self):
         if self.__window:
             self.__window.close()
-            self.__window = None 
+            self.__window = None
+
+    def open(self):
+        button, values = self.__window.Read() #type: ignore
+        return button, values
 
 #fazer
 '''
