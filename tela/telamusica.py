@@ -48,6 +48,26 @@ class TelaMusica:
         button, values = self.__window.Read() #type: ignore
         return button, values
 
+    def pega_dados_musica(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Insira os dados da Musica')],
+            [sg.Text('Digite o nome da Musica: ', size=(20,1)), sg.InputText('', key='nume_musica')],
+            [sg.Text('Digite o nome do Artista: ', size=(20,1)), sg.InputText('', key='artista')],
+            [sg.Text('Digite o nome do Genero: ', size=(20,1)), sg.InputText('', key='genero')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        nume_musica = values['nume_musica']
+        artista = values['artista']
+        genero = values['genero']
+
+
+        self.close()
+        return {'nume_musica': nume_musica ,'artista': artista,"genero" : genero}
 #fazer
 '''
     def pega_dados_musica(self):
