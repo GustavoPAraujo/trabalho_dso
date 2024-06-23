@@ -35,6 +35,19 @@ class TelaPlaylist:
             [sg.Ok(), sg.Cancel()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
+    
+    def mostra_mnsg(self, mnsg):
+        sg.popup(mnsg, title="Mensagem do Sistema")
+
+
+    def close(self):
+        if self.__window:
+            self.__window.close()
+            self.__window = None
+
+    def open(self):
+        button, values = self.__window.Read() #type: ignore
+        return button, values
 
 
 
