@@ -100,7 +100,7 @@ class ControladorMusica:
         # mensagem de erro para falta de musicas do genero
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
-            self.__tela_musica.mostra_mnsg("")
+
         return musicas_do_genero
 
     def listar_musicas_por_artista(self):
@@ -111,7 +111,7 @@ class ControladorMusica:
         if artista is None:
             self.__tela_musica.mostra_mnsg(
                 "Não temos esse artista em nosso catalogo")
-            self.__tela_musica.mostra_mnsg("")
+
             return
         # adiciona as musicas do artista em uma lista
         musicas_do_artista: List[Musica] = []
@@ -121,7 +121,7 @@ class ControladorMusica:
         # mensagem de erro para falta de musicas do artista
         if not musicas_do_artista:
             self.__tela_musica.mostra_mnsg("Não temos musicas desse Artista")
-            self.__tela_musica.mostra_mnsg("")
+
             return
         # lista musicas do artista
         self.__tela_musica.mostra_mnsg("Musicas de: {artista}")
@@ -138,7 +138,7 @@ class ControladorMusica:
         if artista is None:
             self.__tela_musica.mostra_mnsg(
                 "Não temos esse artista em nosso catalogo")
-            self.__tela_musica.mostra_mnsg("")
+
         # adiciona as musicas do artista em uma lista
         musicas_do_artista: List[Musica] = []
         for musica in self.__lista_musicas:
@@ -147,7 +147,7 @@ class ControladorMusica:
         # mensagem de erro para falta de musicas do artista
         if not musicas_do_artista:
             self.__tela_musica.mostra_mnsg("Não temos musicas desse Artista")
-            self.__tela_musica.mostra_mnsg("")
+
         return musicas_do_artista
 
     def verificar_musica(self, nome_musica, artista, genero):

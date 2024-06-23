@@ -62,15 +62,3 @@ class TelaGenero:
         button, values = self.__window.Read() #type: ignore
         return button, values
     
-
-#fazer
-'''
-    def criar_genero(self):
-        print('_____Gênero_Músical_____')
-        genero = input("Digite o nome Gênero: ")
-
-        return {"genero": genero}
-
-    def mostra_mnsg(self, mnsg):
-        print(mnsg)
-'''

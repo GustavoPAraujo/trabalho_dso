@@ -116,11 +116,28 @@ class TelaUsuario:
         return {"amigo": amigo}
 
     def musicas_preferidas(self):
-        pass
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("_____Digite_suas_3_músicas_favoritas_____", size=(20,1))],
+            [sg.Text("Música 1: ", size=(20,1)), sg.InputText('', key='Musica1')],
+            [sg.Text("Música 1: ", size=(20,1)), sg.InputText('', key='Musica2')],
+            [sg.Text("Música 1: ", size=(20,1)), sg.InputText('', key='Musica3')],
+            [sg.Ok()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        musica1 = values['Musica1']
+        musica2 = values['Musica2']
+        musica3 = values['Musica3']
+
+        self.close()
+        return {"Musica1": musica1, "Musica2": musica2, "Musica3": musica3}
 
 '''
 #fazer
-    def musicas_preferidas(self) -> dict[str, str]:
+    def musicas_preferidas(self):
         print("_____Digite_suas_3_músicas_favoritas_____")
         musica1 = input("Música 1: ")
         musica2 = input("Música 2: ")
