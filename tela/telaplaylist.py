@@ -80,7 +80,24 @@ class TelaPlaylist:
         return novo_nome
     
     def pegar_musica(self):
-        
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('___Digite_informações_da_música___')],
+            [sg.Text('Música: ', size=(20,1)), sg.InputText('', key='nome_musica')],
+            [sg.Text('Artista: ', size=(20,1)), sg.InputText('', key='artista')],
+            [sg.Text('Gênero: ', size=(20,1)), sg.InputText('', key='genero')],
+            [sg.Ok(), sg.Cancel()]
+        ]
+
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        nome_musica = values['nome_musica']
+        artista = values['artista']
+        genero = values['genero']
+
+        return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
+
 
 #fazer
 ''' 
