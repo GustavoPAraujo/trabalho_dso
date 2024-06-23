@@ -25,33 +25,29 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Gênero não encontrado.")
             return
 
-
-
         for musica in self.__lista_musicas:
             if (musica.nome_musica == dados_musica["nome_musica"] and
                 musica.artista == artista and
                     musica.genero == genero):
-                self.__tela_musica.mostra_mnsg("")
                 self.__tela_musica.mostra_mnsg("Essa música já está cadastrada.")
-                self.__tela_musica.mostra_mnsg("")
+
                 return
             
         nova_musica = Musica(
             dados_musica["nome_musica"], artista, genero)  # type: ignore
 
         self.__lista_musicas.append(nova_musica)
-        self.__tela_musica.mostra_mnsg("")
+
         self.__tela_musica.mostra_mnsg("Musica criada com sucesso!")
-        self.__tela_musica.mostra_mnsg("")
+
 
     def listar_musicas(self):
-        self.__tela_musica.mostra_mnsg("")
         self.__tela_musica.mostra_mnsg("Lista de Musicas: ")
         n_musica = 0
         if not self.__lista_musicas:
-            self.__tela_musica.mostra_mnsg("")
+
             self.__tela_musica.mostra_mnsg("Não temos musicas no momento")
-            self.__tela_musica.mostra_mnsg("")
+
             return
         for musica in self.__lista_musicas:
             genero = musica.genero.genero
@@ -67,7 +63,7 @@ class ControladorMusica:
         # verifica se o genero existe
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
-            self.__tela_musica.mostra_mnsg("")
+
             return
         # adiciona as musicas do genero em uma lista
         musicas_do_genero: List[Musica] = []
@@ -77,7 +73,7 @@ class ControladorMusica:
         # mensagem de erro para falta de musicas do genero
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
-            self.__tela_musica.mostra_mnsg("")
+
         # lista musicas do genero
         for musica in musicas_do_genero:
             artista = musica.artista.nome_artistico
@@ -90,7 +86,7 @@ class ControladorMusica:
         # verifica se o genero existe
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
-            self.__tela_musica.mostra_mnsg("")
+   
             return
         # adiciona as musicas do genero em uma lista
         musicas_do_genero: List[Musica] = []

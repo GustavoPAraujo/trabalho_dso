@@ -52,7 +52,7 @@ class TelaMusica:
         sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Insira os dados da Musica')],
-            [sg.Text('Digite o nome da Musica: ', size=(20,1)), sg.InputText('', key='nume_musica')],
+            [sg.Text('Digite o nome da Musica: ', size=(20,1)), sg.InputText('', key='nome_musica')],
             [sg.Text('Digite o nome do Artista: ', size=(20,1)), sg.InputText('', key='artista')],
             [sg.Text('Digite o nome do Genero: ', size=(20,1)), sg.InputText('', key='genero')],
             [sg.Ok()]
@@ -61,13 +61,13 @@ class TelaMusica:
         self.__window = sg.Window('Tela do Sistema', layout)
 
         button, values = self.open()
-        nume_musica = values['nume_musica']
+        nome_musica = values['nome_musica']
         artista = values['artista']
         genero = values['genero']
 
 
         self.close()
-        return {'nume_musica': nume_musica ,'artista': artista,"genero" : genero}
+        return {'nome_musica': nome_musica ,'artista': artista,"genero" : genero}
     
     def selecionar_genero(self):
         sg.theme('DarkTeal4')
