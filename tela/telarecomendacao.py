@@ -1,3 +1,5 @@
+import PySimpleGUI as sg
+
 class TelaRecomendacao:
     def tela_opcoes(self):
         print('1: recomendacao por genero')
@@ -14,7 +16,24 @@ class TelaRecomendacao:
             except ValueError:
                 print("\nPor favor, insira um número inteiro.\n")
 
-                
+
+
+
+
+
+    def mostra_mnsg(self, mnsg):
+        sg.popup(mnsg, title="Mensagem do Sistema")
+
+
+    def close(self):
+        if self.__window:
+            self.__window.close()
+            self.__window = None
+
+    def open(self):
+        button, values = self.__window.Read() #type: ignore
+        return button, values
+    
 '''
     def pega_genero(self):
         print('__Insira o gênero__')
