@@ -1,6 +1,10 @@
 import PySimpleGUI as sg
 
 class TelaRecomendacao:
+    def __init__(self):
+        self.__window = None
+        self.init_components()
+
     def tela_opcoes(self):
         print('1: recomendacao por genero')
         print('2: recomendacao por artista')
