@@ -4,7 +4,6 @@ class TelaRecomendacao:
         print('2: recomendacao por artista')
         print('0: RETORNAR')
     
-
         while True:
             try:
                 opcao = int(input("Escolha uma opção: "))
@@ -15,13 +14,15 @@ class TelaRecomendacao:
             except ValueError:
                 print("\nPor favor, insira um número inteiro.\n")
 
+                
+'''
     def pega_genero(self):
         print('__Insira o gênero__')
         genero = input('Gênero: ')
         return genero
-    
+
     def pega_artista(self):
         print('__Insira o artista__')
         artista = input('Artista: ')
         return artista
-    
+'''

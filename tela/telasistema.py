@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 
+
 class TelaSistema:
     def __init__(self):
         self.__window = None
@@ -32,7 +33,7 @@ class TelaSistema:
 
         if button in (None, 'Cancel'):
             opcao = 0
-        
+
         self.close()
         return opcao
 

@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 
+
 class TelaUsuario:
     def __init__(self):
         self.__window = None
@@ -13,7 +14,7 @@ class TelaUsuario:
     def open(self):
         button, values = self.__window.Read() #type: ignore
         return button, values
-    
+
     def tela_opcoes(self):
         self.init_components()
         button, values = self.__window.read() # type: ignore
@@ -26,7 +27,7 @@ class TelaUsuario:
 
         if button in (None, 'Cancel'):
             opcao = 0
-        
+
         self.close()
         return opcao
 
@@ -86,7 +87,6 @@ class TelaUsuario:
 
         self.close()
         return {"nome": nome, 'nome_usuario': nome_usuario, 'email': email, 'telefone': telefone}
-    
 
     def mostrar_usuario(self, dados_ususario):
         sg.theme('DarkTeal4')
@@ -134,14 +134,3 @@ class TelaUsuario:
 
         self.close()
         return {"Musica1": musica1, "Musica2": musica2, "Musica3": musica3}
-
-'''
-#fazer
-    def musicas_preferidas(self):
-        print("_____Digite_suas_3_músicas_favoritas_____")
-        musica1 = input("Música 1: ")
-        musica2 = input("Música 2: ")
-        musica3 = input("Música 3: ")
-
-        return {"Musica1": musica1, "Musica2": musica2, "Musica3": musica3}
-'''
