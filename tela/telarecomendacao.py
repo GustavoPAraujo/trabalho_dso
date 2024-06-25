@@ -20,9 +20,15 @@ class TelaRecomendacao:
             except ValueError:
                 print("\nPor favor, insira um número inteiro.\n")
 
-
-
-
+    def init_components(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Recomendações')],
+            [sg.Radio('Insira o Gênero', "RADIO1", key='1')],
+            [sg.Radio('Insira o Artista', "RADIO2", key='2')],
+            [sg.Ok()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
 
 
     def mostra_mnsg(self, mnsg):
