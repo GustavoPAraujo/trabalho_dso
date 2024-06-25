@@ -42,7 +42,7 @@ class TelaRecomendacao:
     def pega_genero(self):
         sg.theme('DarkTeal4')
         layout = [
-            [sg.Text('Recomendações')],
+            [sg.Text('Recomendações por Genero')],
             [sg.Text('Digite o nome do Gênero: ', size=(20,1)), sg.InputText('', key='genero')],
             [sg.Ok()]
         ]
@@ -54,13 +54,23 @@ class TelaRecomendacao:
         self.close()
         return {"genero" : genero}
     
+    def pega_artista(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Recomendações por Artista')],
+            [sg.Text('Digite o nome do artista: ', size=(20,1)), sg.InputText('', key='artista')],
+            [sg.Ok()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        artista = values['artista']
+
+        self.close()
+        return {"artista" : artista}
+    
 
 '''
-    def pega_genero(self):
-        print('__Insira o gênero__')
-        genero = input('Gênero: ')
-        return genero
-
     def pega_artista(self):
         print('__Insira o artista__')
         artista = input('Artista: ')
