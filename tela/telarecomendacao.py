@@ -5,15 +5,21 @@ class TelaRecomendacao:
         self.__window = None
         self.init_components()
     
-        while True:
-            try:
-                opcao = int(input("Escolha uma opção: "))
-                if  0 <= opcao <= 2:
-                    return opcao
-                else:
-                    print("\nEscolha uma opção válida\n")
-            except ValueError:
-                print("\nPor favor, insira um número inteiro.\n")
+    def tela_opcoes(self):
+        self.init_components()
+        button, values = self.__window.read() # type: ignore
+        opcao = 0
+
+        if values:
+            for key in values:
+                if values[key]:
+                    opcao = int(key)
+
+        if button in (None, 'Cancel'):
+            opcao = 0
+        
+        self.close()
+        return opcao
 
     def init_components(self):
         sg.theme('DarkTeal4')
@@ -68,11 +74,3 @@ class TelaRecomendacao:
 
         self.close()
         return {"artista" : artista}
-    
-
-'''
-    def pega_artista(self):
-        print('__Insira o artista__')
-        artista = input('Artista: ')
-        return artista
-'''
