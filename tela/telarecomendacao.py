@@ -4,11 +4,6 @@ class TelaRecomendacao:
     def __init__(self):
         self.__window = None
         self.init_components()
-
-    def tela_opcoes(self):
-        print('1: recomendacao por genero')
-        print('2: recomendacao por artista')
-        print('0: RETORNAR')
     
         while True:
             try:
@@ -24,8 +19,8 @@ class TelaRecomendacao:
         sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Recomendações')],
-            [sg.Radio('Insira o Gênero', "RADIO1", key='1')],
-            [sg.Radio('Insira o Artista', "RADIO2", key='2')],
+            [sg.Radio('Recomendação por genero', "RADIO1", key='1')],
+            [sg.Radio('Recomendação por artista', "RADIO2", key='2')],
             [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
@@ -44,6 +39,22 @@ class TelaRecomendacao:
         button, values = self.__window.Read() #type: ignore
         return button, values
     
+    def pega_genero(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Recomendações')],
+            [sg.Text('Digite o nome do Gênero: ', size=(20,1)), sg.InputText('', key='genero')],
+            [sg.Ok()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        genero = values['genero']
+
+        self.close()
+        return {"genero" : genero}
+    
+
 '''
     def pega_genero(self):
         print('__Insira o gênero__')
