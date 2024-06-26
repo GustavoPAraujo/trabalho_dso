@@ -108,7 +108,7 @@ class ControladorUsuario:
             return
 
         nome_amigo = self.__tela_usuario.fazer_amizade()
-        amigo = self.pega_usuario_por_nome_usuario(nome_amigo["nome_usuario"])
+        amigo = self.pega_usuario_por_nome_usuario(nome_amigo["amigo"])
 
         if amigo is None:
             self.__tela_usuario.mostra_mensagem("Amigo não encontrado.")

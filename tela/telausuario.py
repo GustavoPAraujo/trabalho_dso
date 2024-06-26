@@ -54,7 +54,7 @@ class TelaUsuario:
         sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Usuario')],
-            [sg.Text('Insira o Nome de Usuario: ', size=(20,1)), sg.InputText('', key='nome_usuario')],
+            [sg.Text('Insira o seu Nome de Usuario: ', size=(30,1)), sg.InputText('', key='nome_usuario')],
             [sg.Ok()]
         ]
 
@@ -107,7 +107,7 @@ class TelaUsuario:
     def fazer_amizade(self):
         sg.theme('DarkTeal4')
         layout = [
-            [sg.Text("Digite o nome de Usuario do Amigo: ", size=(20,1)), sg.InputText('', key='amigo')],
+            [sg.Text("Digite o nome de Usuario do Amigo: ", size=(30,1)), sg.InputText('', key='amigo')],
             [sg.Ok()]
         ]
 
