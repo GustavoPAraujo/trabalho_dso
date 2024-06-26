@@ -16,7 +16,7 @@ class ControladorGenero:
         novo_genero = Genero(dados_genero["genero"])
 
         if self.__genero_dao.get(novo_genero.genero) is None:
-            self.__genero_dao.add(novo_genero)
+            self.__genero_dao.add(novo_genero.genero, novo_genero)
             self.__tela_genero.mostra_mnsg("Gênero cadastrado com sucesso!")
         else:
             self.__tela_genero.mostra_mnsg("Esse gênero já está cadastrado")
