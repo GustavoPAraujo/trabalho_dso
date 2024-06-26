@@ -1,30 +1,25 @@
-from typing import List
+from DAOs.genero_dao import GeneroDAO
 from entidades.genero import Genero
 from tela.telagenero import TelaGenero
-
 
 class ControladorGenero:
     def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
-        self.__lista_generos: List[Genero] = list()
+        self.__genero_dao = GeneroDAO()
         self.__tela_genero = TelaGenero()
 
     def seleciona_genero(self, genero_musical):
-        genero_musical = Genero(genero_musical)
-        for genero in self.__lista_generos:
-            if genero.genero == genero_musical.genero:
-                return genero
+        return self.__genero_dao.get(genero_musical)
 
     def cadastra_genero(self):
         dados_genero = self.__tela_genero.criar_genero()
         novo_genero = Genero(dados_genero["genero"])
 
-        nomes_generos = [genero.genero for genero in self.__lista_generos]
-        if novo_genero.genero not in nomes_generos:
-            self.__lista_generos.append(novo_genero)
-            self.__tela_genero.mostra_mnsg("Genero cadastrado coms sucesso!")
+        if self.__genero_dao.get(novo_genero.genero) is None:
+            self.__genero_dao.add(novo_genero)
+            self.__tela_genero.mostra_mnsg("Gênero cadastrado com sucesso!")
         else:
-            self.__tela_genero.mostra_mnsg("Esse genero ja esta cadastrado")
+            self.__tela_genero.mostra_mnsg("Esse gênero já está cadastrado")
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
@@ -33,4 +28,7 @@ class ControladorGenero:
         lista_opcoes = {1: self.cadastra_genero, 2: self.retornar}
 
         while True:
-            lista_opcoes[self.__tela_genero.tela_opcoes()]()
+            opcao = self.__tela_genero.tela_opcoes()
+            funcao = lista_opcoes.get(opcao)
+            if funcao:
+                funcao()
