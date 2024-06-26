@@ -1,4 +1,3 @@
-# Arquivo GeneroDAO.py
 from DAOs.dao import DAO
 from entidades.genero import Genero
 
