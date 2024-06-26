@@ -34,7 +34,7 @@ class TelaUsuario:
     def init_components(self):
         sg.theme('DarkTeal4')
         layout = [
-            [sg.Text('Tela do Sistema')],
+            [sg.Text('Usuarios')],
             [sg.Radio('Criar Usuário', "RADIO1", key='1')],
             [sg.Radio('Excluir Usuário', "RADIO1", key='2')],
             [sg.Radio('Listar Usuários', "RADIO1", key='3')],
@@ -69,7 +69,7 @@ class TelaUsuario:
     def pega_dados_usuario(self):
         sg.theme('DarkTeal4')
         layout = [
-            [sg.Text('Usuario')],
+            [sg.Text('Usuarios')],
             [sg.Text('Insira o Nome do Usuario: ', size=(20,1)), sg.InputText('', key='nome')],
             [sg.Text('Insira o Nome de Usuario: ', size=(20,1)), sg.InputText('', key='nome_usuario')],
             [sg.Text('Insira o email do Usuario: ', size=(20,1)), sg.InputText('', key='email')],
@@ -91,6 +91,7 @@ class TelaUsuario:
     def mostrar_usuario(self, dados_ususario):
         sg.theme('DarkTeal4')
         layout = [
+            [sg.Text('Usuarios')],
             [sg.Text(f"Nome do Usuario: {dados_ususario['nome']}")],
             [sg.Text(f"Nome de Usuario: {dados_ususario['nome_usuario']}")],
             [sg.Text(f"Email do Usuario: {dados_ususario['email']}")],
@@ -107,6 +108,7 @@ class TelaUsuario:
     def fazer_amizade(self):
         sg.theme('DarkTeal4')
         layout = [
+            [sg.Text('Usuarios')],
             [sg.Text("Digite o nome de Usuario do Amigo: ", size=(30,1)), sg.InputText('', key='amigo')],
             [sg.Ok()]
         ]
@@ -122,6 +124,7 @@ class TelaUsuario:
     def musicas_preferidas(self):
         sg.theme('DarkTeal4')
         layout = [
+            [sg.Text('Usuarios')],
             [sg.Text("_____Digite_suas_3_músicas_favoritas_____", size=(20,1))],
             [sg.Text("Música 1: ", size=(20,1)), sg.InputText('', key='Musica1')],
             [sg.Text("Música 1: ", size=(20,1)), sg.InputText('', key='Musica2')],
