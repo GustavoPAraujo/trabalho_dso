@@ -1,30 +1,27 @@
-from typing import List
 from entidades.artista import Artista
 from tela.telaartista import TelaArtista
+from DAOs.artista_dao import ArtistaDAO
 
 
 class ControladorArtista:
     def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
-        self.__lista_artistas: List[Artista] = list()
         self.__tela_artista = TelaArtista()
+        self.__artista_dao = ArtistaDAO()
 
     def pega_artista_por_nome(self, nome_artistico):
-        for artista in self.__lista_artistas:
-            if artista.nome_artistico == nome_artistico:
-                return artista
+        return self.__artista_dao.get(nome_artistico)
 
     def cadastra_artista(self):
         dados_artista = self.__tela_artista.criar_artista()
-        novo_artista = Artista(
-            dados_artista["nome"], dados_artista["nome_artistico"])
+        novo_artista = Artista(dados_artista["nome"], dados_artista["nome_artistico"])
 
-        nomes_artistas = [artista.nome_artistico for artista in self.__lista_artistas]
-        if novo_artista.nome_artistico not in nomes_artistas:
-            self.__lista_artistas.append(novo_artista)
+        if self.__artista_dao.get(novo_artista.nome_artistico) is None:
+            self.__artista_dao.add(novo_artista.nome_artistico, novo_artista)
             self.__tela_artista.mostra_mnsg("Artista cadastrado com sucesso!")
         else:
-            self.__tela_artista.mostra_mnsg("Escolha outro nome artistico")
+            self.__tela_artista.mostra_mnsg("Escolha outro nome artístico")
+
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
