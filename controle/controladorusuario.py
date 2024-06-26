@@ -39,13 +39,15 @@ class ControladorUsuario:
     # 3
     def listar_usuarios(self):
         self.__tela_usuario.mostra_mensagem("Lista de Usuários:")
-        for usuario in self.__usuario_dao.get_all():
-            self.__tela_usuario.mostrar_usuario({
-                "nome": usuario.nome,
-                "nome_usuario": usuario.nome_usuario,
-                "email": usuario.email,
-                "telefone": usuario.telefone
-            })
+        for chave in self.__usuario_dao.get_all():  # Obtém todas as chaves do DAO
+            usuario = self.__usuario_dao.get(chave)  # Obtém o usuário pelo chave
+            if usuario is not None:
+                self.__tela_usuario.mostrar_usuario({
+                    "nome": usuario.nome,
+                    "nome_usuario": usuario.nome_usuario,
+                    "email": usuario.email,
+                    "telefone": usuario.telefone
+                })
 
     # 4
     def adicionar_musicas_preferidas(self):

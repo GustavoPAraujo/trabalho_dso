@@ -32,7 +32,7 @@ class TelaUsuario:
         return opcao
 
     def init_components(self):
-        sg.theme('Reddit')
+        sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Tela do Sistema')],
             [sg.Radio('Criar Usuário', "RADIO1", key='1')],
