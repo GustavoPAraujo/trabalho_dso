@@ -54,17 +54,17 @@ class TelaUsuario:
         sg.theme('DarkTeal4')
         layout = [
             [sg.Text('Usuario')],
-            [sg.Text('Insira o Nome de Usuario: ', size=(20,1)), sg.InputText('', key='nome')],
+            [sg.Text('Insira o Nome de Usuario: ', size=(20,1)), sg.InputText('', key='nome_usuario')],
             [sg.Ok()]
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
 
         button, values = self.open()
-        nome = values['nome']
+        nome_usuario = values['nome_usuario']
 
         self.close()
-        return {"nome": nome}
+        return {"nome_usuario": nome_usuario}
 
     def pega_dados_usuario(self):
         sg.theme('DarkTeal4')
