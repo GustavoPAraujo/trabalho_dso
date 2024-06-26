@@ -81,20 +81,18 @@ class ControladorMusica:
             n_musica += 1
 
     def pega_musica_genero(self, genero_escolhido):
-        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(genero_escolhido)
-        # verifica se o genero existe
+        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
+            genero_escolhido)
+
         if genero is None:
-            self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
-   
-            return
-        # adiciona as musicas do genero em uma lista
-        musicas_do_genero: List[Musica] = []
-        for musica in self.__lista_musicas:
-            if genero == musica.genero:
-                musicas_do_genero.append(musica)
-        # mensagem de erro para falta de musicas do genero
+            self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
+            return []
+
+        musicas_do_genero = self.__musica_dao.get_by_genero(genero)
+
         if not musicas_do_genero:
-            self.__tela_musica.mostra_mnsg("Não temos musicas com esse Gênero")
+            self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
+            return []
 
         return musicas_do_genero
 
@@ -125,19 +123,16 @@ class ControladorMusica:
     def pega_musica_artista(self, artista_escolhido):
         artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
             artista_escolhido)
-        # verifica se o artista existe
-        if artista is None:
-            self.__tela_musica.mostra_mnsg(
-                "Não temos esse artista em nosso catalogo")
 
-        # adiciona as musicas do artista em uma lista
-        musicas_do_artista: List[Musica] = []
-        for musica in self.__lista_musicas:
-            if artista == musica.artista:
-                musicas_do_artista.append(musica)
-        # mensagem de erro para falta de musicas do artista
+        if artista is None:
+            self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
+            return []
+
+        musicas_do_artista = self.__musica_dao.get_by_artista(artista)
+
         if not musicas_do_artista:
-            self.__tela_musica.mostra_mnsg("Não temos musicas desse Artista")
+            self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
+            return []
 
         return musicas_do_artista
 
