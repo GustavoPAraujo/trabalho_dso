@@ -6,10 +6,16 @@ class UsuarioDao(DAO):
         super().__init__('usuario.pkl')
 
     def add(self, key: str, usuario: Usuario): # type: ignore
-        super().add(key, usuario.nome_usuario)
+        super().add(key, usuario)
 
     def get(self, key: str):
         return super().get(key)
 
     def remove(self, key: str):
         super().remove(key)
+
+    def get_all(self):
+        return super().get_all()
+
+    def update(self, key: str, usuario: Usuario):  # type: ignore 
+        super().update(key, usuario)

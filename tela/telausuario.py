@@ -100,6 +100,10 @@ class TelaUsuario:
 
         self.__window = sg.Window('Tela do Sistema', layout)
 
+        button, values = self.open()
+        self.close()
+
+        
     def fazer_amizade(self):
         sg.theme('DarkTeal4')
         layout = [
