@@ -30,3 +30,4 @@ class MusicaDAO(DAO):
                 musica.genero == genero):
                 return musica
         return None
+    

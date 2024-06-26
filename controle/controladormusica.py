@@ -10,6 +10,8 @@ class ControladorMusica:
         self.__controlador_sistema = controlador_sistema
         self.__musica_dao = MusicaDAO()
 
+
+#arrumar os ids das musicas
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
 
@@ -35,8 +37,8 @@ class ControladorMusica:
         nova_musica = Musica(
             dados_musica["nome_musica"], artista, genero)
 
-        # Adiciona a música ao DAO
-        self.__musica_dao.add(dados_musica["nome_musica"], nova_musica)
+        # Adiciona a música ao DAO usando o id_musica como chave
+        self.__musica_dao.add(nova_musica.id_musica, nova_musica)
 
         self.__tela_musica.mostra_mnsg("Música criada com sucesso!")
 
