@@ -7,6 +7,7 @@ class ControladorPlaylist:
         self.__lista_playlist: List[PlayList] = list()
         self.__tela_playlist = TelaPlaylist()
         self.__controlador_sistema = controlador_sistema
+
     #1
     def criar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
@@ -19,7 +20,7 @@ class ControladorPlaylist:
         self.__lista_playlist.append(nova_playlist)
         print(musica_verificada.nome_musica)
         print('PlayList criada com sucesso')
-    
+
     #2
     def excluir_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
@@ -70,8 +71,6 @@ class ControladorPlaylist:
             else:
                 print( 'Essa playlist não existe')
 
-                
-
     #6
     #fazer
     def excluir_musica(self):
@@ -92,10 +91,9 @@ class ControladorPlaylist:
             else:
                 print( 'Essa PlayList não existe' )
 
-
     def retornar(self):
         self.__controlador_sistema.abre_tela()
-   
+
     def abre_tela(self):
         lista_opcoes = {1: self.criar_playlist, 2: self.excluir_playlist, 3: self.selecionar_playlist,
                         4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excluir_musica, 7: self.retornar}
