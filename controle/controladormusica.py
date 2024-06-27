@@ -73,9 +73,13 @@ class ControladorMusica:
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
             return
-
+        
         musicas = self.__musica_dao.get_all()
-        musicas_do_genero = [musica for musica in musicas if musica.genero == genero]
+        musicas_do_genero = []
+
+        for musica in musicas:
+            if musica.genero == genero:
+                musicas_do_genero.append(musica)
 
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
@@ -98,7 +102,11 @@ class ControladorMusica:
             return []
 
         musicas = self.__musica_dao.get_all()
-        musicas_do_genero = [musica for musica in musicas if musica.genero == genero]
+        musicas_do_genero = []
+
+        for musica in musicas:
+            if musica.genero == genero:
+                musicas_do_genero.append(musica)
 
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
@@ -116,7 +124,11 @@ class ControladorMusica:
             return
 
         musicas = self.__musica_dao.get_all()
-        musicas_do_artista = [musica for musica in musicas if musica.artista == artista]
+        musicas_do_artista = []
+
+        for musica in musicas:
+            if musica.artista == artista:
+                musicas_do_artista.append(musica)
 
         if not musicas_do_artista:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
@@ -140,7 +152,11 @@ class ControladorMusica:
             return []
         
         musicas = self.__musica_dao.get_all()
-        musicas_do_artista = [musica for musica in musicas if musica.artista == artista]
+        musicas_do_artista = []
+
+        for musica in musicas:
+            if musica.artista == artista:
+                musicas_do_artista.append(musica)
 
         if not musicas_do_artista:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
