@@ -53,8 +53,8 @@ class ControladorMusica:
         
         n_musica = 1
         for musica in musicas:
-            artista = musica.artista.nome_artistico
-            genero = musica.genero.genero
+            artista: Artista = musica.artista.nome_artistico
+            genero: Genero = musica.genero.genero
 
             dados_musica = {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero}
             self.__tela_musica.mostra_musica(n_musica, dados_musica)
@@ -140,8 +140,13 @@ class ControladorMusica:
         return musicas_do_artista
 
     def verificar_musica(self, nome_musica, artista: Artista, genero: Genero):
-        musica_existente = self.__musica_dao.get_by_details(nome_musica, artista, genero)
-        return musica_existente
+        todas_musicas = self.__musica_dao.get_all()
+        for musica in todas_musicas:
+            if (musica.nome_musica == nome_musica and
+                musica.artista == artista and
+                musica.genero == genero):
+                return musica
+        return None
 
 
     def retornar(self):

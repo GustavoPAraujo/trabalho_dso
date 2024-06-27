@@ -24,11 +24,11 @@ class MusicaDAO(DAO):
     def get_by_artista(self, artista):
         return [musica for musica in self.get_all() if musica.artista == artista]
 
-    def get_by_details(self, nome_musica, artista, genero):
+'''    def get_by_details(self, nome_musica, artista, genero):
         for musica in self.get_all():
             if (musica.nome_musica == nome_musica and
                 musica.artista == artista and
                 musica.genero == genero):
                 return musica
         return None
-    
+    '''
