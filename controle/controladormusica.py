@@ -14,6 +14,9 @@ class ControladorMusica:
 
 #arrumar os ids das musicas
     def adicionar_musica(self):
+
+        teste = self.__musica_dao.listar_musicas()
+
         dados_musica = self.__tela_musica.pega_dados_musica()
 
         artista: Artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
@@ -50,15 +53,20 @@ class ControladorMusica:
         if not musicas:
             self.__tela_musica.mostra_mnsg("Não há músicas cadastradas.")
             return
-        
+
         n_musica = 1
         for musica in musicas:
-            artista: Artista = musica.artista.nome_artistico
-            genero: Genero = musica.genero.genero
+            artista = musica.artista.nome_artistico
+            genero = musica.genero.genero
 
-            dados_musica = {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero}
+            dados_musica = {
+                "nome_musica": musica.nome_musica,
+                "artista": artista,
+                "genero": genero
+            }
             self.__tela_musica.mostra_musica(n_musica, dados_musica)
             n_musica += 1
+
 
     def listar_musicas_por_genero(self):
         pega_genero = self.__tela_musica.selecionar_genero()

@@ -23,6 +23,12 @@ class MusicaDAO(DAO):
 
     def get_by_artista(self, artista):
         return [musica for musica in self.get_all() if musica.artista == artista]
+    
+
+    def listar_musicas(self):
+        musicas = self.get_all()
+        for musica in musicas:
+            print(vars(musica))
 
 '''    def get_by_details(self, nome_musica, artista, genero):
         for musica in self.get_all():
