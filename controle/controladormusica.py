@@ -25,7 +25,7 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Artista não encontrado.")
             return
         
-        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
+        genero: Genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
             dados_musica["genero"])
         if genero is None:
             self.__tela_musica.mostra_mnsg("Gênero não encontrado.")
@@ -38,8 +38,7 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Essa música já está cadastrada.")
             return
 
-        nova_musica = Musica(
-            dados_musica["nome_musica"], artista, genero)
+        nova_musica = Musica(dados_musica["nome_musica"], artista, genero)
 
         # Adiciona a música ao DAO usando o id_musica como chave
         self.__musica_dao.add(nova_musica.id_musica, nova_musica)
@@ -53,20 +52,15 @@ class ControladorMusica:
         if not musicas:
             self.__tela_musica.mostra_mnsg("Não há músicas cadastradas.")
             return
-
+        
         n_musica = 1
         for musica in musicas:
             artista = musica.artista.nome_artistico
             genero = musica.genero.genero
 
-            dados_musica = {
-                "nome_musica": musica.nome_musica,
-                "artista": artista,
-                "genero": genero
-            }
+            dados_musica = {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero}
             self.__tela_musica.mostra_musica(n_musica, dados_musica)
             n_musica += 1
-
 
     def listar_musicas_por_genero(self):
         pega_genero = self.__tela_musica.selecionar_genero()

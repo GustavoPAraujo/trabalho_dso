@@ -29,12 +29,3 @@ class MusicaDAO(DAO):
         musicas = self.get_all()
         for musica in musicas:
             print(vars(musica))
-
-'''    def get_by_details(self, nome_musica, artista, genero):
-        for musica in self.get_all():
-            if (musica.nome_musica == nome_musica and
-                musica.artista == artista and
-                musica.genero == genero):
-                return musica
-        return None
-    '''
