@@ -6,8 +6,7 @@ class MusicaDAO(DAO):
         super().__init__('musica.pkl')
 
     def add(self, key: str, musica: Musica): # type: ignore
-        key = musica.id_musica
-        super().add(key, musica)
+        super().add(musica.id_musica, musica)
 
     def get(self, key: str):
         return super().get(key)
@@ -17,14 +16,7 @@ class MusicaDAO(DAO):
 
     def get_all(self):
         return super().get_all()
-
-    def get_by_genero(self, genero):
-        return [musica for musica in self.get_all() if musica.genero == genero]
-
-    def get_by_artista(self, artista):
-        return [musica for musica in self.get_all() if musica.artista == artista]
     
-
     def listar_musicas(self):
         musicas = self.get_all()
         for musica in musicas:

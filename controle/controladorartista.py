@@ -10,7 +10,11 @@ class ControladorArtista:
         self.__artista_dao = ArtistaDAO()
 
     def pega_artista_por_nome(self, nome_artistico):
-        return self.__artista_dao.get(nome_artistico)
+        artista = self.__artista_dao.get(nome_artistico)
+        if artista is not None:
+            return artista
+        return None
+
 
     def cadastra_artista(self):
         dados_artista = self.__tela_artista.criar_artista()
