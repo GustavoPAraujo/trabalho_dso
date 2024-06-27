@@ -15,4 +15,12 @@ class Artista(Pessoa):
     def nome_artistico(self, nome_artistico):
         if isinstance(nome_artistico, str):
             self.__nome_artistico = nome_artistico
+
+    def __eq__(self, other):
+        if isinstance(other, Artista):
+            return self.nome == other.nome and self.nome_artistico == other.nome_artistico
+        return False
+
+    def __hash__(self):
+        return hash((self.nome, self.nome_artistico))
             

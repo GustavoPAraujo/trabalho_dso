@@ -14,20 +14,18 @@ class ControladorMusica:
     def adicionar_musica(self):
         dados_musica = self.__tela_musica.pega_dados_musica()
 
-        artista: Artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
-            dados_musica["artista"])
+        artista: Artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(dados_musica["artista"])
         if artista is None:
             self.__tela_musica.mostra_mnsg("Artista não encontrado.")
             return
 
-        genero: Genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
-            dados_musica["genero"])
+        genero: Genero = self.__controlador_sistema.controlador_genero.seleciona_genero(dados_musica["genero"])
         if genero is None:
             self.__tela_musica.mostra_mnsg("Gênero não encontrado.")
             return
 
-        musica_existente = self.verificar_musica(
-            dados_musica["nome_musica"], artista, genero)
+        print("Verificando se a música já existe...")
+        musica_existente = self.verificar_musica(dados_musica["nome_musica"], artista, genero)
 
         if musica_existente is not None:
             self.__tela_musica.mostra_mnsg("Essa música já está cadastrada.")
@@ -37,13 +35,17 @@ class ControladorMusica:
         self.__musica_dao.add(nova_musica.id_musica, nova_musica)
         self.__tela_musica.mostra_mnsg("Música criada com sucesso!")
 
+
     def verificar_musica(self, nome_musica, artista: Artista, genero: Genero):
         todas_musicas = self.__musica_dao.get_all()
         for musica in todas_musicas:
+            print(f"Verificando: {musica.nome_musica}, {musica.artista.nome_artistico}, {musica.genero.genero}")
             if (musica.nome_musica == nome_musica and
                 musica.artista == artista and
                 musica.genero == genero):
+                print("Música já existente encontrada.")
                 return musica
+        print("Nenhuma música duplicada encontrada.")
         return None
 
 
