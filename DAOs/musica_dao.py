@@ -6,7 +6,8 @@ class MusicaDAO(DAO):
         super().__init__('musica.pkl')
 
     def add(self, key: str, musica: Musica): # type: ignore
-        super().add(musica.id_musica, musica)
+        key = musica.id_musica
+        super().add(key, musica)
 
     def get(self, key: str):
         return super().get(key)

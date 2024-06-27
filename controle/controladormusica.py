@@ -1,4 +1,5 @@
 from entidades.artista import Artista
+from entidades.genero import Genero
 from entidades.musica import Musica
 from tela.telamusica import TelaMusica
 from DAOs.musica_dao import MusicaDAO
@@ -138,7 +139,7 @@ class ControladorMusica:
 
         return musicas_do_artista
 
-    def verificar_musica(self, nome_musica, artista, genero):
+    def verificar_musica(self, nome_musica, artista: Artista, genero: Genero):
         musica_existente = self.__musica_dao.get_by_details(nome_musica, artista, genero)
         return musica_existente
 
