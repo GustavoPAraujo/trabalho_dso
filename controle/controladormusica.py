@@ -11,12 +11,7 @@ class ControladorMusica:
         self.__controlador_sistema = controlador_sistema
         self.__musica_dao = MusicaDAO()
 
-
-#arrumar os ids das musicas
     def adicionar_musica(self):
-
-        teste = self.__musica_dao.listar_musicas()
-
         dados_musica = self.__tela_musica.pega_dados_musica()
 
         artista: Artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
@@ -24,9 +19,7 @@ class ControladorMusica:
         if artista is None:
             self.__tela_musica.mostra_mnsg("Artista não encontrado.")
             return
-        if isinstance(artista, Artista):
-            print("artista e um artista")
-        
+
         genero: Genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
             dados_musica["genero"])
         if genero is None:
@@ -41,11 +34,17 @@ class ControladorMusica:
             return
 
         nova_musica = Musica(dados_musica["nome_musica"], artista, genero)
-
-        # Adiciona a música ao DAO usando o id_musica como chave
         self.__musica_dao.add(nova_musica.id_musica, nova_musica)
-
         self.__tela_musica.mostra_mnsg("Música criada com sucesso!")
+
+    def verificar_musica(self, nome_musica, artista: Artista, genero: Genero):
+        todas_musicas = self.__musica_dao.get_all()
+        for musica in todas_musicas:
+            if (musica.nome_musica == nome_musica and
+                musica.artista == artista and
+                musica.genero == genero):
+                return musica
+        return None
 
 
     def listar_musicas(self):
@@ -163,15 +162,6 @@ class ControladorMusica:
             return []
 
         return musicas_do_artista
-
-    def verificar_musica(self, nome_musica, artista: Artista, genero: Genero):
-        todas_musicas = self.__musica_dao.get_all()
-        for musica in todas_musicas:
-            if (musica.nome_musica == nome_musica and
-                musica.artista == artista and
-                musica.genero == genero):
-                return musica
-        return None
 
 
     def retornar(self):
