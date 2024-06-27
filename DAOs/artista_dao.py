@@ -5,11 +5,11 @@ class ArtistaDAO(DAO):
     def __init__(self):
         super().__init__('artista.pkl')
 
-    def add(self, key: str, artista: Artista): # type: ignore
-        super().add(key, artista.nome_artistico)
+    def add(self, key, artista: Artista): # type: ignore
+        super().add(key, artista)
 
-    def get(self, key: str):
+    def get(self, key):
         return super().get(key)
 
-    def remove(self, key: str):
+    def remove(self, key):
         super().remove(key)

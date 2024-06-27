@@ -5,13 +5,13 @@ class MusicaDAO(DAO):
     def __init__(self):
         super().__init__('musica.pkl')
 
-    def add(self, key: str, musica: Musica): # type: ignore
+    def add(self, key, musica: Musica): # type: ignore
         super().add(musica.id_musica, musica)
 
-    def get(self, key: str):
+    def get(self, key):
         return super().get(key)
 
-    def remove(self, key: str):
+    def remove(self, key):
         super().remove(key)
 
     def get_all(self):

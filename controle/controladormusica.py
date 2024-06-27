@@ -24,6 +24,8 @@ class ControladorMusica:
         if artista is None:
             self.__tela_musica.mostra_mnsg("Artista não encontrado.")
             return
+        if isinstance(artista, Artista):
+            print("artista e um artista")
         
         genero: Genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
             dados_musica["genero"])
@@ -55,8 +57,9 @@ class ControladorMusica:
         
         n_musica = 1
         for musica in musicas:
-            artista = musica.artista.nome_artistico
             genero = musica.genero.genero
+            artista = musica.artista.nome_artistico
+
 
             dados_musica = {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero}
             self.__tela_musica.mostra_musica(n_musica, dados_musica)
@@ -71,7 +74,8 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
             return
 
-        musicas_do_genero = self.__musica_dao.get_by_genero(genero)
+        musicas = self.__musica_dao.get_all()
+        musicas_do_genero = [musica for musica in musicas if musica.genero == genero]
 
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
@@ -93,7 +97,8 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
             return []
 
-        musicas_do_genero = self.__musica_dao.get_by_genero(genero)
+        musicas = self.__musica_dao.get_all()
+        musicas_do_genero = [musica for musica in musicas if musica.genero == genero]
 
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
@@ -110,7 +115,8 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
             return
 
-        musicas_do_artista = self.__musica_dao.get_by_artista(artista)
+        musicas = self.__musica_dao.get_all()
+        musicas_do_artista = [musica for musica in musicas if musica.artista == artista]
 
         if not musicas_do_artista:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
@@ -132,8 +138,9 @@ class ControladorMusica:
         if artista is None:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")
             return []
-
-        musicas_do_artista = self.__musica_dao.get_by_artista(artista)
+        
+        musicas = self.__musica_dao.get_all()
+        musicas_do_artista = [musica for musica in musicas if musica.artista == artista]
 
         if not musicas_do_artista:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")

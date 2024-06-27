@@ -24,7 +24,7 @@ class ControladorArtista:
             self.__artista_dao.add(novo_artista.nome_artistico, novo_artista)
             self.__tela_artista.mostra_mnsg("Artista cadastrado com sucesso!")
         else:
-            self.__tela_artista.mostra_mnsg("Escolha outro nome artístico")
+            self.__tela_artista.mostra_mnsg("Um artista com esse nome já está cadastrado")
 
 
     def retornar(self):
