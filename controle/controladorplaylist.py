@@ -55,41 +55,54 @@ class ControladorPlaylist:
     #5
     def adicionar_musica(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
+
+        playlist_encontrada = None
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                dados_musica = self.__tela_playlist.pegar_musica()
-                nome_musica = dados_musica['nome_musica']
-                artista = dados_musica['artista']
-                genero = dados_musica['genero']
-                musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-                nova_musica = musica_verificada
-                if nova_musica not in self.__lista_playlist:
-                    self.__lista_playlist.append(nova_musica)
-                    print('musica adicionada com sucesso')
-                else:
-                    print('música presente na lista')
+                playlist_encontrada = playlist
+                return playlist_encontrada
             else:
-                print( 'Essa playlist não existe')
+                print('Essa playlist não existe')
+                return
+            
+        dados_musica = self.__tela_playlist.pegar_musica()
+        nome_musica = dados_musica['nome_musica']
+        artista = dados_musica['artista']
+        genero = dados_musica['genero']
+        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica, artista, genero)
+
+        if musica_verificada not in playlist_encontrada.musicas:
+            playlist_encontrada.musicas.append(musica_verificada)
+            print('Música adicionada com sucesso')
+        else:
+            print('Música já presente na playlist')
+        
 
     #6
     #fazer
     def excluir_musica(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
+
+        playlist_encontrada = None
         for playlist in self.__lista_playlist:
             if nome_playlist == playlist.nome_playlist:
-                dados_musica = self.__tela_playlist.pegar_musica()
-                nome_musica = dados_musica['nome_musica']
-                artista = dados_musica['artista']
-                genero = dados_musica['genero']
-                musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-                musica_removida = musica_verificada
-                if musica_removida in self.__lista_playlist:
-                    self.__lista_playlist.remove(musica_removida)
-                    print('Musica removida')
-                else:
-                    print('musica nao presente')
+                playlist_encontrada = playlist
+                return playlist_encontrada
             else:
-                print( 'Essa PlayList não existe' )
+                print('Essa playlist não existe')
+                return
+            
+        dados_musica = self.__tela_playlist.pegar_musica()
+        nome_musica = dados_musica['nome_musica']
+        artista = dados_musica['artista']
+        genero = dados_musica['genero']
+        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica, artista, genero)
+
+        if musica_verificada not in playlist_encontrada.musicas:
+            playlist_encontrada.musicas.remove(musica_verificada)
+            print('Música removida com sucesso')
+        else:
+            print('Música não presente na playlist')
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
