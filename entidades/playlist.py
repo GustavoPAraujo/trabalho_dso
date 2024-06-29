@@ -1,5 +1,6 @@
 from entidades.musica import Musica
 from entidades.usuario import Usuario
+from uuid import uuid4
 
 
 class PlayList:
@@ -8,6 +9,7 @@ class PlayList:
         self.__nome_playlist = nome_playlist
         self.__musica = musica
         self.__playlist.append(musica.nome_musica)
+        self.__id_playlist = str(uuid4())
 
     @property
     def nome_playlist(self):
