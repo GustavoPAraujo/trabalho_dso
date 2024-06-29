@@ -5,7 +5,7 @@ class PlaylistDAO (DAO):
     def __init__(self):
         super().__init__('playlist.pkl')
 
-    def add(self, key, playlist: PlayList):
+    def add(self, key, playlist: PlayList): # type: ignore
         return super().add(playlist.__id_playlist, playlist)
     
     def get(self, key):
@@ -18,6 +18,6 @@ class PlaylistDAO (DAO):
         return super().get_all()
     
     def listar_playlists(self):
-        playlists = self.get_all
+        playlists = self.get_all()
         for playlist in playlists:
             print(vars(playlist))
