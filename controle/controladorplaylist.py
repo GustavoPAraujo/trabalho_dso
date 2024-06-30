@@ -64,8 +64,10 @@ class ControladorPlaylist:
     def selecionar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         playlist = self.__playlist_dao.get(nome_playlist)
+        print(playlist)
         if playlist is not None:
             dado_playlist = {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
+            print(f'{dado_playlist}')
             self.__tela_playlist.mostrar_playlist(dado_playlist)
         else:
             self.__tela_playlist.mostra_mnsg('Playlist inexistente')
