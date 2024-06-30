@@ -98,7 +98,6 @@ class TelaPlaylist:
         artista = values['artista']
         genero = values['genero']
 
-        self.close()
         return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
 
     def mostrar_playlist(self, dados_playlist):
@@ -110,6 +109,3 @@ class TelaPlaylist:
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
-
-        button, values = self.open()
-        self.close()
