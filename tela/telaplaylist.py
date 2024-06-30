@@ -62,6 +62,7 @@ class TelaPlaylist:
         button, values = self.open()
         nome_playlist = values['nome_playlist']
 
+        self.close()
         return nome_playlist
 
     def alterar_nome_playlist(self):
@@ -77,6 +78,7 @@ class TelaPlaylist:
         button, values = self.open()
         novo_nome = values['novo_nome']
 
+        self.close()
         return novo_nome
     
     def pegar_musica(self):
@@ -96,6 +98,7 @@ class TelaPlaylist:
         artista = values['artista']
         genero = values['genero']
 
+        self.close()
         return {'nome_musica': nome_musica, 'artista': artista, 'genero': genero}
 
     def mostrar_playlist(self, dados_playlist):
