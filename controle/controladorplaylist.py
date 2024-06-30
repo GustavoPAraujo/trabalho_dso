@@ -61,10 +61,6 @@ class ControladorPlaylist:
             self.__tela_playlist.mostrar_playlist(dado_playlist)
         else:
             self.__tela_playlist.mostra_mnsg('Playlist inexistente')
-
-
-#dado_playlist = {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
-                #self.__tela_playlist.mostrar_playlist(dado_playlist)
     #4
     #fazer
     def alterar_nome_playlist(self):
