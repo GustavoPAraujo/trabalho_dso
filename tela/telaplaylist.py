@@ -110,3 +110,6 @@ class TelaPlaylist:
         ]
 
         self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        self.close()
