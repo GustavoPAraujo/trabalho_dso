@@ -6,7 +6,7 @@ class PlaylistDAO (DAO):
         super().__init__('playlist.pkl')
 
     def add(self, key, playlist: PlayList): # type: ignore
-        return super().add(playlist.__id_playlist, playlist)
+        return super().add(key, playlist)
     
     def get(self, key):
         return super().get(key)
