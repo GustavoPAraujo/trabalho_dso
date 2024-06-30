@@ -24,7 +24,6 @@ class ControladorMusica:
             self.__tela_musica.mostra_mnsg("Gênero não encontrado.")
             return
 
-        print("Verificando se a música já existe...")
         musica_existente = self.verificar_musica(dados_musica["nome_musica"], artista, genero)
 
         if musica_existente is not None:
@@ -39,13 +38,10 @@ class ControladorMusica:
     def verificar_musica(self, nome_musica, artista: Artista, genero: Genero):
         todas_musicas = self.__musica_dao.get_all()
         for musica in todas_musicas:
-            print(f"Verificando: {musica.nome_musica}, {musica.artista.nome_artistico}, {musica.genero.genero}")
             if (musica.nome_musica == nome_musica and
                 musica.artista == artista and
                 musica.genero == genero):
-                print("Música já existente encontrada.")
                 return musica
-        print("Nenhuma música duplicada encontrada.")
         return None
 
 
