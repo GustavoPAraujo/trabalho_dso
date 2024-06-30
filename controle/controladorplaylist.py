@@ -11,15 +11,32 @@ class ControladorPlaylist:
     #1
     def criar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
+
+        # Verifica se a playlist já existe
+        for playlist in self.__lista_playlist:
+            if nome_playlist == playlist.nome_playlist:
+                print('Já existe uma playlist com esse nome.')
+                break
+
+        # Obtém os dados da primeira música
         dados_primeira_musica = self.__tela_playlist.pegar_musica()
         nome_musica = dados_primeira_musica['nome_musica']
         artista = dados_primeira_musica['artista']
         genero = dados_primeira_musica['genero']
-        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica,artista,genero)
-        nova_playlist = PlayList(nome_playlist, musica_verificada)
+
+        # Verifica a existência da música
+        musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica, artista, genero)
+        
+        if musica_verificada is None:
+            print('A música não foi encontrada ou não pôde ser verificada.')
+            return
+        
+        # Cria a nova playlist e adiciona a música verificada
+        nova_playlist = PlayList(nome_playlist, [musica_verificada])
         self.__lista_playlist.append(nova_playlist)
-        print(musica_verificada.nome_musica)
-        print('PlayList criada com sucesso')
+        
+        print(f'{musica_verificada.nome_musica} foi adicionada à playlist {nome_playlist}.')
+        print('Playlist criada com sucesso.')
 
     #2
     def excluir_playlist(self):
