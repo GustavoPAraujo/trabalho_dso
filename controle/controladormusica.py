@@ -83,6 +83,7 @@ class ControladorMusica:
             return
 
         n_musica = 1
+        self.__tela_musica.mostra_mnsg(f"Músicas de: {genero.genero}")
         for musica in musicas_do_genero:
             artista = musica.artista.nome_artistico
             genero = musica.genero.genero
