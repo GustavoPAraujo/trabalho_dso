@@ -43,7 +43,14 @@ class ControladorPlaylist:
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
 
         #verificar se a playlist já existe
+        playlist = self.__playlist_dao.get(nome_playlist)
+        if playlist is None:
+            self.__tela_playlist.mostra_mnsg('Playlist inexistente')
+            return
         
+        #excluir playlist
+        playlist_excluida = self.__playlist_dao.remove(nome_playlist)
+        self.__tela_playlist.mostra_mnsg('Playlist excluida com sucesso')
         
     #3
     def selecionar_playlist(self):
