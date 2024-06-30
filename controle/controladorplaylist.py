@@ -1,22 +1,23 @@
 from typing import List
 from entidades.playlist import PlayList
 from tela.telaplaylist import TelaPlaylist
+from DAOs.playlist_dao import PlaylistDAO
 
 class ControladorPlaylist:
     def __init__(self, controlador_sistema) -> None:
-        self.__lista_playlist: List[PlayList] = list()
         self.__tela_playlist = TelaPlaylist()
         self.__controlador_sistema = controlador_sistema
+        self.__playlist_dao = PlaylistDAO()
 
     #1
     def criar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
 
         # Verifica se a playlist já existe
-        for playlist in self.__lista_playlist:
-            if nome_playlist == playlist.nome_playlist:
-                print('Já existe uma playlist com esse nome.')
-                break
+        playlist = self.__playlist_dao.get(nome_playlist)
+        if playlist is not None:
+            self.__tela_playlist.mostra_mnsg('já existe uma Playlist com esse nome')
+            return
 
         # Obtém os dados da primeira música
         dados_primeira_musica = self.__tela_playlist.pegar_musica()
@@ -32,21 +33,18 @@ class ControladorPlaylist:
             return
         
         # Cria a nova playlist e adiciona a música verificada
-        nova_playlist = PlayList(nome_playlist, [musica_verificada])
-        self.__lista_playlist.append(nova_playlist)
-        
-        print(f'{musica_verificada.nome_musica} foi adicionada à playlist {nome_playlist}.')
-        print('Playlist criada com sucesso.')
+        nova_playlist = PlayList(nome_playlist, musica_verificada)
+        self.__playlist_dao.add(nova_playlist.nome_playlist, nova_playlist)
+
+        self.__tela_playlist.mostra_mnsg('Playlist criada com sucesso')
 
     #2
     def excluir_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
-        for playlist in self.__lista_playlist:
-            if nome_playlist == playlist.nome_playlist:
-                self.__lista_playlist.remove(playlist)
-            else:
-                print('PlayList não existente')
 
+        #verificar se a playlist já existe
+        
+        
     #3
     def selecionar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
