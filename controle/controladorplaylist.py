@@ -29,7 +29,7 @@ class ControladorPlaylist:
         musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica, artista, genero)
         
         if musica_verificada is None:
-            print('A música não foi encontrada ou não pôde ser verificada.')
+            self.__tela_playlist.mostra_mnsg('A música não foi encontrada ou não pôde ser verificada.')
             return
         
         # Cria a nova playlist e adiciona a música verificada
