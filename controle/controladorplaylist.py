@@ -24,8 +24,10 @@ class ControladorPlaylist:
         dados_primeira_musica = self.__tela_playlist.pegar_musica()
         print(f"Dados da primeira música: {dados_primeira_musica}")
         nome_musica = dados_primeira_musica['nome_musica']
-        artista = dados_primeira_musica['artista']
-        genero = dados_primeira_musica['genero']
+        artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(dados_primeira_musica["artista"])
+        print(f'{artista}')
+        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(dados_primeira_musica["genero"])
+        print(f'{genero}')
 
         # Verifica a existência da música
         musica_verificada = self.__controlador_sistema.controlador_musica.verificar_musica(nome_musica, artista, genero)
