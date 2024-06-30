@@ -55,13 +55,16 @@ class ControladorPlaylist:
     #3
     def selecionar_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
-        for playlist in self.__lista_playlist:
-            if nome_playlist == playlist.nome_playlist:
-                dado_playlist = {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
-                self.__tela_playlist.mostrar_playlist(dado_playlist)
-            else:
-                print('PlayList não existente')
+        playlist = self.__playlist_dao.get(nome_playlist)
+        if playlist is not None:
+            dado_playlist = {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
+            self.__tela_playlist.mostrar_playlist(dado_playlist)
+        else:
+            self.__tela_playlist.mostra_mnsg('Playlist inexistente')
 
+
+#dado_playlist = {'nome_playlist': nome_playlist, 'musicas': playlist.musicas_playlist} 
+                #self.__tela_playlist.mostrar_playlist(dado_playlist)
     #4
     #fazer
     def alterar_nome_playlist(self):
