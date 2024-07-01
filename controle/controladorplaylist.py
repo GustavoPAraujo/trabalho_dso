@@ -76,11 +76,18 @@ class ControladorPlaylist:
     def alterar_nome_playlist(self):
         nome_playlist = self.__tela_playlist.pega_nome_playlist()
         playlist = self.__playlist_dao.get(nome_playlist)
-        if playlist is not None:
-            novo_nome = self.__tela_playlist.alterar_nome_playlist()
-            playlist.nome_playlist = novo_nome
-            return
-      
+        if playlist is None:
+            self.__tela_playlist.mostra_mnsg('Playlist inexistente')
+
+        novo_nome = self.__tela_playlist.alterar_nome_playlist()
+        # Verificar se já existe uma playlist com o novo nome
+        if self.__playlist_dao.get(novo_nome) is not None:
+            self.__tela_playlist.mostra_mnsg('Já existe uma playlist com esse nome')
+            return  
+        
+        playlist.nome_playlist = novo_nome
+        self.__playlist_dao.update(novo_nome, playlist)
+
 
     #5
     def adicionar_musica(self):

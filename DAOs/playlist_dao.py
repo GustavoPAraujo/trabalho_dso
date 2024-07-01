@@ -21,3 +21,6 @@ class PlaylistDAO (DAO):
         playlists = self.get_all()
         for playlist in playlists:
             print(vars(playlist))
+
+    def update(self, key, playlist: PlayList ):
+        return super().update(key, playlist)
