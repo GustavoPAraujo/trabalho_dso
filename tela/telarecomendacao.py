@@ -75,3 +75,18 @@ class TelaRecomendacao:
 
         self.close()
         return {"artista" : artista}
+    
+    def mostra_recomendacao(self, dados_recomendacao):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('Recomendações:')],
+            [sg.Text(f"Nome da Musica: {dados_recomendacao['nome_musica']}")],
+            [sg.Text(f"Nome do Artista: {dados_recomendacao['artista']}")],
+            [sg.Text(f"Gênero da Musica: {dados_recomendacao['genero']}")],
+            [sg.Ok()]
+        ]
+        self.__window = sg.Window('Tela do Sistema', layout)
+
+        button, values = self.open()
+        self.close()
+

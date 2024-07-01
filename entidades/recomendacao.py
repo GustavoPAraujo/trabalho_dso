@@ -24,7 +24,7 @@ class Recomendacao:
             return
 
         recomendacao_artista = random.choice(musicas_artista)
-        return print(recomendacao_artista.nome_musica)
+        return self.__tela_recomendacao.mostra_mnsg(f"{recomendacao_artista.nome_musica}")
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
