@@ -22,5 +22,4 @@ class PlaylistDAO (DAO):
         for playlist in playlists:
             print(vars(playlist))
 
-    def update(self, key, playlist: PlayList ): # type: ignore
-        return super().update(key, playlist)
+    

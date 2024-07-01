@@ -78,6 +78,7 @@ class ControladorPlaylist:
         playlist = self.__playlist_dao.get(nome_playlist)
         if playlist is None:
             self.__tela_playlist.mostra_mnsg('Playlist inexistente')
+            return
 
         novo_nome = self.__tela_playlist.alterar_nome_playlist()
         # Verificar se já existe uma playlist com o novo nome
@@ -86,7 +87,10 @@ class ControladorPlaylist:
             return  
         
         playlist.nome_playlist = novo_nome
-        self.__playlist_dao.update(novo_nome, playlist)
+        self.__playlist_dao.add(novo_nome, playlist)
+        self.__playlist_dao.remove(nome_playlist)
+
+        self.__tela_playlist.mostra_mnsg('Nome alterado com sucesso')
 
 
     #5
