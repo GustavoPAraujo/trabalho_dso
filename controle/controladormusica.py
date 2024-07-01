@@ -66,6 +66,7 @@ class ControladorMusica:
         pega_genero = self.__tela_musica.selecionar_genero()
         genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
             pega_genero)
+        print(f"genero selecionado: {genero}")
 
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
@@ -92,7 +93,8 @@ class ControladorMusica:
             n_musica += 1
 
     def pega_musica_genero(self, genero_escolhido):
-        genero: Genero = self.__controlador_sistema.controlador_genero.seleciona_genero(genero_escolhido)
+        genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
+            genero_escolhido)
 
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")

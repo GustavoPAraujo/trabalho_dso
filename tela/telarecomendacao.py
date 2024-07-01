@@ -59,7 +59,7 @@ class TelaRecomendacao:
         genero = values['genero']
 
         self.close()
-        return {"genero" : genero}
+        return genero
     
     def pega_artista(self):
         sg.theme('DarkTeal4')
