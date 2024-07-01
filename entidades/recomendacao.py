@@ -32,8 +32,8 @@ class Recomendacao:
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.recomendacao_por_genero, 0: self.recomendacao_por_artista,
-                        3: self.retornar}
+        lista_opcoes = {1: self.recomendacao_por_genero, 2: self.recomendacao_por_artista,
+                        0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_recomendacao.tela_opcoes()]()
