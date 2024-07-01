@@ -8,7 +8,7 @@ class Recomendacao:
 
     def recomendacao_por_genero(self):
         genero_escolhido = self.__tela_recomendacao.pega_genero()
-        musicas_genero = self.__controlador_sistema.controlador_musica.pega_musica_genero(genero_escolhido)
+        musicas_genero = self.__controlador_sistema.controlador_musica.pega_musica_genero(genero_escolhido['genero'])
 
         if not musicas_genero:
             self.__tela_recomendacao.mostra_mnsg("Não há músicas disponíveis para o gênero selecionado.")
