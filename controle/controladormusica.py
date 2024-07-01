@@ -66,7 +66,7 @@ class ControladorMusica:
         pega_genero = self.__tela_musica.selecionar_genero()
         genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
             pega_genero)
-        print(f"genero selecionado: {genero}")
+
 
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
@@ -92,13 +92,15 @@ class ControladorMusica:
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
             n_musica += 1
 
-    def pega_musica_genero(self, genero_escolhido):
+    def pega_musica_genero(self):
+        pega_genero = self.__tela_musica.selecionar_genero()
         genero = self.__controlador_sistema.controlador_genero.seleciona_genero(
-            genero_escolhido)
+            pega_genero)
+        print(f"genero selecionado: {genero.genero}")
 
         if genero is None:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
-            return
+            return []
 
         musicas = self.__musica_dao.get_all()
         musicas_do_genero = []
@@ -109,7 +111,7 @@ class ControladorMusica:
 
         if not musicas_do_genero:
             self.__tela_musica.mostra_mnsg("Não há músicas com esse Gênero.")
-            return
+            return []
 
         return musicas_do_genero
 
@@ -142,9 +144,10 @@ class ControladorMusica:
                 {"nome_musica": musica.nome_musica, "artista": artista, "genero": genero})
             n_musica += 1
 
-    def pega_musica_artista(self, artista_escolhido):
+    def pega_musica_artista(self):
+        pega_artista = self.__tela_musica.seleciona_artista()
         artista = self.__controlador_sistema.controlador_artista.pega_artista_por_nome(
-            artista_escolhido)
+            pega_artista)
 
         if artista is None:
             self.__tela_musica.mostra_mnsg("Não há músicas desse Artista.")

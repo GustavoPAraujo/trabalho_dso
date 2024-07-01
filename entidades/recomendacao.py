@@ -7,15 +7,14 @@ class Recomendacao:
         self.__tela_recomendacao = TelaRecomendacao()
 
     def recomendacao_por_genero(self):
-        genero_escolhido = self.__tela_recomendacao.pega_genero()
-        musicas_genero = self.__controlador_sistema.controlador_musica.pega_musica_genero(genero_escolhido['genero'])
+        musicas_genero = self.__controlador_sistema.controlador_musica.pega_musica_genero()
 
         if not musicas_genero:
             self.__tela_recomendacao.mostra_mnsg("Não há músicas disponíveis para o gênero selecionado.")
             return
 
         recomendacao_genero = random.choice(musicas_genero)
-        return print(recomendacao_genero.nome_musica)
+        return self.__tela_recomendacao.mostra_mnsg(f'{recomendacao_genero.nome_musica}')
     
     def recomendacao_por_artista(self):
         artista_escolhido = self.__tela_recomendacao.pega_artista()

@@ -9,7 +9,7 @@ class ControladorGenero:
         self.__tela_genero = TelaGenero()
 
     def seleciona_genero(self, genero_musical):
-        return self.__genero_dao.get(genero_musical.genero)
+        return self.__genero_dao.get(genero_musical)
 
     def cadastra_genero(self):
         dados_genero = self.__tela_genero.criar_genero()
