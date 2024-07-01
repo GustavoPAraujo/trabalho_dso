@@ -100,9 +100,14 @@ class ControladorPlaylist:
         if musica_verificada is None:
             self.__tela_playlist.mostra_mnsg('A música não foi encontrada ou não pôde ser verificada.')
             return
-        else:
-            playlist.append(musica_verificada)
-        #adiciona nova musica
+        
+        if musica_verificada in playlist.musicas_playlist:
+            self.__tela_playlist.mostra_mnsg('Música já presente na Playlist')
+            return
+        
+        playlist.musicas_playlist.append(musica_verificada.nome_musica)
+        self.__playlist_dao.add(playlist.nome_playlist, playlist)
+        self.__tela_playlist.mostra_mnsg('Música adicionada com sucesso')
         
 
     #6
@@ -124,8 +129,20 @@ class ControladorPlaylist:
         if musica_verificada is None:
             self.__tela_playlist.mostra_mnsg('A música não foi encontrada ou não pôde ser verificada.')
             return
-        else:
-            playlist.remove(musica_verificada)
+        
+        if musica_verificada.nome_musica not in playlist.musicas_playlist:
+            self.__tela_playlist.mostra_mnsg('Música não está presente na playlist')
+            return
+            
+        # Remover a música da playlist
+        playlist.musicas_playlist.remove(musica_verificada.nome_musica)
+        
+        # Atualizar a playlist na DAO
+        self.__playlist_dao.add(playlist.nome_playlist, playlist)
+        
+        self.__tela_playlist.mostra_mnsg('Música removida com sucesso')
+
+
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
