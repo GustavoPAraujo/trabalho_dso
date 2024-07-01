@@ -17,8 +17,7 @@ class Recomendacao:
         return self.__tela_recomendacao.mostra_mnsg(f'{recomendacao_genero.nome_musica}')
     
     def recomendacao_por_artista(self):
-        artista_escolhido = self.__tela_recomendacao.pega_artista()
-        musicas_artista = self.__controlador_sistema.controlador_musica.pega_musica_artista(artista_escolhido)
+        musicas_artista = self.__controlador_sistema.controlador_musica.pega_musica_artista()
 
         if not musicas_artista:
             self.__tela_recomendacao.mostra_mnsg("Não há músicas disponíveis para o artista selecionado.")
