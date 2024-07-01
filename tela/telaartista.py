@@ -36,7 +36,7 @@ class TelaArtista:
         layout = [
             [sg.Text('Artista')],
             [sg.Radio('Cadastrar Artista', "RADIO1", key='1')],
-            [sg.Radio('Voltar', "RADIO1", key='2')],
+            [sg.Radio('Voltar', "RADIO1", key='0')],
             [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)

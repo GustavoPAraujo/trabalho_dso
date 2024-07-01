@@ -27,7 +27,7 @@ class TelaRecomendacao:
             [sg.Text('Recomendações')],
             [sg.Radio('Recomendação por genero', "RADIO1", key='1')],
             [sg.Radio('Recomendação por artista', "RADIO2", key='2')],
-            [sg.Radio('Voltar', "RADIO1", key='3')],
+            [sg.Radio('Voltar', "RADIO1", key='0')],
             [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)

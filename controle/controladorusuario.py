@@ -127,7 +127,7 @@ class ControladorUsuario:
 
     def abre_tela(self):
         lista_opcoes = {1: self.criar_usuario, 2: self.excuir_usuario, 3: self.listar_usuarios, 4: self.adicionar_musicas_preferidas,
-                        5: self.adicionar_amizades, 6: self.ver_amizades, 7: self.ver_musicas_favoritas_amigos ,8: self.retornar}
+                        5: self.adicionar_amizades, 6: self.ver_amizades, 7: self.ver_musicas_favoritas_amigos , 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_usuario.tela_opcoes()]()

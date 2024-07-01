@@ -15,7 +15,7 @@ class Recomendacao:
 
         recomendacao_genero = random.choice(musicas_genero)
 
-        self.__tela_recomendacao.mostra_recomendacao({"nome_musica": recomendacao_genero.nome_musica, "artista": recomendacao_genero.artista.nome_artistra, "genero": recomendacao_genero.genero.genero})
+        self.__tela_recomendacao.mostra_recomendacao({"nome_musica": recomendacao_genero.nome_musica, "artista": recomendacao_genero.artista.nome_artistico, "genero": recomendacao_genero.genero.genero})
 
     
     def recomendacao_por_artista(self):

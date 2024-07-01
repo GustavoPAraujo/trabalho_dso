@@ -31,7 +31,7 @@ class TelaPlaylist:
             [sg.Radio('Alterar nome da Playlist', "RADIO1", key='4')],
             [sg.Radio('adicionar música', "RADIO1", key='5')],
             [sg.Radio('Excluir música', "RADIO1", key='6')],
-            [sg.Radio('Voltar', "RADIO1", key='7')],
+            [sg.Radio('Voltar', "RADIO1", key='0')],
             [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)

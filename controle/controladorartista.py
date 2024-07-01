@@ -31,7 +31,7 @@ class ControladorArtista:
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_artista, 2: self.retornar}
+        lista_opcoes = {1: self.cadastra_artista, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_artista.tela_opcoes()]()

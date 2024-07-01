@@ -160,7 +160,7 @@ class ControladorPlaylist:
 
     def abre_tela(self):
         lista_opcoes = {1: self.criar_playlist, 2: self.excluir_playlist, 3: self.selecionar_playlist,
-                        4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excluir_musica, 7: self.retornar}
+                        4: self.alterar_nome_playlist, 5: self.adicionar_musica, 6: self.excluir_musica, 0: self.retornar}
 
         while True:
             lista_opcoes[self.__tela_playlist.tela_opcoes()]()

@@ -42,7 +42,7 @@ class TelaUsuario:
             [sg.Radio('Adicionar Amizades', "RADIO1", key='5')],
             [sg.Radio('Minhas amizades', "RADIO1", key='6')],
             [sg.Radio('Musicas preferidas dos meus amigos', "RADIO1", key='7')],
-            [sg.Radio('Voltar', "RADIO1", key='8')],
+            [sg.Radio('Voltar', "RADIO1", key='0')],
             [sg.Ok()]
         ]
         self.__window = sg.Window('Tela do Sistema', layout)
